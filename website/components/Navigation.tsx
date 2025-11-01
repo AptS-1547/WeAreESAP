@@ -1,3 +1,6 @@
+// Copyright 2025 AptS:1547, AptS:1548
+// SPDX-License-Identifier: Apache-2.0
+
 "use client";
 
 import Link from "next/link";
@@ -22,7 +25,7 @@ export function Navigation() {
             </div>
           </Link>
 
-          {/* 导航链接（暂时隐藏，首页完成后再添加） */}
+          {/* 导航链接 */}
           <div className="hidden md:flex items-center gap-6">
             {/*
             <Link href="/project" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
@@ -31,10 +34,10 @@ export function Navigation() {
             <Link href="/characters" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               角色档案
             </Link>
+            */}
             <Link href="/tech" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               技术设定
             </Link>
-            */}
           </div>
 
           {/* 主题切换按钮 */}

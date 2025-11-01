@@ -1,3 +1,6 @@
+// Copyright 2025 AptS:1547, AptS:1548
+// SPDX-License-Identifier: Apache-2.0
+
 /**
  * 角色数据类型定义
  * 可扩展的数据结构，支持未来添加新字段

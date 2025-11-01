@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "license:add": "node ./scripts/add-license-headers.js"
   },
   "dependencies": {
     "framer-motion": "^12.23.24",

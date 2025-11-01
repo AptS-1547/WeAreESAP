@@ -1,3 +1,6 @@
+// Copyright 2025 AptS:1547, AptS:1548
+// SPDX-License-Identifier: Apache-2.0
+
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";

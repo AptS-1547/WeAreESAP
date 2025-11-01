@@ -1,0 +1,45 @@
+WeAreESAP (The ESAP Project)
+Copyright 2021-2025 AptS:1547, AptS:1548
+
+This product includes software developed by:
+- AptS:1547 (Yuhan Bian / 卞雨涵 <apts-1547@esaps.net>)
+- AptS:1548 (Yingyin Cai / 蔡颖茵 <apts-1548@esaps.net>)
+
+================================================================================
+
+The ESAP Project - 向那卫星许愿
+一个科幻世界观创作企划，讲述仿生人与人类共存的未来故事
+
+Website: https://esaps.net
+GitHub: https://github.com/AptS-1547/WeAreESAP
+
+================================================================================
+
+Third-party software used in this project:
+
+Next.js (MIT License)
+  Copyright (c) 2024 Vercel, Inc.
+  https://github.com/vercel/next.js
+
+React (MIT License)
+  Copyright (c) Meta Platforms, Inc. and affiliates.
+  https://github.com/facebook/react
+
+Framer Motion (MIT License)
+  Copyright (c) 2018 Framer B.V.
+  https://github.com/framer/motion
+
+Tailwind CSS (MIT License)
+  Copyright (c) Tailwind Labs, Inc.
+  https://github.com/tailwindlabs/tailwindcss
+
+next-themes (MIT License)
+  Copyright (c) 2020 pacocoursey
+  https://github.com/pacocoursey/next-themes
+
+================================================================================
+
+For the full license text, see the LICENSE file in the root directory.
+
+Content in the 'docs/' directory is licensed under CC-BY 4.0:
+https://creativecommons.org/licenses/by/4.0/

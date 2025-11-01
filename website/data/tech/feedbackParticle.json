@@ -1,0 +1,149 @@
+{
+  "id": "feedback-particle",
+  "name": "馈散粒子",
+  "icon": "⚛️",
+  "color": {
+    "primary": "#ffd93d",
+    "dark": "#ffc107"
+  },
+  "description": "改变计算本质的发现，支持意识上传与超光速传输",
+  "sections": [
+    {
+      "id": "basic-params",
+      "title": "基本参数",
+      "content": [
+        {
+          "type": "table",
+          "headers": ["参数", "数值", "单位"],
+          "rows": [
+            ["质量", "1.531 × 10⁻²¹⁷", "g"],
+            ["真空传播速度", "3.471 × 10²¹", "m/s"],
+            ["常压衰变周期", "34.28", "秒"],
+            ["液体钛中衰变周期", "341,879", "年"],
+            ["硅片中计算周期", "3,417", "月"],
+            ["金属中衰变周期", "21.1", "ms"]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "discovery",
+      "title": "发现历史",
+      "content": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            "发现者：AptS:1547",
+            "发现时间：2021年11月26日",
+            "存在形式：广泛存在于暗物质中"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "physical-properties",
+      "title": "物理特性",
+      "content": [
+        {
+          "type": "subsection",
+          "title": "粒子特性",
+          "content": [
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                "体积极小，约为电子的 10⁻²⁹ 分之一",
+                "具有类似电子的特性",
+                "遵守动能、动量定理",
+                "不发生折射或衍射现象"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "subsection",
+          "title": "衰变特性",
+          "content": [
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                "标准状态（常温常压）：极易发生馈散衰变",
+                "衰变产物：热量（质量全部亏损）",
+                "衰变递增性：当电流强度 I_k > 6A 时，衰变周期均缩短至 27.1ms"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "subsection",
+          "title": "保存条件",
+          "content": [
+            {
+              "type": "list",
+              "ordered": true,
+              "items": [
+                "液体钛保存：衰变周期延长至 341,879 年",
+                "特制硅片保存：衰变周期延长至 3,417 个月",
+                "金属保存：不适合长期保存（21.1ms 衰变周期）"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "computing",
+      "title": "计算能力",
+      "content": [
+        {
+          "type": "paragraph",
+          "content": "单硅片浮点运算能力：理论值为人类超算的 6.7 × 10⁴ 亿倍"
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            "CPU/GPU 运算媒介",
+            "人脑重构",
+            "记忆承载",
+            "意识模拟"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "transmission",
+      "title": "传输特性",
+      "content": [
+        {
+          "type": "paragraph",
+          "content": "优势："
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            "在金属中传播可视为不发热",
+            "超光速传输能力",
+            "精确的量子态控制"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "content": "限制："
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            "需要流体钛作为保护介质",
+            "对电流强度有严格要求",
+            "衰变周期受环境影响大"
+          ]
+        }
+      ]
+    }
+  ]
+}

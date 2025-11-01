@@ -1,3 +1,6 @@
+// Copyright 2025 AptS:1547, AptS:1548
+// SPDX-License-Identifier: Apache-2.0
+
 import { Navigation } from "@/components/Navigation";
 import { TriangleLogo } from "@/components/TriangleLogo";
 import { CharacterAccordion } from "@/components/CharacterAccordion";
