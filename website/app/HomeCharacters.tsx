@@ -4,6 +4,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { useTransition } from "@/components/ui";
 import { CharacterAccordion, CharacterMobileView } from "@/components";
 import { CharacterCardData } from "@/types/character";
 
@@ -13,8 +14,12 @@ interface HomeCharactersProps {
 
 export function HomeCharacters({ characters }: HomeCharactersProps) {
   const router = useRouter();
+  const { startTransition } = useTransition();
 
   const handleCharacterClick = (characterId: string) => {
+    // 先触发过渡动画
+    startTransition();
+    // 然后跳转路由
     router.push(`/characters/${characterId}`);
   };
 
