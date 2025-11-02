@@ -1,0 +1,47 @@
+# Dependencies
+node_modules
+.pnpm-store
+
+# Next.js
+.next
+out
+
+# Development
+.git
+.gitignore
+.vscode
+.idea
+
+# Testing
+coverage
+*.test.ts
+*.test.tsx
+*.spec.ts
+*.spec.tsx
+
+# Environment
+.env
+.env.local
+.env.development
+.env.test
+.env.production.local
+
+# Logs
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Misc
+README.md
+*.md
+!package.json
+!pnpm-lock.yaml
+
+# Build cache
+.turbo
+.cache
