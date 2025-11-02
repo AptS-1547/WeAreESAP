@@ -37,6 +37,24 @@ next-themes (MIT License)
   Copyright (c) 2020 pacocoursey
   https://github.com/pacocoursey/next-themes
 
+react-icons (MIT License)
+  Copyright (c) 2015-2024 react-icons contributors
+  https://github.com/react-icons/react-icons
+
+  This project includes icons from:
+
+  - Lucide Icons (ISC License)
+    https://lucide.dev/
+    Copyright (c) 2022-2024 Lucide Contributors
+
+  - Heroicons (MIT License)
+    https://heroicons.com/
+    Copyright (c) 2020-2024 Tailwind Labs, Inc.
+
+  - Simple Icons (CC0 1.0 Universal)
+    https://simpleicons.org/
+    Icons of popular brands (GitHub, Discord, etc.)
+
 ================================================================================
 
 For the full license text, see the LICENSE file in the root directory.
