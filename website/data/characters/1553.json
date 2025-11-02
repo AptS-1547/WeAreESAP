@@ -13,7 +13,7 @@
   "description": "逐渐失去自我的木偶和陷入虚无的提线，轮换着掌控身体控制权",
   "keywords": ["偏执", "忠诚", "利他主义", "冷静", "刻薄"],
   "tier": "member",
-  "backgroundImage": "/images/img_1553.webp",
+  "backgroundImage": "/images/characters/img_1553.webp",
   "meta": {
     "bodyType": "Disposable-clones",
     "abilities": ["资料收集", "情绪感知", "意识备份"]
