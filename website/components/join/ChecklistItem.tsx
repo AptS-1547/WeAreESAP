@@ -26,9 +26,7 @@ export function ChecklistItem({ text, type, index }: ChecklistItemProps) {
       <Icon
         name={isPositive ? "CheckCircle" : "XCircle"}
         size={20}
-        className={`shrink-0 ${
-          isPositive ? "text-green-500" : "text-red-500"
-        }`}
+        className={`shrink-0 ${isPositive ? "text-green-500" : "text-red-500"}`}
       />
       <span className="text-sm text-foreground/80">{text}</span>
     </motion.li>

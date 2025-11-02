@@ -76,7 +76,10 @@ function TechList({ data }: { data: ListBlock }) {
 
 // 警告框组件
 function TechWarning({ data }: { data: WarningBlock }) {
-  const styles: Record<string, { bg: string; border: string; icon: IconName; iconColor: string }> = {
+  const styles: Record<
+    string,
+    { bg: string; border: string; icon: IconName; iconColor: string }
+  > = {
     info: {
       bg: "bg-blue-500/10 dark:bg-blue-500/20",
       border: "border-blue-500/50",

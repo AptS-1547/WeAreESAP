@@ -145,7 +145,11 @@ export default async function JoinPage() {
                 className="bg-background rounded-xl p-6 border border-border"
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <Icon name={method.icon as IconName} size={32} className="text-esap-blue" />
+                  <Icon
+                    name={method.icon as IconName}
+                    size={32}
+                    className="text-esap-blue"
+                  />
                   <h3 className="text-xl font-bold text-foreground">
                     {method.title}
                   </h3>
@@ -238,7 +242,11 @@ export default async function JoinPage() {
               <div className="space-y-4">
                 <div className="bg-green-500/5 rounded-lg p-4 border border-green-500/20">
                   <h4 className="font-semibold text-foreground mb-2 flex items-center gap-2">
-                    <Icon name="CheckCircle" size={18} className="text-green-500" />
+                    <Icon
+                      name="CheckCircle"
+                      size={18}
+                      className="text-green-500"
+                    />
                     可以做的：
                   </h4>
                   <ul className="space-y-1">
@@ -284,7 +292,11 @@ export default async function JoinPage() {
               <div className="space-y-4">
                 <div className="bg-green-500/5 rounded-lg p-4 border border-green-500/20">
                   <h4 className="font-semibold text-foreground mb-2 flex items-center gap-2">
-                    <Icon name="CheckCircle" size={18} className="text-green-500" />
+                    <Icon
+                      name="CheckCircle"
+                      size={18}
+                      className="text-green-500"
+                    />
                     推荐：
                   </h4>
                   <ul className="space-y-1">
@@ -341,7 +353,11 @@ export default async function JoinPage() {
                 className="bg-muted rounded-xl p-6 border border-border"
               >
                 <div className="flex items-center gap-3 mb-3">
-                  <Icon name={value.icon as IconName} size={28} className="text-esap-yellow" />
+                  <Icon
+                    name={value.icon as IconName}
+                    size={28}
+                    className="text-esap-yellow"
+                  />
                   <h3 className="text-xl font-bold text-foreground">
                     {value.title}
                   </h3>
@@ -407,7 +423,11 @@ export default async function JoinPage() {
                 className="bg-background rounded-xl p-6 border border-border"
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <Icon name={contribution.icon as IconName} size={32} className="text-esap-pink" />
+                  <Icon
+                    name={contribution.icon as IconName}
+                    size={32}
+                    className="text-esap-pink"
+                  />
                   <h3 className="text-lg font-bold text-foreground">
                     {contribution.category}
                   </h3>

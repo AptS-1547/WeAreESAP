@@ -27,7 +27,11 @@ export function RoleTypeCard({ role, index }: RoleTypeCardProps) {
       <div className="bg-muted rounded-xl p-6 h-full border border-border hover:border-esap-yellow/50 transition-all duration-300">
         {/* 图标和标题 */}
         <div className="flex items-center gap-3 mb-4">
-          <Icon name={role.icon as IconName} size={40} className="text-foreground" />
+          <Icon
+            name={role.icon as IconName}
+            size={40}
+            className="text-foreground"
+          />
           <h3 className="text-xl font-bold text-foreground">{role.title}</h3>
         </div>
 

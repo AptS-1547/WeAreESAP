@@ -140,7 +140,11 @@ function Highlight({ data }: { data: HighlightBlock }) {
     <div
       className={`my-4 p-4 rounded-lg border-2 ${style.bg} ${style.border} flex items-start gap-3`}
     >
-      <Icon name={style.icon} size={20} className={`${style.iconColor} shrink-0`} />
+      <Icon
+        name={style.icon}
+        size={20}
+        className={`${style.iconColor} shrink-0`}
+      />
       <p className="text-sm text-foreground/90 leading-relaxed flex-1 whitespace-pre-wrap">
         {data.text}
       </p>

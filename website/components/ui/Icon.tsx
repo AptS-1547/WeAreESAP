@@ -139,12 +139,7 @@ export interface IconProps {
  * <Icon name="CheckCircle" className="text-green-500" />
  * ```
  */
-export function Icon({
-  name,
-  size = 20,
-  color,
-  className = "",
-}: IconProps) {
+export function Icon({ name, size = 20, color, className = "" }: IconProps) {
   const IconComponent = iconMap[name];
 
   if (!IconComponent) {

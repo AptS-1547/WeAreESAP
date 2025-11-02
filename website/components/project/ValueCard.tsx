@@ -28,7 +28,11 @@ export function ValueCard({ value, index }: ValueCardProps) {
       <div className="bg-muted rounded-xl p-6 h-full border border-border hover:border-esap-yellow/50 transition-all duration-300">
         {/* 图标和标题 */}
         <div className="flex items-center gap-3 mb-4">
-          <Icon name={value.icon as IconName} size={32} className="text-foreground" />
+          <Icon
+            name={value.icon as IconName}
+            size={32}
+            className="text-foreground"
+          />
           <h3 className="text-xl font-bold text-foreground">{value.title}</h3>
         </div>
 

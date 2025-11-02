@@ -5,7 +5,8 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { TriangleLogo, ThemeToggle, TransitionLink } from "@/components/ui";
+import Image from "next/image";
+import { ThemeToggle, TransitionLink } from "@/components/ui";
 
 const navLinks = [
   { href: "/project", label: "项目企划" },
@@ -31,9 +32,11 @@ export function Navigation() {
               className="relative flex items-center gap-3 group"
               onClick={closeMobileMenu}
             >
-              <TriangleLogo
-                size={40}
-                animated={false}
+              <Image
+                src="/favicon.ico"
+                alt="ESAP Logo"
+                width={40}
+                height={40}
                 className="opacity-90 group-hover:opacity-100 transition-opacity"
               />
               <div className="flex flex-col">
