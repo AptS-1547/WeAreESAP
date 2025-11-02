@@ -55,6 +55,8 @@ COPY --from=builder --chown=nonroot:nonroot /app/public ./public
 # 复制数据文件（角色 JSON）
 COPY --from=builder --chown=nonroot:nonroot /app/data ./data
 
+VOLUME ["/home/nonroot/.next/cache"]
+
 EXPOSE ${PORT}
 
 # Healthcheck

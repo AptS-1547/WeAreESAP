@@ -8,14 +8,14 @@ import { Icon, type IconName } from "@/components/ui";
 
 export function ContactPlaceholder() {
   const platforms: Array<{ name: string; icon: IconName; status: string }> = [
-    { name: "官方网站", icon: "Globe", status: "https://www.esaps.net/" },
+    { name: "官方网站", icon: "Globe", status: "www.esaps.net/" },
     {
       name: "GitHub",
       icon: "Github",
-      status: "https://github.com/The-ESAP-Project/",
+      status: "github.com/The-ESAP-Project/",
     },
     { name: "Discord", icon: "Discord", status: "即将开放" },
-    { name: "QQ 群", icon: "Users", status: "https://qm.qq.com/q/J9Js2rl7CG" },
+    { name: "QQ 群", icon: "Users", status: "qm.qq.com/q/J9Js2rl7CG" },
   ];
 
   return (
