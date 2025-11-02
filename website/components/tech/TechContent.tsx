@@ -11,6 +11,7 @@ import {
   SubsectionBlock,
   ParagraphBlock,
 } from "@/types/tech";
+import { Icon, type IconName } from "@/components/ui";
 
 // 表格组件
 function TechTable({ data }: { data: TableBlock }) {
@@ -75,21 +76,24 @@ function TechList({ data }: { data: ListBlock }) {
 
 // 警告框组件
 function TechWarning({ data }: { data: WarningBlock }) {
-  const styles = {
+  const styles: Record<string, { bg: string; border: string; icon: IconName; iconColor: string }> = {
     info: {
       bg: "bg-blue-500/10 dark:bg-blue-500/20",
       border: "border-blue-500/50",
-      icon: "ℹ️",
+      icon: "InfoCircle",
+      iconColor: "text-blue-500",
     },
     warning: {
       bg: "bg-yellow-500/10 dark:bg-yellow-500/20",
       border: "border-yellow-500/50",
-      icon: "⚠️",
+      icon: "Warning",
+      iconColor: "text-yellow-500",
     },
     danger: {
       bg: "bg-red-500/10 dark:bg-red-500/20",
       border: "border-red-500/50",
-      icon: "🚨",
+      icon: "Warning",
+      iconColor: "text-red-500",
     },
   };
 
@@ -98,7 +102,7 @@ function TechWarning({ data }: { data: WarningBlock }) {
   return (
     <div className={`my-6 p-4 rounded-lg border-2 ${style.bg} ${style.border}`}>
       <div className="flex items-start gap-3">
-        <span className="text-2xl">{style.icon}</span>
+        <Icon name={style.icon} size={28} className={style.iconColor} />
         <div className="flex-1">
           <h4 className="font-semibold text-foreground mb-2">{data.title}</h4>
           <ul className="space-y-1">

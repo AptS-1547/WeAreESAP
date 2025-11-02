@@ -6,6 +6,7 @@ import { ChecklistItem } from "@/components/ChecklistItem";
 import { StepCard } from "@/components/StepCard";
 import { FAQAccordion } from "@/components/FAQAccordion";
 import { ContactPlaceholder } from "@/components/ContactPlaceholder";
+import { Icon, type IconName } from "@/components/ui";
 import fs from "fs/promises";
 import path from "path";
 import type { Metadata } from "next";
@@ -93,7 +94,7 @@ export default async function JoinPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             <div className="bg-green-500/5 rounded-xl p-6 border border-green-500/20">
               <h3 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
-                <span className="text-green-500">✅</span>
+                <Icon name="CheckCircle" size={24} className="text-green-500" />
                 我们欢迎…
               </h3>
               <ul className="space-y-3">
@@ -110,7 +111,7 @@ export default async function JoinPage() {
 
             <div className="bg-red-500/5 rounded-xl p-6 border border-red-500/20">
               <h3 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
-                <span className="text-red-500">❌</span>
+                <Icon name="XCircle" size={24} className="text-red-500" />
                 我们不欢迎…
               </h3>
               <ul className="space-y-3">
@@ -142,7 +143,7 @@ export default async function JoinPage() {
                 className="bg-background rounded-xl p-6 border border-border"
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="text-3xl">{method.icon}</span>
+                  <Icon name={method.icon as IconName} size={32} className="text-esap-blue" />
                   <h3 className="text-xl font-bold text-foreground">
                     {method.title}
                   </h3>
@@ -234,8 +235,9 @@ export default async function JoinPage() {
               </h3>
               <div className="space-y-4">
                 <div className="bg-green-500/5 rounded-lg p-4 border border-green-500/20">
-                  <h4 className="font-semibold text-foreground mb-2">
-                    ✅ 可以做的：
+                  <h4 className="font-semibold text-foreground mb-2 flex items-center gap-2">
+                    <Icon name="CheckCircle" size={18} className="text-green-500" />
+                    可以做的：
                   </h4>
                   <ul className="space-y-1">
                     {data.guidelines.technical.dos.map(
@@ -252,8 +254,9 @@ export default async function JoinPage() {
                   </ul>
                 </div>
                 <div className="bg-red-500/5 rounded-lg p-4 border border-red-500/20">
-                  <h4 className="font-semibold text-foreground mb-2">
-                    ❌ 不建议做的：
+                  <h4 className="font-semibold text-foreground mb-2 flex items-center gap-2">
+                    <Icon name="XCircle" size={18} className="text-red-500" />
+                    不建议做的：
                   </h4>
                   <ul className="space-y-1">
                     {data.guidelines.technical.donts.map(
@@ -278,8 +281,9 @@ export default async function JoinPage() {
               </h3>
               <div className="space-y-4">
                 <div className="bg-green-500/5 rounded-lg p-4 border border-green-500/20">
-                  <h4 className="font-semibold text-foreground mb-2">
-                    ✅ 推荐：
+                  <h4 className="font-semibold text-foreground mb-2 flex items-center gap-2">
+                    <Icon name="CheckCircle" size={18} className="text-green-500" />
+                    推荐：
                   </h4>
                   <ul className="space-y-1">
                     {data.guidelines.character.recommended.map(
@@ -296,8 +300,9 @@ export default async function JoinPage() {
                   </ul>
                 </div>
                 <div className="bg-red-500/5 rounded-lg p-4 border border-red-500/20">
-                  <h4 className="font-semibold text-foreground mb-2">
-                    ❌ 避免：
+                  <h4 className="font-semibold text-foreground mb-2 flex items-center gap-2">
+                    <Icon name="XCircle" size={18} className="text-red-500" />
+                    避免：
                   </h4>
                   <ul className="space-y-1">
                     {data.guidelines.character.avoid.map(
@@ -334,7 +339,7 @@ export default async function JoinPage() {
                 className="bg-muted rounded-xl p-6 border border-border"
               >
                 <div className="flex items-center gap-3 mb-3">
-                  <span className="text-2xl">{value.icon}</span>
+                  <Icon name={value.icon as IconName} size={28} className="text-esap-yellow" />
                   <h3 className="text-xl font-bold text-foreground">
                     {value.title}
                   </h3>
@@ -400,7 +405,7 @@ export default async function JoinPage() {
                 className="bg-background rounded-xl p-6 border border-border"
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="text-3xl">{contribution.icon}</span>
+                  <Icon name={contribution.icon as IconName} size={32} className="text-esap-pink" />
                   <h3 className="text-lg font-bold text-foreground">
                     {contribution.category}
                   </h3>

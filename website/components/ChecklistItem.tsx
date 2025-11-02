@@ -4,6 +4,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Icon } from "@/components/ui";
 
 interface ChecklistItemProps {
   text: string;
@@ -22,13 +23,13 @@ export function ChecklistItem({ text, type, index }: ChecklistItemProps) {
       viewport={{ once: true }}
       transition={{ delay: index * 0.05, duration: 0.3 }}
     >
-      <span
-        className={`text-lg flex-shrink-0 ${
+      <Icon
+        name={isPositive ? "CheckCircle" : "XCircle"}
+        size={20}
+        className={`shrink-0 ${
           isPositive ? "text-green-500" : "text-red-500"
         }`}
-      >
-        {isPositive ? "✅" : "❌"}
-      </span>
+      />
       <span className="text-sm text-foreground/80">{text}</span>
     </motion.li>
   );

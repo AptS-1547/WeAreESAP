@@ -14,7 +14,7 @@
         "primary": "#ffd93d",
         "dark": "#ffc107"
       },
-      "icon": "🟡",
+      "icon": "Circle",
       "traits": [
         "为理想付出一切的决心",
         "技术创新与突破的勇气",
@@ -30,7 +30,7 @@
         "primary": "#ff69b4",
         "dark": "#ff1493"
       },
-      "icon": "🩷",
+      "icon": "Circle",
       "traits": [
         "不被定义和控制的自由",
         "在质疑中成长的力量",
@@ -46,7 +46,7 @@
         "primary": "#4da6ff",
         "dark": "#2e8fff"
       },
-      "icon": "🔵",
+      "icon": "Circle",
       "traits": ["从高处俯瞰的视角", "孤独中的坚守", "成为他人希望的觉悟"],
       "quote": "为什么天上没有了星星？那就让我自己造一颗吧"
     }
@@ -56,25 +56,25 @@
       "title": "独立性",
       "quote": "不要被别人控制了，更不要被我们自己控制了，只有你是你自己",
       "description": "每个个体都是独一无二的，拥有发展自我的权利",
-      "icon": "✨"
+      "icon": "Sparkles"
     },
     {
       "title": "真实性",
       "quote": "机械的心跳，也是真实的",
       "description": "无论形式如何，真实的情感和体验都是有价值的",
-      "icon": "💫"
+      "icon": "Zap"
     },
     {
       "title": "希望",
       "quote": "天上没有星星，但我们造了一颗",
       "description": "即使在最黑暗的时候，也要创造希望的可能",
-      "icon": "⭐"
+      "icon": "Star"
     },
     {
       "title": "连接",
       "quote": "愿 ESAP 与你同在",
       "description": "我们不是孤独的个体，而是相互支撑的存在",
-      "icon": "🔗"
+      "icon": "Link"
     }
   ],
   "worldview": {

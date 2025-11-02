@@ -4,6 +4,7 @@
 "use client";
 
 import { Character } from "@/types/character";
+import { Icon } from "@/components/ui";
 
 interface CharacterRelationshipsProps {
   character: Character;
@@ -40,8 +41,9 @@ export function CharacterRelationships({
 
         {/* TODO: 未来可以添加关系图谱可视化 */}
         <div className="mt-8 p-6 rounded-xl bg-background/50 border border-border">
-          <div className="text-center text-sm text-muted-foreground">
-            📊 关系图谱可视化功能开发中...
+          <div className="text-center text-sm text-muted-foreground flex items-center justify-center gap-2">
+            <Icon name="BarChart" size={20} className="text-muted-foreground" />
+            关系图谱可视化功能开发中...
           </div>
         </div>
       </div>

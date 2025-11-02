@@ -13,7 +13,7 @@
   "roleTypes": [
     {
       "title": "创作者",
-      "icon": "✍️",
+      "icon": "PenTool",
       "description": [
         "喜欢写作、绘画、音乐创作",
         "想要表达自己的想法和情感",
@@ -22,7 +22,7 @@
     },
     {
       "title": "技术爱好者",
-      "icon": "💻",
+      "icon": "Code",
       "description": [
         "对科幻设定感兴趣",
         "喜欢编程和技术项目",
@@ -31,7 +31,7 @@
     },
     {
       "title": "思考者",
-      "icon": "🤔",
+      "icon": "Brain",
       "description": [
         "喜欢思考深层次的问题",
         "对生命、意识、存在感兴趣",
@@ -40,7 +40,7 @@
     },
     {
       "title": "普通参与者",
-      "icon": "👋",
+      "icon": "Hand",
       "description": ["只是想找个地方聊天", "喜欢这个世界观", "想认识新朋友"]
     }
   ],
@@ -63,7 +63,7 @@
   "participationMethods": [
     {
       "title": "阅读和了解",
-      "icon": "📚",
+      "icon": "Book",
       "description": "从基础文档开始，了解 ESAP 的世界观、技术设定和角色故事",
       "items": [
         "阅读项目企划了解 ESAP 是什么",
@@ -74,7 +74,7 @@
     },
     {
       "title": "参与讨论",
-      "icon": "💬",
+      "icon": "MessageCircle",
       "description": "加入社区，与其他成员交流想法和观点",
       "items": [
         "世界观设定讨论",
@@ -86,7 +86,7 @@
     },
     {
       "title": "内容创作",
-      "icon": "🎨",
+      "icon": "Palette",
       "description": "发挥你的创造力，为 ESAP 世界贡献内容",
       "items": [
         "文字创作：角色故事、日常记录",
@@ -97,7 +97,7 @@
     },
     {
       "title": "创建角色",
-      "icon": "⭐",
+      "icon": "Star",
       "description": "设计自己的角色，成为 ESAP 世界的一部分",
       "items": [
         "了解世界观规则和技术限制",
@@ -188,24 +188,24 @@
       "title": "独立性",
       "quote": "不要被别人控制了，更不要被我们自己控制了",
       "description": "每个人都是独立的个体，鼓励表达不同观点，不强制任何人做任何事",
-      "icon": "✨"
+      "icon": "Sparkles"
     },
     {
       "title": "真实性",
       "description": "真实地表达自己，接受不完美，情感和体验都是有价值的",
-      "icon": "💫"
+      "icon": "Zap"
     },
     {
       "title": "希望",
       "quote": "天上没有星星，但我们造了一颗",
       "description": "即使在黑暗中也要寻找光明，创造而不是等待，许愿意味着还没有放弃",
-      "icon": "⭐"
+      "icon": "Star"
     },
     {
       "title": "连接",
       "quote": "愿 ESAP 与你同在",
       "description": "我们不是孤独的个体，相互支撑，相互理解，建立有意义的连接",
-      "icon": "🔗"
+      "icon": "Link"
     }
   ],
   "slogans": {
@@ -215,13 +215,13 @@
   "contributions": [
     {
       "category": "内容贡献",
-      "icon": "📝",
+      "icon": "FileText",
       "types": ["故事创作", "角色设定", "技术文档", "插画作品", "音乐作品"],
       "channels": ["GitHub Pull Request", "社区平台发布", "联系管理员提交"]
     },
     {
       "category": "技术贡献",
-      "icon": "⚙️",
+      "icon": "Settings",
       "projects": [
         "ShortLinker 短链服务",
         "ESAP 官网",
@@ -232,7 +232,7 @@
     },
     {
       "category": "社区建设",
-      "icon": "🌟",
+      "icon": "Star",
       "activities": ["组织活动", "管理社区", "欢迎新人", "解答疑问", "维护氛围"]
     }
   ],

@@ -4,6 +4,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Icon, type IconName } from "@/components/ui";
 
 interface PillarCardProps {
   pillar: {
@@ -49,7 +50,11 @@ export function PillarCard({ pillar, index }: PillarCardProps) {
         <div className="relative z-10 space-y-6">
           {/* 顶部：图标和角色代号 */}
           <div className="flex items-center justify-between">
-            <span className="text-4xl">{pillar.icon}</span>
+            <Icon
+              name={pillar.icon as IconName}
+              size={40}
+              color={pillar.color.primary}
+            />
             <span
               className="text-sm font-mono font-semibold px-3 py-1 rounded-full bg-background/50"
               style={{ color: pillar.color.primary }}

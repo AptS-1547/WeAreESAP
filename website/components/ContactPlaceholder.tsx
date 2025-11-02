@@ -4,17 +4,18 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Icon, type IconName } from "@/components/ui";
 
 export function ContactPlaceholder() {
-  const platforms = [
-    { name: "官方网站", icon: "🌐", status: "https://www.esaps.net/" },
+  const platforms: Array<{ name: string; icon: IconName; status: string }> = [
+    { name: "官方网站", icon: "Globe", status: "https://www.esaps.net/" },
     {
       name: "GitHub",
-      icon: "💻",
+      icon: "Github",
       status: "https://github.com/The-ESAP-Project/",
     },
-    { name: "Discord", icon: "💬", status: "即将开放" },
-    { name: "QQ 群", icon: "👥", status: "https://qm.qq.com/q/J9Js2rl7CG" },
+    { name: "Discord", icon: "Discord", status: "即将开放" },
+    { name: "QQ 群", icon: "Users", status: "https://qm.qq.com/q/J9Js2rl7CG" },
   ];
 
   return (
@@ -29,7 +30,7 @@ export function ContactPlaceholder() {
           transition={{ delay: index * 0.05 }}
         >
           <div className="flex items-center gap-3">
-            <span className="text-2xl">{platform.icon}</span>
+            <Icon name={platform.icon} size={28} className="text-foreground" />
             <div className="flex-1">
               <div className="font-semibold text-foreground">
                 {platform.name}

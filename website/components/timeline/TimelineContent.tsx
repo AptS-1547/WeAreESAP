@@ -10,6 +10,7 @@ import {
   HighlightBlock,
   LinkBlock,
 } from "@/types/timeline";
+import { Icon, type IconName } from "@/components/ui";
 
 // 角色颜色映射
 const CHARACTER_COLORS: Record<
@@ -103,26 +104,33 @@ function List({ data }: { data: ListBlock }) {
 
 // 高亮块
 function Highlight({ data }: { data: HighlightBlock }) {
-  const styles = {
+  const styles: Record<
+    string,
+    { bg: string; border: string; icon: IconName; iconColor: string }
+  > = {
     success: {
       bg: "bg-green-500/10 dark:bg-green-500/20",
       border: "border-green-500/50",
-      icon: "✓",
+      icon: "CheckCircle",
+      iconColor: "text-green-500",
     },
     warning: {
       bg: "bg-yellow-500/10 dark:bg-yellow-500/20",
       border: "border-yellow-500/50",
-      icon: "⚠",
+      icon: "Warning",
+      iconColor: "text-yellow-500",
     },
     error: {
       bg: "bg-red-500/10 dark:bg-red-500/20",
       border: "border-red-500/50",
-      icon: "⭐",
+      icon: "XCircle",
+      iconColor: "text-red-500",
     },
     info: {
       bg: "bg-blue-500/10 dark:bg-blue-500/20",
       border: "border-blue-500/50",
-      icon: "ℹ",
+      icon: "InfoCircle",
+      iconColor: "text-blue-500",
     },
   };
 
@@ -132,7 +140,7 @@ function Highlight({ data }: { data: HighlightBlock }) {
     <div
       className={`my-4 p-4 rounded-lg border-2 ${style.bg} ${style.border} flex items-start gap-3`}
     >
-      <span className="text-xl flex-shrink-0">{style.icon}</span>
+      <Icon name={style.icon} size={20} className={`${style.iconColor} shrink-0`} />
       <p className="text-sm text-foreground/90 leading-relaxed flex-1 whitespace-pre-wrap">
         {data.text}
       </p>

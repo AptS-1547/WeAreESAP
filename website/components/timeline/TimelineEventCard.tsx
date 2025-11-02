@@ -7,6 +7,7 @@ import { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { TimelineEvent } from "@/types/timeline";
 import { TimelineContentRenderer } from "./TimelineContent";
+import { Icon, type IconName } from "@/components/ui";
 
 interface TimelineEventCardProps {
   event: TimelineEvent;
@@ -15,12 +16,12 @@ interface TimelineEventCardProps {
 }
 
 // 事件类型图标
-const EVENT_ICONS: Record<string, string> = {
-  milestone: "🎯",
-  story: "📖",
-  music: "🎵",
-  emotional: "💭",
-  tech: "⚙️",
+const EVENT_ICONS: Record<string, IconName> = {
+  milestone: "Target",
+  story: "BookOpen",
+  music: "Music",
+  emotional: "MessageSquare",
+  tech: "Settings",
 };
 
 // 重要性样式
@@ -86,7 +87,7 @@ export function TimelineEventCard({
           <div
             className={`flex items-center gap-3 mb-3 justify-start ${isLeft ? "" : "md:justify-end"}`}
           >
-            <span className="text-2xl">{icon}</span>
+            <Icon name={icon} size={28} className="text-foreground" />
             <div>
               <div className="text-sm font-mono text-muted-foreground">
                 {event.date}
@@ -102,7 +103,7 @@ export function TimelineEventCard({
           {event.meta?.music && (
             <div className="mb-4 p-3 rounded-lg bg-esap-blue/10 border border-esap-blue/30">
               <div className="flex items-center gap-2">
-                <span className="text-xl">🎵</span>
+                <Icon name="Music" size={24} className="text-esap-blue" />
                 <div>
                   <div className="font-semibold text-foreground">
                     {event.meta.music.title}
