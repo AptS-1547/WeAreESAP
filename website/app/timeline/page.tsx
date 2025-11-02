@@ -4,7 +4,7 @@
 import { Suspense } from "react";
 import { TimelineYear } from "@/types/timeline";
 import { TimelineClient } from "./TimelineClient";
-import { LoadingContainer } from "@/components";
+import { LoadingSpinner } from "@/components/loading";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -45,7 +45,7 @@ export default async function TimelinePage() {
   const years = await getTimelineData();
 
   return (
-    <main className="min-h-screen bg-background">
+    <main className="relative min-h-screen bg-background">
         {/* Hero 区域 */}
         <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
           <div className="max-w-4xl mx-auto text-center">
@@ -65,11 +65,12 @@ export default async function TimelinePage() {
         {/* 时间线内容 */}
         <Suspense
           fallback={
-            <LoadingContainer
-              text="正在加载时间线..."
-              size={150}
-              minHeight="600px"
-            />
+            <div className="flex flex-col items-center justify-center gap-6 py-20" style={{ minHeight: "600px" }}>
+              <LoadingSpinner size={150} withPulse={true} />
+              <p className="text-lg font-medium text-muted-foreground">
+                正在加载时间线...
+              </p>
+            </div>
           }
         >
           {years.length > 0 ? (

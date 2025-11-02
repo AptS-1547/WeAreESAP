@@ -3,9 +3,15 @@
 
 "use client";
 
+import { ReactNode } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { LoadingSpinner } from "./LoadingSpinner";
 
 interface LoadingContainerProps {
+  /** 是否正在加载 */
+  isLoading: boolean;
+  /** 加载完成后显示的内容 */
+  children: ReactNode;
   /** 加载文本 */
   text?: string;
   /** LOGO 大小 */
@@ -17,10 +23,25 @@ interface LoadingContainerProps {
 }
 
 /**
- * 区块加载组件
- * 用于页面某个区域的加载状态（如时间线、技术设定）
+ * 区块加载容器组件（包装器模式）
+ *
+ * 功能：
+ * - 加载时：显示 LoadingSpinner + 文本
+ * - 加载完成：spinner 淡出，内容淡入
+ * - 支持平滑的状态切换动画
+ *
+ * 使用场景：页面某个区域的加载状态（如时间线、技术设定）
+ *
+ * @example
+ * ```tsx
+ * <LoadingContainer isLoading={isLoadingTimeline} text="加载时间线...">
+ *   <Timeline events={events} />
+ * </LoadingContainer>
+ * ```
  */
 export function LoadingContainer({
+  isLoading,
+  children,
   text = "加载中...",
   size = 120,
   minHeight = "400px",
@@ -28,15 +49,43 @@ export function LoadingContainer({
 }: LoadingContainerProps) {
   return (
     <div
-      className={`flex flex-col items-center justify-center gap-6 ${className}`}
+      className={`relative ${className}`}
       style={{ minHeight }}
     >
-      <LoadingSpinner size={size} withPulse={true} />
-      {text && (
-        <p className="text-lg font-medium text-muted-foreground animate-pulse">
-          {text}
-        </p>
-      )}
+      <AnimatePresence mode="wait">
+        {isLoading ? (
+          <motion.div
+            key="loading"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="absolute inset-0 flex flex-col items-center justify-center gap-6"
+          >
+            <LoadingSpinner size={size} withPulse={true} />
+            {text && (
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.1 }}
+                className="text-lg font-medium text-muted-foreground"
+              >
+                {text}
+              </motion.p>
+            )}
+          </motion.div>
+        ) : (
+          <motion.div
+            key="content"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3, delay: 0.1 }}
+          >
+            {children}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

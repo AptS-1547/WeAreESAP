@@ -4,3 +4,4 @@
 export { LoadingSpinner } from "./LoadingSpinner";
 export { LoadingOverlay } from "./LoadingOverlay";
 export { LoadingContainer } from "./LoadingContainer";
+export { LoadingWrapper } from "./LoadingWrapper";

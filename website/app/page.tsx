@@ -44,12 +44,12 @@ export default async function Home() {
   const characters = await getCharacters();
 
   return (
-    <main className="min-h-screen">
+    <main className="relative min-h-screen">
         {/* Hero 区域 */}
         <section className="relative py-20 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto text-center">
             {/* 大 LOGO */}
-            <div className="flex justify-center mb-8">
+            <div className="relative flex justify-center mb-8">
               <TriangleLogo size={200} animated={true} />
             </div>
 

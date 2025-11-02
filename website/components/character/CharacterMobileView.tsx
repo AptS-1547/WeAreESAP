@@ -41,7 +41,7 @@ export function CharacterMobileView({ characters }: CharacterMobileViewProps) {
                 src={character.backgroundImage}
                 alt={character.name}
                 fill
-                sizes="100vw"
+                sizes="(max-width: 768px) calc(100vw - 2rem), 50vw"
                 className="object-cover"
                 priority={index === 0}
               />

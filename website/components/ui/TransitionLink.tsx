@@ -16,7 +16,7 @@ interface TransitionLinkProps
 
 /**
  * 带过渡效果的链接组件
- * 点击时触发 LOGO 动画，然后跳转到新页面
+ * 点击时触发过渡动画，路由加载完成后自动结束
  */
 export function TransitionLink({
   href,
@@ -25,7 +25,7 @@ export function TransitionLink({
   ...props
 }: TransitionLinkProps) {
   const router = useRouter();
-  const { setIsTransitioning } = useTransition();
+  const { startTransition } = useTransition();
 
   const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
     // 如果有自定义 onClick，先执行
@@ -51,18 +51,12 @@ export function TransitionLink({
       return;
     }
 
-    // 触发过渡动画
-    setIsTransitioning(true);
+    // 开始过渡（会自动监听路由变化并结束）
+    startTransition();
 
-    // 延迟跳转，让动画播放
-    setTimeout(() => {
-      router.push(href);
-
-      // 跳转后稍等一下再关闭动画（让新页面开始加载）
-      setTimeout(() => {
-        setIsTransitioning(false);
-      }, 100);
-    }, 400); // 与 LOGO 动画时长同步
+    // 立即执行路由跳转
+    // pathname 变化时，TransitionContext 会自动结束过渡
+    router.push(href);
   };
 
   return (

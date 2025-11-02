@@ -26,7 +26,7 @@ export function Navigation() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
           {/* Logo 和站点名称 */}
-          <TransitionLink href="/" className="flex items-center gap-3 group" onClick={closeMobileMenu}>
+          <TransitionLink href="/" className="relative flex items-center gap-3 group" onClick={closeMobileMenu}>
             <TriangleLogo size={40} animated={false} className="opacity-90 group-hover:opacity-100 transition-opacity" />
             <div className="flex flex-col">
               <span className="text-lg font-bold text-foreground group-hover:text-esap-yellow transition-colors">

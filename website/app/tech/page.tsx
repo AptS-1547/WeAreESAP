@@ -4,7 +4,7 @@
 import { Suspense } from "react";
 import { TechModule } from "@/types/tech";
 import { TechPageClient } from "./TechPageClient";
-import { LoadingContainer } from "@/components";
+import { LoadingSpinner } from "@/components/loading";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -43,7 +43,7 @@ export default async function TechPage() {
   const modules = await getTechModules();
 
   return (
-    <main>
+    <main className="relative min-h-screen bg-background">
         {/* Hero 区域 */}
         <section className="relative py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
           <div className="max-w-7xl mx-auto text-center">
@@ -60,11 +60,12 @@ export default async function TechPage() {
         {/* 技术模块内容 */}
         <Suspense
           fallback={
-            <LoadingContainer
-              text="正在加载技术设定..."
-              size={150}
-              minHeight="600px"
-            />
+            <div className="flex flex-col items-center justify-center gap-6 py-20" style={{ minHeight: "600px" }}>
+              <LoadingSpinner size={150} withPulse={true} />
+              <p className="text-lg font-medium text-muted-foreground">
+                正在加载技术设定...
+              </p>
+            </div>
           }
         >
           {modules.length > 0 ? (
