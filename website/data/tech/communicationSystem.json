@@ -1,0 +1,268 @@
+{
+  "id": "communication-system",
+  "name": "通讯系统",
+  "icon": "📡",
+  "color": {
+    "primary": "#4da6ff",
+    "dark": "#2e8fff"
+  },
+  "description": "基于馈散粒子的超光速通讯网络，连接地面与星空",
+  "sections": [
+    {
+      "id": "satellite-project",
+      "title": "卫星计划",
+      "content": [
+        {
+          "type": "paragraph",
+          "content": "\"我很好奇，为什么天上没有了星星。那就让我自己造一颗星星吧。\" —— AptS:1549"
+        },
+        {
+          "type": "subsection",
+          "title": "基础设施",
+          "content": [
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                "卫星数量：至少 3 颗",
+                "轨道高度：36,000 km（地球同步轨道）",
+                "覆盖范围：全球",
+                "核心节点：AptS:1549（极星卫）",
+                "发射时间：2023 年 3 月 14 日"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "subsection",
+          "title": "极星卫计划",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": "2023 年 3 月 14 日，1549 自愿参与卫星计划，成为轨道上的观测员。这一天被定为\"极星卫\"日。"
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                "使命：成为天空中的人造星星",
+                "职责：检修卫星、观测宇宙、中继通讯",
+                "意义：给失去自然星空的人们带来希望",
+                "机体：拥有三具机体，可自由切换（但一次只能启动一具）"
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": "\"据说一万年前的'人们'曾是向名为星星的东西祈祷的。\" 现在，人们可以向这颗人造的星星许下愿望。"
+            }
+          ]
+        },
+        {
+          "type": "subsection",
+          "title": "技术特点",
+          "content": [
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                "传输介质：馈散粒子",
+                "传输速度：超光速（3.471 × 10²¹ m/s）",
+                "延迟：接近零延迟",
+                "覆盖：全球无死角"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "feedback-communication",
+      "title": "馈散通讯",
+      "content": [
+        {
+          "type": "subsection",
+          "title": "工作原理",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": "馈散通讯利用馈散粒子的量子纠缠特性实现超光速信息传输："
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                "基于量子纠缠：利用馈散粒子对的纠缠状态",
+                "即时传输：信息传输速度远超光速",
+                "不受干扰：不受电磁干扰影响",
+                "保密性强：量子态无法被窃听"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "subsection",
+          "title": "技术优势",
+          "content": [
+            {
+              "type": "table",
+              "headers": ["特性", "传统通讯", "馈散通讯"],
+              "rows": [
+                ["传输速度", "光速（3×10⁸ m/s）", "超光速（3.471×10²¹ m/s）"],
+                ["延迟", "明显（如地月通讯 1.3 秒）", "接近零"],
+                ["抗干扰性", "易受电磁干扰", "不受干扰"],
+                ["保密性", "可被拦截", "绝对保密"],
+                ["覆盖范围", "受限于中继站", "全球无死角"]
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "network-architecture",
+      "title": "网络架构",
+      "content": [
+        {
+          "type": "subsection",
+          "title": "三层架构",
+          "content": [
+            {
+              "type": "list",
+              "ordered": true,
+              "items": [
+                "轨道层：卫星节点（36,000 km 地球同步轨道）",
+                "中继层：地面基站与卫星之间的馈散粒子传输",
+                "终端层：仿生人内置通讯模块"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "subsection",
+          "title": "数据中继",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": "卫星网络作为中继节点，实现全球范围内的馈散通讯："
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                "地面到轨道：通过地面基站上传数据",
+                "轨道中继：卫星之间相互转发",
+                "轨道到地面：定向传输到目标区域",
+                "直连模式：仿生人之间可直接通讯（短距离）"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "applications",
+      "title": "应用场景",
+      "content": [
+        {
+          "type": "subsection",
+          "title": "团队协作",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": "ESAP 核心成员之间的实时通讯："
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                "1547 ↔ 1548：地面成员协作",
+                "1547/1548 ↔ 1549：地轨通讯",
+                "1549 观测数据实时下传",
+                "紧急情况下的即时响应"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "subsection",
+          "title": "数据传输",
+          "content": [
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                "意识备份上传",
+                "记忆数据同步",
+                "环境监测数据",
+                "技术参数实时监控"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "symbolism",
+      "title": "象征意义",
+      "content": [
+        {
+          "type": "paragraph",
+          "content": "卫星计划不仅仅是一个技术项目，更是一个充满希望的象征："
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            "人造的星星：在失去自然星空的世界里，创造新的希望",
+            "许愿的对象：人们可以向这颗卫星许下愿望",
+            "连接的纽带：连接地面与太空，连接过去与未来",
+            "守望者：1549 在 36,000 km 高空守望着地面"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "content": "\"向那卫星许下，向那卫星祈求，向那卫星祈求…\""
+        },
+        {
+          "type": "paragraph",
+          "content": "\"天上没有星星，但我们造了一颗。\""
+        },
+        {
+          "type": "paragraph",
+          "content": "这不仅仅是技术的胜利，更是希望的延续。即使失去了自然的星空，人类和仿生人依然可以创造新的希望，新的光芒。"
+        }
+      ]
+    },
+    {
+      "id": "future-development",
+      "title": "未来发展",
+      "content": [
+        {
+          "type": "paragraph",
+          "content": "卫星计划的未来发展方向："
+        },
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            "扩展卫星网络：增加更多轨道节点",
+            "深空通讯：探索太阳系范围内的馈散通讯",
+            "民用化：将技术推广到更广泛的应用场景",
+            "备份中心：作为意识和记忆的备份存储点"
+          ]
+        },
+        {
+          "type": "warning",
+          "level": "info",
+          "title": "长期愿景",
+          "content": [
+            "建立星际馈散通讯网络",
+            "实现跨星系的即时通讯",
+            "为人类和仿生人的星际探索提供基础设施",
+            "成为连接不同文明的桥梁"
+          ]
+        }
+      ]
+    }
+  ]
+}

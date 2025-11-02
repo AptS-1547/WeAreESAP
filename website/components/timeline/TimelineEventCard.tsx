@@ -70,8 +70,8 @@ export function TimelineEventCard({
   return (
     <div
       ref={cardRef}
-      className={`relative flex items-center gap-8 mb-16 ${
-        isLeft ? "flex-row" : "flex-row-reverse md:flex-row-reverse"
+      className={`relative flex items-start gap-4 md:gap-8 mb-12 md:mb-16 ${
+        isLeft ? "md:flex-row" : "md:flex-row-reverse"
       }`}
     >
       {/* 事件卡片 */}
@@ -79,11 +79,11 @@ export function TimelineEventCard({
         initial={{ opacity: 0, x: isLeft ? -50 : 50 }}
         animate={isVisible ? { opacity: 1, x: 0 } : {}}
         transition={{ duration: 0.5, delay: 0.1 }}
-        className={`flex-1 ${isLeft ? "text-right md:text-left" : "text-left md:text-right"}`}
+        className={`flex-1 ${isLeft ? "md:text-left" : "md:text-right"}`}
       >
-        <div className="bg-muted/50 backdrop-blur-sm rounded-xl p-6 border border-border hover:border-esap-yellow/50 transition-all duration-300 hover:shadow-lg hover:scale-[1.02]">
+        <div className="bg-muted/50 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-border hover:border-esap-yellow/50 transition-all duration-300 hover:shadow-lg hover:scale-[1.02]">
           {/* 头部：日期 + 图标 */}
-          <div className={`flex items-center gap-3 mb-3 ${isLeft ? "justify-start" : "justify-start md:justify-end"}`}>
+          <div className={`flex items-center gap-3 mb-3 justify-start ${isLeft ? "" : "md:justify-end"}`}>
             <span className="text-2xl">{icon}</span>
             <div>
               <div className="text-sm font-mono text-muted-foreground">

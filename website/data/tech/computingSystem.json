@@ -1,0 +1,208 @@
+{
+  "id": "computing-system",
+  "name": "馈散计算系统",
+  "icon": "⚡",
+  "color": {
+    "primary": "#ffd93d",
+    "dark": "#ffc107"
+  },
+  "description": "超越传统计算的馈散粒子运算体系",
+  "sections": [
+    {
+      "id": "electrical-principle",
+      "title": "电学原理",
+      "content": [
+        {
+          "type": "subsection",
+          "title": "基础公式",
+          "content": [
+            {
+              "type": "code",
+              "language": "text",
+              "content": "I_k = U_k / R"
+            },
+            {
+              "type": "paragraph",
+              "content": "类似欧姆定律，但适用于馈散粒子流动。其中 I_k 是馈散电流强度，U_k 是馈散电压，R 是馈散电阻。"
+            }
+          ]
+        },
+        {
+          "type": "subsection",
+          "title": "安全参数",
+          "content": [
+            {
+              "type": "table",
+              "headers": ["状态", "电流阈值", "说明"],
+              "rows": [
+                ["正常运行", "I_k < 5A", "安全工作范围"],
+                ["警告阈值", "I_k = 5-6A", "需要注意，接近危险边缘"],
+                ["危险阈值", "I_k > 6A", "衰变周期缩短至 27.1ms，极度危险"]
+              ]
+            },
+            {
+              "type": "paragraph",
+              "content": "当电流强度 I_k > 6A 时，馈散粒子会发生衰变递增效应，衰变周期从正常的 34.28 秒急剧缩短至 27.1ms，导致大量热量释放，可能造成系统崩溃。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fluid-protection",
+      "title": "流体保护机制",
+      "content": [
+        {
+          "type": "subsection",
+          "title": "圆周运动保护",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": "为了防止馈散粒子与管壁碰撞导致电流强度 I_k 提升，系统采用流体钛圆周运动保护机制："
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                "目的：防止管壁碰撞导致 I_k 提升",
+                "浓度要求：1.2 mmol/L⁻¹",
+                "效果：馈散粒子以完美弧度转弯",
+                "优势：零动能损失，高效传输"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "subsection",
+          "title": "传输优化",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": "流体钛的特殊分子结构使得馈散粒子能够："
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                "零动能损失转弯",
+                "高速数据传输",
+                "稳定的量子态保持",
+                "极低能耗（几乎不发热）"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "computing-performance",
+      "title": "计算性能",
+      "content": [
+        {
+          "type": "subsection",
+          "title": "理论性能",
+          "content": [
+            {
+              "type": "paragraph",
+              "content": "单硅片浮点运算能力：人类超算的 6.7 × 10⁴ 亿倍"
+            },
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                "单核浮点运算：远超当代超算",
+                "并行处理能力：支持海量并发",
+                "能耗比：极低（几乎不发热）",
+                "响应速度：接近瞬时"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "subsection",
+          "title": "实际应用",
+          "content": [
+            {
+              "type": "list",
+              "ordered": false,
+              "items": [
+                "人脑级别的意识模拟",
+                "实时环境感知处理",
+                "复杂决策计算",
+                "记忆存储与检索",
+                "情感模式运算"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "storage-media",
+      "title": "存储介质",
+      "content": [
+        {
+          "type": "paragraph",
+          "content": "馈散粒子在不同介质中的衰变周期决定了其作为存储介质的可行性："
+        },
+        {
+          "type": "table",
+          "headers": ["介质", "衰变周期", "适用性"],
+          "rows": [
+            ["液体钛", "341,879 年", "长期保存，最佳选择"],
+            ["特制硅片", "3,417 月", "中期存储，适合计算"],
+            ["常温常压", "34.28 秒", "不适合存储"],
+            ["金属", "21.1 ms", "仅用于传输，不可存储"]
+          ]
+        },
+        {
+          "type": "paragraph",
+          "content": "液体钛是目前已知的最佳馈散粒子保存介质，能够将衰变周期延长超过 30 万年，这使得仿生人的长期存在成为可能。"
+        }
+      ]
+    },
+    {
+      "id": "applications",
+      "title": "应用领域",
+      "content": [
+        {
+          "type": "list",
+          "ordered": false,
+          "items": [
+            "CPU/GPU 运算媒介：替代传统硅基芯片",
+            "人脑重构：完整复制人类大脑结构和功能",
+            "记忆承载：保存人类一生的记忆",
+            "意识模拟：运行完整的人类意识副本",
+            "环境感知：实时处理传感器数据",
+            "决策系统：支持复杂的逻辑推理"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "limitations",
+      "title": "技术限制",
+      "content": [
+        {
+          "type": "paragraph",
+          "content": "尽管馈散计算系统性能强大，但仍存在一些限制："
+        },
+        {
+          "type": "warning",
+          "level": "warning",
+          "title": "当前技术限制",
+          "content": [
+            "材料稀缺：流体钛获取困难，成本极高",
+            "电流控制：必须严格控制在 6A 以下",
+            "环境依赖：需要特定的温度和压力条件",
+            "衰变风险：高电流下快速衰变可能导致系统崩溃"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "content": "这些限制意味着馈散计算系统目前还无法大规模普及，仅用于特殊用途，如仿生人的意识运算。"
+        }
+      ]
+    }
+  ]
+}

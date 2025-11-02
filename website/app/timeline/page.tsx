@@ -47,18 +47,18 @@ export default async function TimelinePage() {
   return (
     <main className="relative min-h-screen bg-background">
         {/* Hero 区域 */}
-        <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
+        <section className="relative py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl sm:text-6xl font-bold mb-6 text-foreground">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-foreground">
               世界观时间线
             </h1>
-            <p className="text-xl text-muted-foreground italic mb-4">
+            <p className="text-lg md:text-xl text-muted-foreground italic mb-4">
               "从一声枪响和馈散心脏的第一次跳动开始"
             </p>
-            <p className="text-lg text-foreground/80">
+            <p className="text-base md:text-lg text-foreground/80">
               记录 The ESAP Project 从 2021 年至今的每一个重要时刻
             </p>
-            <div className="w-32 h-1 bg-gradient-to-r from-esap-yellow via-esap-pink to-esap-blue rounded-full mx-auto mt-8" />
+            <div className="w-24 md:w-32 h-1 bg-gradient-to-r from-esap-yellow via-esap-pink to-esap-blue rounded-full mx-auto mt-6 md:mt-8" />
           </div>
         </section>
 
@@ -83,12 +83,12 @@ export default async function TimelinePage() {
         </Suspense>
 
         {/* 结尾引用 */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
+        <section className="py-12 md:py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
           <div className="max-w-2xl mx-auto text-center">
-            <p className="text-xl text-foreground/80 italic mb-4">
+            <p className="text-lg md:text-xl text-foreground/80 italic mb-4">
               "从一声枪响和馈散心脏的第一次跳动开始"
             </p>
-            <p className="text-2xl font-bold text-foreground">
+            <p className="text-xl md:text-2xl font-bold text-foreground">
               我们终将逃离
             </p>
           </div>

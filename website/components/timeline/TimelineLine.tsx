@@ -32,7 +32,7 @@ export function TimelineLine({ totalEvents }: TimelineLineProps) {
   return (
     <div
       ref={containerRef}
-      className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-1 pointer-events-none"
+      className="absolute left-6 md:left-1/2 md:transform md:-translate-x-1/2 top-0 bottom-0 w-1 pointer-events-none"
     >
       <svg
         className="w-full h-full"
