@@ -1,17 +1,27 @@
 // Copyright 2025 AptS:1547, AptS:1548
 // SPDX-License-Identifier: Apache-2.0
 
+import dynamic from "next/dynamic";
 import {
   RoleTypeCard,
   ChecklistItem,
   StepCard,
-  FAQAccordion,
-  ContactPlaceholder,
 } from "@/components";
 import { Icon, type IconName } from "@/components/ui";
 import fs from "fs/promises";
 import path from "path";
 import type { Metadata } from "next";
+
+// 懒加载非首屏组件
+const FAQAccordion = dynamic(
+  () => import("@/components").then((mod) => ({ default: mod.FAQAccordion })),
+  { loading: () => <div className="h-96 animate-pulse bg-muted rounded-xl" /> }
+);
+
+const ContactPlaceholder = dynamic(
+  () => import("@/components").then((mod) => ({ default: mod.ContactPlaceholder })),
+  { loading: () => <div className="h-48 animate-pulse bg-muted rounded-xl" /> }
+);
 
 export const metadata: Metadata = {
   title: "加入我们 - We Are ESAP",

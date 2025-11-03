@@ -22,9 +22,9 @@ const TransitionContext = createContext<TransitionContextType | undefined>(
   undefined
 );
 
-const MIN_TRANSITION_TIME = 300; // 最小过渡时间，防止闪烁
-const MAX_TRANSITION_TIME = 1000; // 最大过渡时间，避免等太久
-const INITIAL_LOAD_TIME = 800; // 首次加载动画时长
+const MIN_TRANSITION_TIME = 200; // 最小过渡时间，防止闪烁
+const MAX_TRANSITION_TIME = 600; // 最大过渡时间，避免等太久
+const INITIAL_LOAD_TIME = 400; // 首次加载动画时长
 
 export function TransitionProvider({ children }: { children: ReactNode }) {
   const [isTransitioning, setIsTransitioning] = useState(true); // 初始为 true，显示首次加载

@@ -3,16 +3,19 @@
 
 "use client";
 
+import { memo } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { CharacterCardData } from "@/types/character";
+import { getBlurDataURL } from "@/lib/blur-placeholder";
 
 interface CharacterCardProps {
   character: CharacterCardData;
   onClick?: () => void;
+  priority?: boolean; // 是否优先加载图片（首屏图片）
 }
 
-export function CharacterCard({ character, onClick }: CharacterCardProps) {
+function CharacterCardComponent({ character, onClick, priority = false }: CharacterCardProps) {
   return (
     <motion.div
       className="relative group cursor-pointer"
@@ -50,6 +53,9 @@ export function CharacterCard({ character, onClick }: CharacterCardProps) {
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
             className="object-cover"
+            priority={priority}
+            placeholder="blur"
+            blurDataURL={getBlurDataURL(character.backgroundImage)}
           />
         )}
 
@@ -151,3 +157,13 @@ export function CharacterCard({ character, onClick }: CharacterCardProps) {
     </motion.div>
   );
 }
+
+// 使用 memo 优化，只在 character.id 或 priority 改变时重新渲染
+export const CharacterCard = memo(CharacterCardComponent, (prevProps, nextProps) => {
+  return (
+    prevProps.character.id === nextProps.character.id &&
+    prevProps.priority === nextProps.priority
+  );
+});
+
+CharacterCard.displayName = "CharacterCard";

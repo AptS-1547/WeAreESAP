@@ -83,9 +83,18 @@ body {
     color 0.3s ease;
 }
 
-/* 平滑的颜色过渡 */
-* {
+/* 颜色过渡工具类 - 按需使用 */
+.transition-colors-smooth {
   transition-property: color, background-color, border-color;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+
+/* 为链接和按钮添加默认过渡 */
+a,
+button,
+[role="button"] {
+  transition-property: color, background-color, border-color, opacity;
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
 }

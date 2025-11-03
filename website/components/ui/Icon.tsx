@@ -143,7 +143,9 @@ export function Icon({ name, size = 20, color, className = "" }: IconProps) {
   const IconComponent = iconMap[name];
 
   if (!IconComponent) {
-    console.warn(`Icon "${name}" not found in iconMap`);
+    if (process.env.NODE_ENV === "development") {
+      console.warn(`Icon "${name}" not found in iconMap`);
+    }
     return null;
   }
 

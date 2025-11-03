@@ -7,6 +7,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CharacterCardData } from "@/types/character";
 import Image from "next/image";
+import { getBlurDataURL } from "@/lib/blur-placeholder";
 
 interface CharacterMobileViewProps {
   characters: CharacterCardData[];
@@ -66,6 +67,8 @@ export function CharacterMobileView({
                 sizes="(max-width: 768px) calc(100vw - 2rem), 50vw"
                 className="object-cover"
                 priority={index === 0}
+                placeholder="blur"
+                blurDataURL={getBlurDataURL(character.backgroundImage)}
               />
             )}
 

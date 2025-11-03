@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node ./scripts/generate-blur-placeholders.mjs",
     "build": "next build",
     "postbuild": "next-sitemap",
     "start": "next start",
@@ -11,7 +12,8 @@
     "lint:fix": "eslint --fix",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,md}\"",
     "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,css,md}\"",
-    "license:add": "node ./scripts/add-license-headers.js"
+    "license:add": "node ./scripts/add-license-headers.js",
+    "blur:generate": "node ./scripts/generate-blur-placeholders.mjs"
   },
   "dependencies": {
     "framer-motion": "^12.23.24",
@@ -31,7 +33,9 @@
     "eslint-config-next": "16.0.1",
     "eslint-config-prettier": "^10.1.8",
     "next-sitemap": "^4.2.3",
+    "plaiceholder": "^3.0.0",
     "prettier": "^3.6.2",
+    "sharp": "^0.34.4",
     "tailwindcss": "^4",
     "typescript": "^5"
   },

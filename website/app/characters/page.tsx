@@ -1,6 +1,7 @@
 // Copyright 2025 AptS:1547, AptS:1548
 // SPDX-License-Identifier: Apache-2.0
 
+import { unstable_cache } from "next/cache";
 import { Metadata } from "next";
 import { CharacterCardData } from "@/types/character";
 import { CharactersClient } from "./CharactersClient";
@@ -10,36 +11,43 @@ export const metadata: Metadata = {
   description: "探索 ESAP 项目的核心成员，了解每个角色的故事与设定",
 };
 
-async function getCharacters(): Promise<CharacterCardData[]> {
-  try {
-    const fs = require("fs/promises");
-    const path = require("path");
+const getCharacters = unstable_cache(
+  async (): Promise<CharacterCardData[]> => {
+    try {
+      const fs = require("fs/promises");
+      const path = require("path");
 
-    const charactersDir = path.join(process.cwd(), "data", "characters");
-    const files = await fs.readdir(charactersDir);
+      const charactersDir = path.join(process.cwd(), "data", "characters");
+      const files = await fs.readdir(charactersDir);
 
-    const characters: CharacterCardData[] = [];
+      const characters: CharacterCardData[] = [];
 
-    for (const file of files) {
-      if (file.endsWith(".json")) {
-        const filePath = path.join(charactersDir, file);
-        const fileContent = await fs.readFile(filePath, "utf-8");
-        const character = JSON.parse(fileContent);
-        characters.push(character);
+      for (const file of files) {
+        if (file.endsWith(".json")) {
+          const filePath = path.join(charactersDir, file);
+          const fileContent = await fs.readFile(filePath, "utf-8");
+          const character = JSON.parse(fileContent);
+          characters.push(character);
+        }
       }
+
+      // 按 ID 排序
+      characters.sort((a: CharacterCardData, b: CharacterCardData) =>
+        a.id.localeCompare(b.id)
+      );
+
+      return characters;
+    } catch (error) {
+      console.error("获取角色数据失败:", error);
+      return [];
     }
-
-    // 按 ID 排序
-    characters.sort((a: CharacterCardData, b: CharacterCardData) =>
-      a.id.localeCompare(b.id)
-    );
-
-    return characters;
-  } catch (error) {
-    console.error("获取角色数据失败:", error);
-    return [];
+  },
+  ["all-characters"],
+  {
+    revalidate: 3600, // 1小时缓存
+    tags: ["characters"],
   }
-}
+);
 
 export default async function CharactersPage() {
   const characters = await getCharacters();

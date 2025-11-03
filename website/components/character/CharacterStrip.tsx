@@ -3,9 +3,11 @@
 
 "use client";
 
+import { memo } from "react";
 import { motion } from "framer-motion";
 import { CharacterCardData } from "@/types/character";
 import Image from "next/image";
+import { getBlurDataURL } from "@/lib/blur-placeholder";
 
 interface CharacterStripProps {
   character: CharacterCardData;
@@ -13,7 +15,7 @@ interface CharacterStripProps {
   onClick?: () => void;
 }
 
-export function CharacterStrip({
+function CharacterStripComponent({
   character,
   isExpanded,
   onClick,
@@ -33,6 +35,8 @@ export function CharacterStrip({
           sizes="(max-width: 768px) 100vw, 60vw"
           className="object-cover"
           priority
+          placeholder="blur"
+          blurDataURL={getBlurDataURL(character.backgroundImage)}
         />
       )}
 
@@ -150,3 +154,13 @@ export function CharacterStrip({
     </motion.div>
   );
 }
+
+// 使用 memo 优化，只在 character.id 或 isExpanded 改变时重新渲染
+export const CharacterStrip = memo(CharacterStripComponent, (prevProps, nextProps) => {
+  return (
+    prevProps.character.id === nextProps.character.id &&
+    prevProps.isExpanded === nextProps.isExpanded
+  );
+});
+
+CharacterStrip.displayName = "CharacterStrip";
