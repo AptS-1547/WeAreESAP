@@ -1,7 +1,7 @@
 {
   "id": "feedback-particle",
   "name": "馈散粒子",
-  "icon": "⚛️",
+  "icon": "Atom",
   "color": {
     "primary": "#ffd93d",
     "dark": "#ffc107"

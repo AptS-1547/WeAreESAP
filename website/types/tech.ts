@@ -1,6 +1,8 @@
 // Copyright 2025 AptS:1547, AptS:1548
 // SPDX-License-Identifier: Apache-2.0
 
+import { IconName } from "@/components/ui";
+
 /**
  * 技术设定数据类型定义
  */
@@ -68,7 +70,7 @@ export interface TechSection {
 export interface TechModule {
   id: string;
   name: string;
-  icon?: string;
+  icon?: IconName;
   color: {
     primary: string;
     dark: string;

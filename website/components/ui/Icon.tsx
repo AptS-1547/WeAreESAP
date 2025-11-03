@@ -27,6 +27,10 @@ import {
   LuZap,
   LuCircle,
   LuChartBar,
+  LuCpu,
+  LuRadio,
+  LuAtom,
+  LuDroplet,
 } from "react-icons/lu";
 
 import {
@@ -77,7 +81,12 @@ export type IconName =
   | "Book"
   | "Zap"
   | "Circle"
-  | "BarChart";
+  | "BarChart"
+  // 技术设定图标
+  | "Cpu"
+  | "Radio"
+  | "Atom"
+  | "Droplet";
 
 // 图标映射表
 const iconMap: Record<IconName, ComponentType<{ className?: string }>> = {
@@ -117,6 +126,12 @@ const iconMap: Record<IconName, ComponentType<{ className?: string }>> = {
   Zap: LuZap,
   Circle: LuCircle,
   BarChart: LuChartBar,
+
+  // 技术设定图标 (Lucide)
+  Cpu: LuCpu,
+  Radio: LuRadio,
+  Atom: LuAtom,
+  Droplet: LuDroplet,
 };
 
 export interface IconProps {

@@ -5,6 +5,7 @@
 
 import { motion } from "framer-motion";
 import { TechModule } from "@/types/tech";
+import { Icon } from "@/components/ui";
 
 interface TechTabsProps {
   modules: TechModule[];
@@ -33,7 +34,14 @@ export function TechTabs({ modules, activeId, onTabChange }: TechTabsProps) {
                 }`}
               >
                 <span className="flex items-center gap-2">
-                  {module.icon && <span>{module.icon}</span>}
+                  {module.icon && (
+                    <Icon
+                      name={module.icon}
+                      size={20}
+                      color={isActive ? module.color.primary : undefined}
+                      className={!isActive ? "text-current" : ""}
+                    />
+                  )}
                   {module.name}
                 </span>
 

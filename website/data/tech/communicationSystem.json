@@ -1,7 +1,7 @@
 {
   "id": "communication-system",
   "name": "通讯系统",
-  "icon": "📡",
+  "icon": "Radio",
   "color": {
     "primary": "#4da6ff",
     "dark": "#2e8fff"

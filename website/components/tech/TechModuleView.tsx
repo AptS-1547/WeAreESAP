@@ -6,6 +6,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { TechModule } from "@/types/tech";
 import { TechSectionView } from "./TechContent";
+import { Icon } from "@/components/ui";
 
 interface TechModuleViewProps {
   module: TechModule;
@@ -25,7 +26,13 @@ export function TechModuleView({ module }: TechModuleViewProps) {
         {/* 模块头部 */}
         <div className="mb-12">
           <div className="flex items-center gap-4 mb-4">
-            {module.icon && <span className="text-5xl">{module.icon}</span>}
+            {module.icon && (
+              <Icon
+                name={module.icon}
+                size={48}
+                color={module.color.primary}
+              />
+            )}
             <h2 className="text-4xl font-bold text-foreground">
               {module.name}
             </h2>
