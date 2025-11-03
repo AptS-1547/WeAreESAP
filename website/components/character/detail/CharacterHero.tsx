@@ -29,7 +29,11 @@ export function CharacterHero({ character }: CharacterHeroProps) {
   const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-20%"]);
 
   // 内容淡出效果
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.8, 0]);
+  const contentOpacity = useTransform(
+    scrollYProgress,
+    [0, 0.5, 1],
+    [1, 0.8, 0]
+  );
 
   return (
     <section
@@ -38,10 +42,7 @@ export function CharacterHero({ character }: CharacterHeroProps) {
     >
       {/* 背景图片层 - z-0，添加视差效果 */}
       {character.backgroundImage && (
-        <motion.div
-          className="absolute inset-0 z-0"
-          style={{ y: backgroundY }}
-        >
+        <motion.div className="absolute inset-0 z-0" style={{ y: backgroundY }}>
           <Image
             src={character.backgroundImage}
             alt={character.name}

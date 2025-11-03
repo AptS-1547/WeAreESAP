@@ -15,19 +15,32 @@ export function ScrollToTop({ threshold = 400 }: ScrollToTopProps) {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    let rafId: number | null = null;
+
     const toggleVisibility = () => {
-      if (window.scrollY > threshold) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
+      // 如果已经有待处理的 requestAnimationFrame，跳过
+      if (rafId !== null) return;
+
+      rafId = requestAnimationFrame(() => {
+        if (window.scrollY > threshold) {
+          setIsVisible(true);
+        } else {
+          setIsVisible(false);
+        }
+        rafId = null;
+      });
     };
 
-    // 监听滚动事件
-    window.addEventListener("scroll", toggleVisibility);
+    // 监听滚动事件，使用 passive 优化性能
+    window.addEventListener("scroll", toggleVisibility, { passive: true });
 
-    // 清理事件监听器
-    return () => window.removeEventListener("scroll", toggleVisibility);
+    // 清理事件监听器和待处理的动画帧
+    return () => {
+      window.removeEventListener("scroll", toggleVisibility);
+      if (rafId !== null) {
+        cancelAnimationFrame(rafId);
+      }
+    };
   }, [threshold]);
 
   const scrollToTop = () => {
@@ -46,11 +59,11 @@ export function ScrollToTop({ threshold = 400 }: ScrollToTopProps) {
           exit={{ opacity: 0, scale: 0.8, y: 20 }}
           transition={{ duration: 0.2 }}
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full bg-gradient-to-br from-esap-yellow via-esap-pink to-esap-blue shadow-lg hover:shadow-xl transition-shadow group"
+          className="fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full bg-linear-to-br from-esap-yellow via-esap-pink to-esap-blue shadow-lg hover:shadow-xl transition-shadow group"
           aria-label="返回顶部"
         >
           {/* 内层白色圆圈 */}
-          <div className="absolute inset-[2px] rounded-full bg-background flex items-center justify-center">
+          <div className="absolute inset-0.5 rounded-full bg-background flex items-center justify-center">
             <svg
               className="w-6 h-6 text-foreground group-hover:-translate-y-1 transition-transform"
               fill="none"

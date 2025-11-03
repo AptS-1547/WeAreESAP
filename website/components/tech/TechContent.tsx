@@ -21,7 +21,7 @@ function TechTable({ data }: { data: TableBlock }) {
         <p className="text-sm text-muted-foreground mb-2">{data.caption}</p>
       )}
       <table className="w-full border-collapse rounded-lg overflow-hidden">
-        <thead className="bg-gradient-to-r from-esap-yellow/20 via-esap-pink/20 to-esap-blue/20">
+        <thead className="bg-linear-to-r from-esap-yellow/20 via-esap-pink/20 to-esap-blue/20">
           <tr>
             {data.headers.map((header, index) => (
               <th
@@ -191,7 +191,7 @@ export function TechSectionView({
       className="mb-12"
     >
       <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
-        <span className="w-1 h-6 bg-gradient-to-b from-esap-yellow via-esap-pink to-esap-blue rounded-full" />
+        <span className="w-1 h-6 bg-linear-to-b from-esap-yellow via-esap-pink to-esap-blue rounded-full" />
         {title}
       </h3>
       <div className="space-y-4">

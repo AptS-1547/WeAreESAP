@@ -79,9 +79,35 @@ export async function generateMetadata({
     };
   }
 
+  const characterTitle = `${character.name} (${character.code})`;
+  const characterDesc = `${character.description} - ${character.quote}`;
+  const characterImage = character.backgroundImage
+    ? character.backgroundImage
+    : "/favicon.ico";
+
   return {
-    title: `${character.name} (${character.code}) - We Are ESAP`,
-    description: `${character.description} - ${character.quote}`,
+    title: `${characterTitle} - We Are ESAP`,
+    description: characterDesc,
+    openGraph: {
+      title: characterTitle,
+      description: characterDesc,
+      type: "profile",
+      images: [
+        {
+          url: characterImage,
+          width: 1200,
+          height: 630,
+          alt: `${character.name}的角色档案`,
+        },
+      ],
+      siteName: "We Are ESAP",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: characterTitle,
+      description: characterDesc,
+      images: [characterImage],
+    },
   };
 }
 

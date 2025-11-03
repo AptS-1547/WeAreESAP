@@ -6,6 +6,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { ThemeToggle, TransitionLink } from "@/components/ui";
 
 const navLinks = [
@@ -18,8 +19,12 @@ const navLinks = [
 
 export function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
+
+  // 判断链接是否激活
+  const isActive = (href: string) => pathname.startsWith(href);
 
   return (
     <>
@@ -51,15 +56,35 @@ export function Navigation() {
 
             {/* 桌面端导航链接 */}
             <div className="hidden md:flex items-center gap-6">
-              {navLinks.map((link) => (
-                <TransitionLink
-                  key={link.href}
-                  href={link.href}
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  {link.label}
-                </TransitionLink>
-              ))}
+              {navLinks.map((link) => {
+                const active = isActive(link.href);
+                return (
+                  <div key={link.href} className="relative">
+                    <TransitionLink
+                      href={link.href}
+                      className={`text-sm transition-colors ${
+                        active
+                          ? "text-foreground font-medium"
+                          : "text-muted-foreground hover:text-foreground"
+                      }`}
+                    >
+                      {link.label}
+                    </TransitionLink>
+                    {/* 激活指示器 - ESAP 三色渐变 */}
+                    {active && (
+                      <motion.div
+                        layoutId="nav-indicator"
+                        className="absolute -bottom-[17px] left-0 right-0 h-0.5 bg-gradient-to-r from-esap-yellow via-esap-pink to-esap-blue"
+                        transition={{
+                          type: "spring",
+                          stiffness: 380,
+                          damping: 30,
+                        }}
+                      />
+                    )}
+                  </div>
+                );
+              })}
             </div>
 
             {/* 右侧按钮组 */}
@@ -123,16 +148,23 @@ export function Navigation() {
               className="fixed top-16 right-0 bottom-0 w-64 bg-background border-l border-border shadow-xl z-[70] md:hidden"
             >
               <div className="flex flex-col p-6 gap-4">
-                {navLinks.map((link) => (
-                  <TransitionLink
-                    key={link.href}
-                    href={link.href}
-                    onClick={closeMobileMenu}
-                    className="text-lg text-foreground hover:text-esap-pink transition-colors py-2 border-b border-border/50"
-                  >
-                    {link.label}
-                  </TransitionLink>
-                ))}
+                {navLinks.map((link) => {
+                  const active = isActive(link.href);
+                  return (
+                    <TransitionLink
+                      key={link.href}
+                      href={link.href}
+                      onClick={closeMobileMenu}
+                      className={`text-lg py-2 border-b border-border/50 transition-colors ${
+                        active
+                          ? "text-esap-pink font-medium"
+                          : "text-foreground hover:text-esap-pink"
+                      }`}
+                    >
+                      {link.label}
+                    </TransitionLink>
+                  );
+                })}
               </div>
 
               {/* 底部装饰 */}
