@@ -1,0 +1,27 @@
+{
+  "id": "1738",
+  "name": "Lu Qingxian",
+  "code": "AptS:1738",
+  "nickname": "38",
+  "color": {
+    "primary": "#585858",
+    "dark": "#3a3a3a"
+  },
+  "role": "Mediator",
+  "species": "Human",
+  "quote": "Between black and white, I choose the gray zone",
+  "description": "The mediator who stays calm in disputes",
+  "keywords": ["calm", "balanced", "loyal"],
+  "backgroundImage": "/images/characters/img_1738.webp",
+  "tier": "core",
+  "meta": {
+    "background": "Actively joined ESAP, identifies with its philosophy",
+    "abilities": [
+      "mediation and negotiation",
+      "emotional perception",
+      "social networking",
+      "strategic analysis"
+    ],
+    "role": "Coordinator and balancer"
+  }
+}

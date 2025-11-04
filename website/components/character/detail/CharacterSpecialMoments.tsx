@@ -4,6 +4,7 @@
 "use client";
 
 import { Character } from "@/types/character";
+import { useTranslations } from "next-intl";
 
 interface CharacterSpecialMomentsProps {
   character: Character;
@@ -12,6 +13,7 @@ interface CharacterSpecialMomentsProps {
 export function CharacterSpecialMoments({
   character,
 }: CharacterSpecialMomentsProps) {
+  const t = useTranslations("characters");
   const specialMoments = character.meta?.specialMoments as string[] | undefined;
 
   if (!specialMoments || specialMoments.length === 0) {
@@ -27,7 +29,7 @@ export function CharacterSpecialMoments({
             background: `linear-gradient(to bottom, ${character.color.primary}, ${character.color.dark})`,
           }}
         />
-        特殊时刻
+        {t("detail.sections.specialMoments")}
       </h2>
 
       <div className="bg-muted rounded-2xl p-8 md:p-10">

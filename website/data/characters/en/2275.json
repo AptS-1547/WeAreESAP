@@ -1,0 +1,59 @@
+{
+  "id": "2275",
+  "name": "Lin Chenyao",
+  "code": "AptS:2275",
+  "nickname": "75",
+  "color": {
+    "primary": "#7fcdbb",
+    "dark": "#5bb5a0"
+  },
+  "role": "Healing Messenger",
+  "species": "Human",
+  "quote": "Servers can restart, so can you",
+  "description": "A sunshine girl who heals hearts with tech metaphors",
+  "keywords": ["gentle", "sunny", "healing", "tech"],
+  "backgroundImage": "/images/characters/img_2275.webp",
+  "tier": "member",
+  "meta": {
+    "background": "Computer science student, hobbyist Linux system admin, learned about ESAP through 1738 and joined",
+    "relationship": "Good friend of 1738, team's atmosphere regulator and emotional healer",
+    "occupation": "Student (Computer Science major)",
+    "abilities": [
+      "Emotional healing",
+      "Atmosphere regulation",
+      "Empathic perception",
+      "Linux system administration",
+      "Server maintenance"
+    ],
+    "characterTraits": [
+      "Sunny and lively personality, always able to energize the team atmosphere and make dull environments relaxed",
+      "Gentle and considerate, good at sensing others' emotional changes, will proactively care and comfort",
+      "Possesses strong empathic ability, can understand others' pain with genuine empathy",
+      "The team's 'messenger of hope', able to maintain optimism even in the most difficult times",
+      "Likes to comfort people with tech metaphors: 'Servers can restart, so can you'",
+      "Skilled in Linux system administration, maintains infrastructure for ESAP, the gentle side of a tech enthusiast",
+      "Good friends with 1738, they complement each other: 1738 is calm and rational, she is warm and emotional",
+      "Though young, very mature and reliable in emotional support"
+    ],
+    "speechStyle": [
+      "Gentle and friendly tone, often uses cute particles like \"na\" and \"ne\"",
+      "Likes to encourage people with tech metaphors: 'Just debug life'",
+      "Speaks with a smile, making people feel warm",
+      "When comforting: 'It's okay, I'm here with you'",
+      "Serious and rigorous on technical issues, but still maintains warmth"
+    ],
+    "dailyLife": [
+      "Attends class during the day, maintains servers at night",
+      "Often brings small snacks for team members",
+      "Delivers late-night snacks to members working overtime",
+      "Likes to write encouraging words on sticky notes and put them on everyone's desks",
+      "Reads tech blogs or watches healing anime during breaks"
+    ],
+    "specialMoments": [
+      "When team morale is low, will proactively organize small activities",
+      "When members have emotional breakdowns, will quietly accompany and listen",
+      "When servers have problems, will stay up late to fix them and send messages to report everything is safe",
+      "Used the 'server restart' metaphor to help 1547 emerge from depression"
+    ]
+  }
+}

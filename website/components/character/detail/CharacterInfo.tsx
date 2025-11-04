@@ -4,24 +4,38 @@
 "use client";
 
 import { Character } from "@/types/character";
+import { useTranslations } from "next-intl";
 
 interface CharacterInfoProps {
   character: Character;
 }
 
 export function CharacterInfo({ character }: CharacterInfoProps) {
+  const t = useTranslations("characters");
   const infoItems = [
-    { label: "代号", value: character.code },
-    { label: "姓名", value: character.name },
-    { label: "别称", value: character.nickname },
-    { label: "定位", value: character.role },
-    { label: "种族", value: character.species },
-    { label: "机体型号", value: character.meta?.bodyType as string },
-    { label: "位置", value: character.meta?.location as string },
-    { label: "职业", value: character.meta?.occupation as string },
-    { label: "任务", value: character.meta?.mission as string },
+    { label: t("detail.fields.code"), value: character.code },
+    { label: t("detail.fields.name"), value: character.name },
+    { label: t("detail.fields.nickname"), value: character.nickname },
+    { label: t("detail.fields.role"), value: character.role },
+    { label: t("detail.fields.species"), value: character.species },
     {
-      label: "三体系统",
+      label: t("detail.fields.bodyType"),
+      value: character.meta?.bodyType as string,
+    },
+    {
+      label: t("detail.fields.location"),
+      value: character.meta?.location as string,
+    },
+    {
+      label: t("detail.fields.occupation"),
+      value: character.meta?.occupation as string,
+    },
+    {
+      label: t("detail.fields.mission"),
+      value: character.meta?.mission as string,
+    },
+    {
+      label: t("detail.fields.threeBodySystem"),
       value: character.meta?.threeBodySystem as string,
     },
   ].filter((item) => item.value); // 过滤掉没有值的项
@@ -35,7 +49,7 @@ export function CharacterInfo({ character }: CharacterInfoProps) {
             background: `linear-gradient(to bottom, ${character.color.primary}, ${character.color.dark})`,
           }}
         />
-        基本信息
+        {t("detail.sections.info")}
       </h2>
 
       <div className="bg-muted rounded-2xl p-8 md:p-10">
@@ -56,7 +70,7 @@ export function CharacterInfo({ character }: CharacterInfoProps) {
         {/* 描述 */}
         <div className="mt-10 pt-8 border-t border-border">
           <div className="text-sm text-muted-foreground font-medium mb-3">
-            简介
+            {t("detail.fields.description")}
           </div>
           <p className="text-base text-foreground/90 leading-relaxed">
             {character.description}
@@ -66,7 +80,7 @@ export function CharacterInfo({ character }: CharacterInfoProps) {
         {/* 关键词标签 */}
         <div className="mt-8">
           <div className="text-sm text-muted-foreground font-medium mb-4">
-            特质关键词
+            {t("detail.fields.keywords")}
           </div>
           <div className="flex flex-wrap gap-3">
             {character.keywords.map((keyword, index) => (

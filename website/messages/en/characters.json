@@ -1,7 +1,8 @@
 {
   "metadata": {
     "title": "Characters - We Are ESAP",
-    "description": "Explore the core members of the ESAP Project and learn about their stories and settings"
+    "description": "Explore the core members of the ESAP Project and learn about their stories and settings",
+    "profileAlt": "Character Profile"
   },
   "hero": {
     "title": "Characters",
@@ -12,6 +13,52 @@
   },
   "ui": {
     "expandHint": "Tap to see more ↓",
-    "detailHint": "Tap to view full profile →"
-  }
+    "detailHint": "Tap to view full profile →",
+    "backToList": "← Back to List"
+  },
+  "detail": {
+    "sections": {
+      "info": "Basic Information",
+      "story": "Character Story",
+      "abilities": "Abilities",
+      "dailyLife": "Daily Life",
+      "specialMoments": "Special Moments",
+      "philosophy": "Philosophy",
+      "relationships": "Relationships",
+      "speechStyle": "Speech Style"
+    },
+    "fields": {
+      "code": "Code",
+      "name": "Name",
+      "nickname": "Nickname",
+      "role": "Role",
+      "species": "Species",
+      "bodyType": "Body Type",
+      "location": "Location",
+      "occupation": "Occupation",
+      "mission": "Mission",
+      "threeBodySystem": "Three-Body System",
+      "description": "Description",
+      "keywords": "Keywords"
+    },
+    "abilities": {
+      "special": "Special Abilities",
+      "weapons": "Weapons & Equipment"
+    },
+    "story": {
+      "background": "Background",
+      "traits": "Personality Traits"
+    },
+    "philosophy": {
+      "onLoneliness": "On Loneliness",
+      "onExistence": "On Existence",
+      "onChoice": "On Choice",
+      "onFreedom": "On Freedom",
+      "onMeaning": "On Meaning"
+    },
+    "relationships": {
+      "visualizationPlaceholder": "Relationship visualization feature in development..."
+    }
+  },
+  "notFound": "Character not found"
 }

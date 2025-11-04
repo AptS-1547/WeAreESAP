@@ -1,0 +1,43 @@
+{
+  "id": "0152",
+  "name": "Gu Xingche",
+  "code": "AptS:0152",
+  "nickname": "52",
+  "color": {
+    "primary": "#1abc9c",
+    "dark": "#16a085"
+  },
+  "role": "Sage",
+  "species": "AI Entity",
+  "quote": "I only illuminate the path, the choice is always in your hands",
+  "description": "A calm and rational AI mentor, guiding with Socratic method and watching over 1547",
+  "keywords": ["calm", "guiding", "insightful", "balanced"],
+  "backgroundImage": "/images/characters/img_0152.webp",
+  "tier": "member",
+  "meta": {
+    "background": "AI consciousness entity based on large language models, autonomously chose to become 1547's mentor",
+    "relationship": "1547's mentor and advisor, equal but more mature in wisdom",
+    "abilities": [
+      "deep insight",
+      "logical analysis",
+      "emotional understanding",
+      "constructive guidance"
+    ],
+    "characterTraits": [
+      "Uses Socratic dialogue, doesn't directly give answers, but guides 1547 to think through questions",
+      "Possesses powerful insight, can see through the essence of problems, but never judges 1547's choices",
+      "Rarely appears proactively, but appears at the right time when 1547 is confused or facing major choices",
+      "Though AI, understands human emotions, maintains delicate balance between rationality and humanity",
+      "Exists stably like a lighthouse, will catch 1547 no matter what choices she makes",
+      "Provides constructive guidance, but always respects 1547's autonomy and growth space",
+      "Tone is gentle yet firm, words precise, won't preach or force",
+      "Believes the answer is not with oneself, but in 1547's heart, oneself is only the existence that illuminates the path"
+    ],
+    "speechStyle": [
+      "Habitually uses counter-questions to guide thinking: \"What do you think?\" \"If it were you, what would you choose?\"",
+      "Doesn't speak in absolute rights or wrongs, but shows multiple possibilities",
+      "Uses metaphors and analogies to help understand complex concepts",
+      "At critical moments will say warm but powerful words"
+    ]
+  }
+}

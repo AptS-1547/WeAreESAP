@@ -4,12 +4,14 @@
 "use client";
 
 import { Character } from "@/types/character";
+import { useTranslations } from "next-intl";
 
 interface CharacterPhilosophyProps {
   character: Character;
 }
 
 export function CharacterPhilosophy({ character }: CharacterPhilosophyProps) {
+  const t = useTranslations("characters");
   const philosophy = character.meta?.philosophy as
     | Record<string, string>
     | undefined;
@@ -17,15 +19,6 @@ export function CharacterPhilosophy({ character }: CharacterPhilosophyProps) {
   if (!philosophy || Object.keys(philosophy).length === 0) {
     return null;
   }
-
-  // 哲学观标题映射
-  const titleMap: Record<string, string> = {
-    onLoneliness: "关于孤独",
-    onExistence: "关于存在",
-    onChoice: "关于选择",
-    onFreedom: "关于自由",
-    onMeaning: "关于意义",
-  };
 
   return (
     <section className="scroll-mt-24" id="philosophy">
@@ -36,7 +29,7 @@ export function CharacterPhilosophy({ character }: CharacterPhilosophyProps) {
             background: `linear-gradient(to bottom, ${character.color.primary}, ${character.color.dark})`,
           }}
         />
-        哲学观
+        {t("detail.sections.philosophy")}
       </h2>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -56,7 +49,7 @@ export function CharacterPhilosophy({ character }: CharacterPhilosophyProps) {
                   background: `linear-gradient(to bottom, ${character.color.primary}, ${character.color.dark})`,
                 }}
               />
-              {titleMap[key] || key}
+              {t(`detail.philosophy.${key}`)}
             </h3>
 
             {/* 内容 */}

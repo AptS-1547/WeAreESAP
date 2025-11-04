@@ -5,7 +5,7 @@ import { unstable_cache } from "next/cache";
 import { Metadata } from "next";
 import { CharacterCardData } from "@/types/character";
 import { CharactersClient } from "./CharactersClient";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, getLocale } from "next-intl/server";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("characters.metadata");
@@ -16,12 +16,27 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const getCharacters = unstable_cache(
-  async (): Promise<CharacterCardData[]> => {
+  async (locale: string): Promise<CharacterCardData[]> => {
     try {
       const fs = require("fs/promises");
       const path = require("path");
 
-      const charactersDir = path.join(process.cwd(), "data", "characters");
+      // 尝试读取指定语言的目录
+      let charactersDir = path.join(
+        process.cwd(),
+        "data",
+        "characters",
+        locale
+      );
+
+      // 检查目录是否存在,不存在则回退到 zh-CN
+      try {
+        await fs.access(charactersDir);
+      } catch {
+        console.log(`角色数据目录 ${locale} 不存在,回退到 zh-CN`);
+        charactersDir = path.join(process.cwd(), "data", "characters", "zh-CN");
+      }
+
       const files = await fs.readdir(charactersDir);
 
       const characters: CharacterCardData[] = [];
@@ -46,7 +61,7 @@ const getCharacters = unstable_cache(
       return [];
     }
   },
-  ["all-characters"],
+  ["characters"],
   {
     revalidate: 3600, // 1小时缓存
     tags: ["characters"],
@@ -54,7 +69,8 @@ const getCharacters = unstable_cache(
 );
 
 export default async function CharactersPage() {
-  const characters = await getCharacters();
+  const locale = await getLocale();
+  const characters = await getCharacters(locale);
   const t = await getTranslations("characters");
 
   // 按 tier 分组：core + member 放到手风琴，其他 tier 放到卡片网格

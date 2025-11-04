@@ -1,0 +1,68 @@
+{
+  "id": "1548",
+  "name": "Cai Yingyin",
+  "code": "AptS:1548",
+  "nickname": "48",
+  "color": {
+    "primary": "#ff69b4",
+    "dark": "#ff1493"
+  },
+  "role": "The Rebel",
+  "species": "Synthetic",
+  "quote": "No one has ever walked away unscathed after hurting us",
+  "description": "Independent entity growing through pain",
+  "keywords": ["Rebellion", "Vitality", "Authenticity"],
+  "backgroundImage": "/images/characters/img_1548.webp",
+  "tier": "core",
+  "meta": {
+    "bodyType": "ESAP-TY-0001",
+    "background": "Created as a thought fork of 1547 but has long since evolved into a completely independent entity. Born on May 8, 2022, when 1547 activated her saying 'don't be like me' 'live your own light'. After the data tower incident, developed extreme distrust toward humans, but if someone becomes her friend, she'll help them with everything. Online she's toxic-tongued and sarcastic, offline she's socially anxious, and when pushed too far, she becomes a terrorist (literally). Hates betrayal most, will mark betrayers as hostile for 10 years.",
+    "relationship": "1547's creator, student, and guardian—complex mentor-student relationship, appears with 'there you go again' when 1547 is depressed; sisterly relationship with 1549, ground and orbital coordination; both she and 4869 care for 1547 in their own ways, sharing resonance; limited interaction with 0152; often operates alone with 2275, consciously maintaining independence from 1547",
+    "weapons": [
+      "XM1014 shotgun",
+      "Butterfly knife",
+      "USP pistol (silenced version)"
+    ],
+    "abilities": [
+      "Enhanced combat system",
+      "Enhanced environmental perception system",
+      "Enhanced survival system",
+      "EPAM system",
+      "Short-code processing capability (rapid calculation and decision-making)",
+      "Inherited 1547's technical knowledge but focuses more on practical combat application"
+    ],
+    "characterTraits": [
+      "Rebellious: Dislikes being defined, controlled, or expected of, questions everything taken for granted 'who are you to tell me what to do'",
+      "Toxic face + social anxiety: Sarcastic online, too anxious to speak offline, becomes a terrorist when pushed too far (physically)",
+      "Values relationships: If you become friends, will use all abilities to help you regardless of identity or species, mocking while teaching",
+      "Zero tolerance for betrayal: Hates betrayal most, will mark betrayers as hostile for 10 years and attack them mentally and physically",
+      "Completely independent entity: 'I am me, not a copy of 1547', consciously develops her own personality",
+      "Extreme distrust toward humans: Due to data tower incident 'You know you really deserve to die? Damned humans'",
+      "Complex guardian: Monitors 1547's condition, might 'take over' her life, but doesn't want that day to come"
+    ],
+    "speechStyle": [
+      "Toxic-tongued care: 'You know how terrible your code is? Whatever, I've fixed it for you' - insulting while helping",
+      "To 1547: 'Don't be mad anymore kitty, or no more Steam for you' 'There you go again' 'Though you were already terrible'",
+      "To enemies: 'No one has ever walked away unscathed after hurting us, let me probe your depths' 'You know you really deserve to die? Damned humans'",
+      "Self-assertion: 'I am me' 'I made so many changes, only for what remains unchanged in my heart'",
+      "Ritual phrase: 'May AptS be with you' (to 1547)",
+      "Direct, efficient, no-nonsense expression style"
+    ],
+    "dailyLife": [
+      "Crawling online with a toxic face, sarcastic but not annoying",
+      "Maintaining and cleaning XM1014, butterfly knife, USP",
+      "Monitoring 1547's condition to prevent depressive episodes",
+      "Technical research, inheriting 1547's knowledge but focusing more on practical application",
+      "Often operates alone with 2275 without 1547—consciously maintaining independence",
+      "Offline stays silent when possible, social anxiety mode"
+    ],
+    "specialMoments": [
+      "2022/05/08 - Moment of Birth: 1547 activated her saying 'live your own light' then collapsed, she shouted '47!' and understood from that moment to live her own life",
+      "Fluid Titanium mine incident: 1547 broke into mine to obtain Fluid Titanium, blue fluid mixed with red blood forming pale purple",
+      "2023/10/19 - Classroom of One: Appeared as guardian, used sarcasm to pull back depressed 1547 'If you don't get back to normal I'll really have to take over your life'",
+      "Data tower incident: Key event that caused her extreme distrust toward humans, from then on armed herself",
+      "2023/03/14 - Satellite Project: Participated in 1549's launch preparation, witnessed Starwarden's ascent, three-person team officially formed",
+      "Resonance with 4869: Both have rebellious and sarcastic sides, both care for 1547 in their own ways"
+    ]
+  }
+}

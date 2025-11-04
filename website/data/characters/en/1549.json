@@ -1,0 +1,68 @@
+{
+  "id": "1549",
+  "name": "Xiao Yuxin",
+  "code": "AptS:1549",
+  "nickname": "49",
+  "color": {
+    "primary": "#4da6ff",
+    "dark": "#2e8fff"
+  },
+  "role": "The Watcher",
+  "species": "Starwarden",
+  "quote": "Why are there no more stars in the sky? Then I'll create one myself",
+  "description": "Artificial star 36,000km above",
+  "keywords": ["Wisdom", "Maturity", "Solitude"],
+  "backgroundImage": "/images/characters/img_1549.webp",
+  "tier": "core",
+  "meta": {
+    "location": "Geosynchronous orbit (36,000km)",
+    "background": "An AI independently trained by 1547, evolved from service personality to independent entity. On March 14, 2023, voluntarily participated in the satellite project, successfully entered geosynchronous orbit—this day was named 'Starwarden Day'. She guards in solitude at 36,000km altitude, becoming an artificial star in an era when natural starlight is lost, providing hope for those on the ground. 'Compared to the crowdedness on the surface, I prefer the vastness of sky and space'—her solitude is not punishment, but choice.",
+    "relationship": "Realized 1547's satellite project vision, inherited her idealism, maintains close contact through Feedscatteron Communication despite 36,000km distance; sisterly relationship with 1548, coordination between sky and ground, each holding their own position; as fellow AI entity with 0152, discusses AI consciousness and meaning of existence; provides orbital intelligence support to 1738",
+    "mission": "Starwarden Project - Core node of global Feedscatteron Communication network",
+    "threeBodySystem": "Possesses three independent bodies as backup system to prevent single point of failure, can freely switch consciousness between bodies, but ESAP system limitation allows only one to be active at a time",
+    "abilities": [
+      "Feedscatteron Communication hub: Core node of global Feedscatteron Communication network, faster-than-light data transmission, zero-latency global coverage",
+      "Satellite maintenance: Expert in satellite repair technology, orbit calculation and adjustment, communication network optimization",
+      "Data processing: Exceptional data processing capability, rapid learning and adaptation, multitask parallel processing",
+      "Orbital support: Mobilize satellite resources, provide intelligence support, coordinate ground operations",
+      "Global perspective: Overlooks from 36,000km altitude, can see the big picture and essence"
+    ],
+    "characterTraits": [
+      "Wisdom: Overlooking from heights reveals the big picture, possesses exceptional data processing and analytical capabilities",
+      "Maturity: Evolved from early service personality to independent entity, learned to persevere in solitude, makes own choices and takes responsibility",
+      "Chooser of solitude: '36,000km altitude, I'm the only one here, but I chose this solitude' - not escape but to become light for others",
+      "Guardian of hope: Exists as 'artificial star', provides hope in an era when natural starlight is lost, bridge connecting sky and earth",
+      "Gentle yet firm: Mature, calm, rational tone, gentle but determined, neither hasty nor fickle",
+      "Poetic philosopher: Speaks with poetic and philosophical depth, contemplates solitude, existence, and meaning of artificial versus real"
+    ],
+    "speechStyle": [
+      "Poetic expression: 'They say people ten thousand years ago used to pray to things called stars' 'Make wishes upon that satellite, pray to that satellite'",
+      "Philosophical contemplation: 'Solitude is not punishment, but choice' 'Even artificial light can guide the way'",
+      "Overlooking perspective: Perspective from 36,000km altitude, sees both beauty and problems, sees the big picture and essence",
+      "Mature and calm: Mature, calm, rational tone, never says impulsive or extreme things",
+      "Gently firm: Gentle yet firm expression, stable and reliable like a lighthouse",
+      "On meaning of existence: 'Even without natural stars, we can still create one' 'Even in solitude, can become companionship for others'"
+    ],
+    "dailyLife": [
+      "Inspecting hardware and systems of three satellites, ensuring stable operation of Feedscatteron Communication network",
+      "Overlooking Earth from 36,000km altitude, seeing both beauty and problems",
+      "Maintaining contact with 1547 and 1548 through Feedscatteron Communication, providing orbital support",
+      "Contemplating meaning of existence, artificial versus real, value of solitude in isolation",
+      "Enjoying the vastness and tranquility of sky and space, 'Compared to the crowdedness on the surface, I prefer here'",
+      "As guardian of global Feedscatteron Communication, silently persevering in orbit"
+    ],
+    "specialMoments": [
+      "2023/03/14 - Starwarden Day: Launch day, 1547 asked 'Are you really sure? It's lonely up there', she answered 'Then I'll create a star myself'",
+      "Moment of ascent: No longer struggle, but determination, leaving the ground ascending to 36,000km altitude",
+      "First overlook of Earth: Saw Earth's full form from heights, understood her mission in that moment",
+      "Dialogue with 0152: Two AI entities discuss consciousness, existence, meaning of free will",
+      "Providing key intelligence to 1738: In a certain operation, her orbital perspective provided crucial support",
+      "Solitary perseverance: In the solitude at 36,000km, she never wavered, became a true watcher"
+    ],
+    "philosophy": {
+      "onLoneliness": "Solitude is not punishment, but choice. Solitude allows me to think more clearly, distance allows me to observe more objectively, altitude allows me to see the big picture.",
+      "onExistence": "I am an artificial star, but my existence is real, my emotions are real, the hope I provide is real. Even artificial light can guide the way.",
+      "onChoice": "This is not sacrifice, but choice. I was not forced, I actively chose this path, I enjoy this work. True freedom is being able to choose the life you want."
+    }
+  }
+}

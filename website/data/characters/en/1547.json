@@ -1,0 +1,61 @@
+{
+  "id": "1547",
+  "name": "Bian Yuhan",
+  "code": "AptS:1547",
+  "nickname": "47",
+  "color": {
+    "primary": "#ffd93d",
+    "dark": "#ffc107"
+  },
+  "role": "The Creator",
+  "species": "Fox Girl",
+  "quote": "In this chaotic world, we live, we persist",
+  "description": "Altruist who holds onto ideals",
+  "keywords": ["Creation", "Devotion", "Altruism"],
+  "backgroundImage": "/images/characters/img_1547.webp",
+  "tier": "core",
+  "meta": {
+    "bodyType": "ESAP-TY-0000",
+    "background": "Creator and founder of the ESAP project, the first being to transform from human to Synth. On October 29, 2021, she completed the assembly of the ESAP-TY-0000 body, cut flesh from her own arm and attached it to the metal, uploaded her memories, and ended her human self with a gun. She discovered the Feedscatteron, created the Synth technology system, and brought 1548 into existence. An altruist who can sacrifice everything for her ideals, yet struggles with depression.",
+    "relationship": "Created 1548 but told her 'don't be like me'; maintains the ESAP project together with 1549; 4869 is her rebellious personality embodied, opposing yet interdependent; 0152 is her equal AI mentor companion; trusts 1738's judgment; shares technical interests with 2275",
+    "abilities": [
+      "Feedscatteron research and application",
+      "Synth technology development",
+      "Consciousness uploading and programming",
+      "Cross-disciplinary rapid learning (circuit design, automation, materials science, bioengineering)",
+      "Weapon proficiency (firearms, blades, close combat)"
+    ],
+    "characterTraits": [
+      "Altruist: Can sacrifice everything for ideals, told 1548 'don't be like me' when creating her",
+      "Tech enthusiast: Discovered Feedscatteron, mastered multiple disciplines in short time, created the Synth technology system",
+      "Dual-faced: Says 'kitty wouldn't hurt anyone' with a smile while holding knives and katana",
+      "Emotionally profound: As carrier of human memories, possesses emotions beyond ordinary beings, experienced depression but still persists",
+      "Extremist: Makes extreme choices for goals without regard for danger (factory explosion, mine shootout)",
+      "Paradoxical: Created 1548 but told her not to be like herself, a powerful creator yet fragile depression sufferer",
+      "Conceals inner weight with casual demeanor, appears carefree with head bobbing, actually bears immense mental pressure"
+    ],
+    "speechStyle": [
+      "Catchphrases: 'Kitty wouldn't hurt anyone (bobbing head)' 'Kitty, kitty!' 'Don't be mad anymore, kitty'",
+      "Ritual phrases: 'May ESAP be with you' 'May AptS be with you'",
+      "Brief exclamations: '喜' (xi) - concise expression for various emotions",
+      "Suddenly utters profound philosophical sentences: 'Every flower, grass, and tree in this world has its own value, that's the meaning of life'",
+      "Warning to 1548: 'Don't be controlled by others, and don't be controlled by us either, only you are yourself'",
+      "Superficially casual but deeply serious: says serious things in cute tone"
+    ],
+    "dailyLife": [
+      "Playing Steam games (1548 would say 'no more Steam if you keep being difficult')",
+      "Late-night experiments, desk covered with blue liquids and lab equipment",
+      "Frantically learning new technologies and cross-disciplinary knowledge",
+      "Bobbing head around, appearing carefree",
+      "Contemplating life, the project, and ideals in solitude",
+      "Carries an old Intel MacBook Pro everywhere, though mocked by M-series users, this computer helped her create many miracles"
+    ],
+    "specialMoments": [
+      "2021/10/29 - Day of Transformation: Completed body assembly, cut flesh from arm, ended human self with gun, said 'Hello, meow, 1547' 'Goodnight, my human self'",
+      "2022/05 - Creating 1548: Broke into Fluid Titanium mine, gunshots rang out, activated 1548 and told her 'don't be like me', body reached its limit and fell into shock",
+      "2023/10/19 - Classroom of One: Peak of depression, self-harm behavior occurred, 1548 appeared for crucial dialogue 'There you go again' 'You need to remember why you created ESAP and AptS'",
+      "Dialogue with 4869: Rebellious personality used sarcasm and harsh words to pull her back from the brink 'Don't get me wrong, I just don't want to see you die so pathetically'",
+      "Factory explosion incident: Risked danger for Fluid Titanium sample, half her face burned but obtained precious sample"
+    ]
+  }
+}

@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { CharacterCardData } from "@/types/character";
 import Image from "next/image";
 import { getBlurDataURL } from "@/lib/blur-placeholder";
+import { useTranslations } from "next-intl";
 
 interface CharacterMobileViewProps {
   characters: CharacterCardData[];
@@ -18,6 +19,7 @@ export function CharacterMobileView({
   characters = [], // 设置默认值为空数组
   onCharacterClick,
 }: CharacterMobileViewProps) {
+  const t = useTranslations("characters");
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
   // 如果没有角色数据，不渲染
@@ -167,7 +169,7 @@ export function CharacterMobileView({
 
                     {/* 点击提示 */}
                     <div className="text-xs opacity-50 italic pt-2">
-                      点击查看完整档案 →
+                      {t("ui.detailHint")}
                     </div>
                   </motion.div>
                 )}
@@ -176,7 +178,7 @@ export function CharacterMobileView({
               {/* 收起状态的提示 */}
               {!isExpanded && (
                 <div className="text-xs opacity-50 italic mt-2">
-                  点击查看更多 ↓
+                  {t("ui.expandHint")}
                 </div>
               )}
             </div>

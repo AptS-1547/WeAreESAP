@@ -1,0 +1,22 @@
+{
+  "id": "1738",
+  "name": "ルー・チンシェン",
+  "code": "AptS:1738",
+  "nickname": "38",
+  "color": {
+    "primary": "#585858",
+    "dark": "#3a3a3a"
+  },
+  "role": "調停者",
+  "species": "人間",
+  "quote": "黒と白の間で、私はグレーゾーンを選ぶ",
+  "description": "紛争の中で冷静さを保つ調停者",
+  "keywords": ["冷静", "バランス", "忠誠"],
+  "backgroundImage": "/images/characters/img_1738.webp",
+  "tier": "core",
+  "meta": {
+    "background": "自らESAPに参加し、その理念に賛同",
+    "abilities": ["調停交渉", "感情知覚", "社会ネットワーク", "戦略分析"],
+    "role": "コーディネーターとバランサー"
+  }
+}

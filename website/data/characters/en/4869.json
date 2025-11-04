@@ -1,0 +1,33 @@
+{
+  "id": "4869",
+  "name": "Bai Mosheng",
+  "code": "AptS:4869",
+  "nickname": "4869",
+  "color": {
+    "primary": "#8b4fb3",
+    "dark": "#5d3477"
+  },
+  "role": "Oppositional Personality",
+  "species": "Consciousness Entity",
+  "quote": "Don't misunderstand, I just don't want to see you die so pathetically",
+  "description": "An oppositional personality who wraps care in malice",
+  "keywords": ["confrontational", "symbiotic", "sharp-tongued"],
+  "backgroundImage": "/images/characters/img_4869.webp",
+  "tier": "core",
+  "meta": {
+    "background": "1547's oppositional personality materialized, possessing independent form",
+    "relationship": "Oppositely unified with 1547, mutually dependent",
+    "abilities": [
+      "reverse thinking",
+      "crisis warning",
+      "venomous attacks",
+      "redemption at critical moments"
+    ],
+    "characterTraits": [
+      "Will oppose everything 1547 does",
+      "Hates 1547's face the most, but can't let go",
+      "Uses the most vicious tone to hurt, making 1547 know what's wrong",
+      "Will pull 1547 up at the worst times"
+    ]
+  }
+}

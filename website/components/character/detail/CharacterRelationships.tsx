@@ -5,6 +5,7 @@
 
 import { Character } from "@/types/character";
 import { Icon } from "@/components/ui";
+import { useTranslations } from "next-intl";
 
 interface CharacterRelationshipsProps {
   character: Character;
@@ -13,6 +14,7 @@ interface CharacterRelationshipsProps {
 export function CharacterRelationships({
   character,
 }: CharacterRelationshipsProps) {
+  const t = useTranslations("characters");
   // 从 meta 读取关系信息
   const relationship = character.meta?.relationship as string | undefined;
 
@@ -29,7 +31,7 @@ export function CharacterRelationships({
             background: `linear-gradient(to bottom, ${character.color.primary}, ${character.color.dark})`,
           }}
         />
-        人际关系
+        {t("detail.sections.relationships")}
       </h2>
 
       <div className="bg-muted rounded-2xl p-8 md:p-10">
@@ -43,7 +45,7 @@ export function CharacterRelationships({
         <div className="mt-8 p-6 rounded-xl bg-background/50 border border-border">
           <div className="text-center text-sm text-muted-foreground flex items-center justify-center gap-2">
             <Icon name="BarChart" size={20} className="text-muted-foreground" />
-            关系图谱可视化功能开发中...
+            {t("detail.relationships.visualizationPlaceholder")}
           </div>
         </div>
       </div>

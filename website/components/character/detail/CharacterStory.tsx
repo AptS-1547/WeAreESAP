@@ -4,12 +4,14 @@
 "use client";
 
 import { Character } from "@/types/character";
+import { useTranslations } from "next-intl";
 
 interface CharacterStoryProps {
   character: Character;
 }
 
 export function CharacterStory({ character }: CharacterStoryProps) {
+  const t = useTranslations("characters");
   // 从 meta 中读取背景故事
   const background = character.meta?.background as string | undefined;
   const characterTraits = character.meta?.characterTraits as
@@ -29,7 +31,7 @@ export function CharacterStory({ character }: CharacterStoryProps) {
             background: `linear-gradient(to bottom, ${character.color.primary}, ${character.color.dark})`,
           }}
         />
-        角色故事
+        {t("detail.sections.story")}
       </h2>
 
       <div className="space-y-8">
@@ -41,7 +43,7 @@ export function CharacterStory({ character }: CharacterStoryProps) {
                 className="w-1.5 h-6 rounded-full"
                 style={{ backgroundColor: character.color.primary }}
               />
-              背景
+              {t("detail.story.background")}
             </h3>
             <div className="prose prose-lg max-w-none dark:prose-invert">
               <p className="text-foreground/90 leading-relaxed whitespace-pre-wrap">
@@ -59,7 +61,7 @@ export function CharacterStory({ character }: CharacterStoryProps) {
                 className="w-1.5 h-6 rounded-full"
                 style={{ backgroundColor: character.color.primary }}
               />
-              性格特征
+              {t("detail.story.traits")}
             </h3>
             <ul className="space-y-4">
               {characterTraits.map((trait, index) => (

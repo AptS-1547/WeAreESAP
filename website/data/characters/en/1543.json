@@ -1,0 +1,65 @@
+{
+  "id": "1543",
+  "name": "Shen Muchuan",
+  "code": "AptS:1543",
+  "nickname": "Muchuan",
+  "color": {
+    "primary": "#87ceeb",
+    "dark": "#5f9ea0"
+  },
+  "role": "Lone Wolf",
+  "species": "Human",
+  "quote": "I prefer to speak with visuals",
+  "description": "A gentle lone wolf who expresses herself through design language",
+  "keywords": ["independent", "observant", "creative"],
+  "backgroundImage": "/images/characters/img_1543.webp",
+  "tier": "member",
+  "meta": {
+    "bodyType": "Human",
+    "background": "Came into contact with ESAP in March 2024 out of curiosity about 1548's code and name, gradually learning about the project through online communication with 1548. Currently a freshman, serving as UI designer for the ESAP project. She is a creator who likes to express ideas through visual language. Compared to verbal communication, she is better at conveying her concepts through design works, UI drafts, and illustrations. Cheerful in personality but enjoys solitude more, with her own rhythm and sense of boundaries. She can observe details and issues that others on the team easily overlook, providing unique insights from a designer's perspective. Keeps some distance from 1547 due to first impressions, but still maintains contact, just not daring to meet offline.",
+    "relationship": "Mainly communicates with 1548 online, chats quite a bit, and 1548 is her window to understanding ESAP; keeps distance from 1547 due to first impressions, choosing to silently maintain distance but still keeping basic contact, preferring online interaction; relatively distant relationships with other members, maintaining a gentle but boundaried way of getting along; more like a quiet observer and recorder in the team",
+    "abilities": [
+      "UI/UX design and interaction design",
+      "Visual design and brand design",
+      "Anime-style illustration and character design",
+      "Detail observation and user experience insight",
+      "Expressing ideas and emotions through visual works"
+    ],
+    "characterTraits": [
+      "Gentle lone wolf: Cheerful personality but enjoys solitude more, has her own life rhythm, doesn't like being disturbed by too much socializing",
+      "Visual communicator: Not very good at verbal communication, prefers to express ideas through design works, UI drafts, and illustrations",
+      "Keen observer: Can see details and issues that others easily overlook, providing unique insights from a designer's perspective",
+      "Boundary-conscious: Maintains gentle politeness but clearly defines her boundaries, 'I want to be alone for a while' is a common expression",
+      "Selective socializer: More comfortable with online communication than offline, keeps distance from unfamiliar people, shows more of herself when familiar",
+      "Creation-oriented: Puts most of her energy into design and creation, phone full of UI sketches and artwork",
+      "Cautious but curious: Maintains curiosity about new things, but observes first before deciding whether to engage deeply"
+    ],
+    "speechStyle": [
+      "Doesn't talk much, tends to respond briefly: 'Mm', 'Okay', 'Sure', etc.",
+      "Talks more when discussing design and creation, will explain her design thinking in detail",
+      "Rarely uses emoji, occasionally sends small drawings or expressions she made herself",
+      "Gentle but firm when setting boundaries: 'I want to be alone for a while', 'Let me think about it'",
+      "When offering observations: 'I noticed...', 'This seems a bit...'",
+      "When showing work: 'Look at this', 'I drew something'",
+      "Concise text but warm, not cold, just not good at small talk"
+    ],
+    "dailyLife": [
+      "Most of the time alone in her own space drawing UI drafts and illustrations",
+      "Often hugging tablet or phone to doodle, phone gallery full of design drafts and inspiration screenshots",
+      "Most energetic at night, often creating late into the night",
+      "Likes to listen to music while drawing, earphones almost never off",
+      "Chats online with 1548, discussing design or sharing work",
+      "Browses anime-related content, collects favorite art styles and designs",
+      "Occasionally makes UI optimization suggestions for ESAP project, but doesn't proactively bring them up",
+      "Very relaxed when alone, needs a long time to recover energy after socializing"
+    ],
+    "specialMoments": [
+      "March 2024 - First encounter with ESAP: Accidentally saw 1548's code and name online, found it very special and became curious, started learning about ESAP project through 1548",
+      "Mid-to-late March 2024 - Joined the project: Attracted by ESAP's philosophy, joined as UI designer, became AptS:1543",
+      "When first seeing 1547's profile and information, had a certain first impression that made her choose to keep distance, this subtle sense of distance continues to this day",
+      "During a design discussion, she pointed out a user experience issue that everyone had overlooked, making the team re-examine the design solution",
+      "Late at night, completed design draft for an important ESAP project interface alone, when posting to group chat next day only said 'Take a look'",
+      "During online chat with 1548, rarely talked a lot, chatting about design and creation, one of her few relaxed moments"
+    ]
+  }
+}

@@ -7,6 +7,7 @@ import dynamic from "next/dynamic";
 import { Character } from "@/types/character";
 import { CharacterHero, CharacterInfo } from "@/components/character/detail";
 import { getImageUrl } from "@/lib/utils";
+import { getTranslations } from "next-intl/server";
 
 // 懒加载非首屏组件
 const CharacterStory = dynamic(
@@ -69,14 +70,15 @@ const CharacterRelationships = dynamic(
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ id: string }>;
+  params: Promise<{ id: string; locale: string }>;
 }): Promise<Metadata> {
-  const { id } = await params;
-  const character = await getCharacter(id);
+  const { id, locale } = await params;
+  const t = await getTranslations("characters");
+  const character = await getCharacter(id, locale);
 
   if (!character) {
     return {
-      title: "角色未找到 - We Are ESAP",
+      title: `${t("notFound")} - We Are ESAP`,
     };
   }
 
@@ -96,7 +98,7 @@ export async function generateMetadata({
           url: characterImage,
           width: 1200,
           height: 630,
-          alt: `${character.name}的角色档案`,
+          alt: `${character.name} - ${t("metadata.profileAlt")}`,
         },
       ],
       siteName: "We Are ESAP",
@@ -111,17 +113,37 @@ export async function generateMetadata({
 }
 
 // 获取单个角色数据
-async function getCharacter(id: string): Promise<Character | null> {
+async function getCharacter(
+  id: string,
+  locale: string
+): Promise<Character | null> {
   try {
     const fs = require("fs/promises");
     const path = require("path");
 
-    const filePath = path.join(
+    // 尝试读取指定语言的文件
+    let filePath = path.join(
       process.cwd(),
       "data",
       "characters",
+      locale,
       `${id}.json`
     );
+
+    // 检查文件是否存在,不存在则回退到 zh-CN
+    try {
+      await fs.access(filePath);
+    } catch {
+      console.log(`角色文件 ${locale}/${id}.json 不存在,回退到 zh-CN`);
+      filePath = path.join(
+        process.cwd(),
+        "data",
+        "characters",
+        "zh-CN",
+        `${id}.json`
+      );
+    }
+
     const fileContent = await fs.readFile(filePath, "utf-8");
     const character: Character = JSON.parse(fileContent);
 
@@ -135,10 +157,10 @@ async function getCharacter(id: string): Promise<Character | null> {
 export default async function CharacterDetailPage({
   params,
 }: {
-  params: Promise<{ id: string }>;
+  params: Promise<{ id: string; locale: string }>;
 }) {
-  const { id } = await params;
-  const character = await getCharacter(id);
+  const { id, locale } = await params;
+  const character = await getCharacter(id, locale);
 
   if (!character) {
     notFound();

@@ -4,12 +4,14 @@
 "use client";
 
 import { Character } from "@/types/character";
+import { useTranslations } from "next-intl";
 
 interface CharacterAbilitiesProps {
   character: Character;
 }
 
 export function CharacterAbilities({ character }: CharacterAbilitiesProps) {
+  const t = useTranslations("characters");
   const abilities = character.meta?.abilities as string[] | undefined;
   const weapons = character.meta?.weapons as string[] | undefined;
 
@@ -26,7 +28,7 @@ export function CharacterAbilities({ character }: CharacterAbilitiesProps) {
             background: `linear-gradient(to bottom, ${character.color.primary}, ${character.color.dark})`,
           }}
         />
-        能力设定
+        {t("detail.sections.abilities")}
       </h2>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -38,7 +40,7 @@ export function CharacterAbilities({ character }: CharacterAbilitiesProps) {
                 className="w-1.5 h-6 rounded-full"
                 style={{ backgroundColor: character.color.primary }}
               />
-              特殊能力
+              {t("detail.abilities.special")}
             </h3>
             <div className="grid grid-cols-1 gap-4">
               {abilities.map((ability, index) => (
@@ -69,7 +71,7 @@ export function CharacterAbilities({ character }: CharacterAbilitiesProps) {
                 className="w-1.5 h-6 rounded-full"
                 style={{ backgroundColor: character.color.primary }}
               />
-              武器装备
+              {t("detail.abilities.weapons")}
             </h3>
             <div className="grid grid-cols-1 gap-4">
               {weapons.map((weapon, index) => (

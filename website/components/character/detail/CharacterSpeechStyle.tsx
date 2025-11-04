@@ -4,12 +4,14 @@
 "use client";
 
 import { Character } from "@/types/character";
+import { useTranslations } from "next-intl";
 
 interface CharacterSpeechStyleProps {
   character: Character;
 }
 
 export function CharacterSpeechStyle({ character }: CharacterSpeechStyleProps) {
+  const t = useTranslations("characters");
   const speechStyle = character.meta?.speechStyle as string[] | undefined;
 
   if (!speechStyle || speechStyle.length === 0) {
@@ -25,7 +27,7 @@ export function CharacterSpeechStyle({ character }: CharacterSpeechStyleProps) {
             background: `linear-gradient(to bottom, ${character.color.primary}, ${character.color.dark})`,
           }}
         />
-        说话风格
+        {t("detail.sections.speechStyle")}
       </h2>
 
       <div className="bg-muted rounded-2xl p-8 md:p-10">

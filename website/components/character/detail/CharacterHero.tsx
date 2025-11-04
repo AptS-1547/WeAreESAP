@@ -8,12 +8,14 @@ import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Character } from "@/types/character";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 interface CharacterHeroProps {
   character: Character;
 }
 
 export function CharacterHero({ character }: CharacterHeroProps) {
+  const t = useTranslations("characters");
   const sectionRef = useRef<HTMLElement>(null);
 
   // 监听滚动进度
@@ -69,7 +71,7 @@ export function CharacterHero({ character }: CharacterHeroProps) {
         href="/characters"
         className="absolute top-8 left-8 z-20 px-4 py-2 rounded-lg bg-black/50 dark:bg-black/70 backdrop-blur-md text-white hover:bg-black/70 dark:hover:bg-black/90 transition-all"
       >
-        ← 返回列表
+        {t("ui.backToList")}
       </Link>
 
       {/* 内容区域 - z-10，添加视差和淡出效果 */}

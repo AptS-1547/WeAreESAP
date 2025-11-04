@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import { CharacterCardData } from "@/types/character";
 import Image from "next/image";
 import { getBlurDataURL } from "@/lib/blur-placeholder";
+import { useTranslations } from "next-intl";
 
 interface CharacterStripProps {
   character: CharacterCardData;
@@ -20,6 +21,8 @@ function CharacterStripComponent({
   isExpanded,
   onClick,
 }: CharacterStripProps) {
+  const t = useTranslations("characters");
+
   return (
     <motion.div
       className="relative h-[600px] overflow-hidden cursor-pointer group"
@@ -116,7 +119,7 @@ function CharacterStripComponent({
 
             {/* 点击提示 */}
             <div className="text-sm opacity-50 italic pt-4">
-              点击查看完整档案 →
+              {t("ui.detailHint")}
             </div>
           </motion.div>
         ) : (

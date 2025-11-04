@@ -1,7 +1,8 @@
 {
   "metadata": {
     "title": "キャラクター - We Are ESAP",
-    "description": "ESAPプロジェクトのコアメンバーを探索し、それぞれのストーリーと設定について学ぶ"
+    "description": "ESAPプロジェクトのコアメンバーを探索し、それぞれのストーリーと設定について学ぶ",
+    "profileAlt": "キャラクタープロフィール"
   },
   "hero": {
     "title": "キャラクター",
@@ -12,6 +13,52 @@
   },
   "ui": {
     "expandHint": "タップして詳細を見る ↓",
-    "detailHint": "タップして完全なプロフィールを見る →"
-  }
+    "detailHint": "タップして完全なプロフィールを見る →",
+    "backToList": "← リストに戻る"
+  },
+  "detail": {
+    "sections": {
+      "info": "基本情報",
+      "story": "キャラクターストーリー",
+      "abilities": "能力設定",
+      "dailyLife": "日常生活",
+      "specialMoments": "特別な瞬間",
+      "philosophy": "哲学観",
+      "relationships": "人間関係",
+      "speechStyle": "話し方"
+    },
+    "fields": {
+      "code": "コード",
+      "name": "名前",
+      "nickname": "別名",
+      "role": "役割",
+      "species": "種族",
+      "bodyType": "ボディタイプ",
+      "location": "所在地",
+      "occupation": "職業",
+      "mission": "任務",
+      "threeBodySystem": "三体システム",
+      "description": "概要",
+      "keywords": "キーワード"
+    },
+    "abilities": {
+      "special": "特殊能力",
+      "weapons": "武器と装備"
+    },
+    "story": {
+      "background": "背景",
+      "traits": "性格特性"
+    },
+    "philosophy": {
+      "onLoneliness": "孤独について",
+      "onExistence": "存在について",
+      "onChoice": "選択について",
+      "onFreedom": "自由について",
+      "onMeaning": "意味について"
+    },
+    "relationships": {
+      "visualizationPlaceholder": "関係図の可視化機能は開発中..."
+    }
+  },
+  "notFound": "キャラクターが見つかりません"
 }

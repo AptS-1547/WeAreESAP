@@ -1,7 +1,8 @@
 {
   "metadata": {
     "title": "角色档案 - We Are ESAP",
-    "description": "探索 ESAP 项目的核心成员，了解每个角色的故事与设定"
+    "description": "探索 ESAP 项目的核心成员,了解每个角色的故事与设定",
+    "profileAlt": "角色档案"
   },
   "hero": {
     "title": "角色档案",
@@ -12,6 +13,52 @@
   },
   "ui": {
     "expandHint": "点击查看更多 ↓",
-    "detailHint": "点击查看完整档案 →"
-  }
+    "detailHint": "点击查看完整档案 →",
+    "backToList": "← 返回列表"
+  },
+  "detail": {
+    "sections": {
+      "info": "基本信息",
+      "story": "角色故事",
+      "abilities": "能力设定",
+      "dailyLife": "日常生活",
+      "specialMoments": "特殊时刻",
+      "philosophy": "哲学观",
+      "relationships": "人际关系",
+      "speechStyle": "说话风格"
+    },
+    "fields": {
+      "code": "代号",
+      "name": "姓名",
+      "nickname": "别称",
+      "role": "定位",
+      "species": "种族",
+      "bodyType": "机体型号",
+      "location": "位置",
+      "occupation": "职业",
+      "mission": "任务",
+      "threeBodySystem": "三体系统",
+      "description": "简介",
+      "keywords": "特质关键词"
+    },
+    "abilities": {
+      "special": "特殊能力",
+      "weapons": "武器装备"
+    },
+    "story": {
+      "background": "背景",
+      "traits": "性格特征"
+    },
+    "philosophy": {
+      "onLoneliness": "关于孤独",
+      "onExistence": "关于存在",
+      "onChoice": "关于选择",
+      "onFreedom": "关于自由",
+      "onMeaning": "关于意义"
+    },
+    "relationships": {
+      "visualizationPlaceholder": "关系图谱可视化功能开发中..."
+    }
+  },
+  "notFound": "角色未找到"
 }

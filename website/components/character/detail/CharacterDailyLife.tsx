@@ -4,12 +4,14 @@
 "use client";
 
 import { Character } from "@/types/character";
+import { useTranslations } from "next-intl";
 
 interface CharacterDailyLifeProps {
   character: Character;
 }
 
 export function CharacterDailyLife({ character }: CharacterDailyLifeProps) {
+  const t = useTranslations("characters");
   const dailyLife = character.meta?.dailyLife as string[] | undefined;
 
   if (!dailyLife || dailyLife.length === 0) {
@@ -25,7 +27,7 @@ export function CharacterDailyLife({ character }: CharacterDailyLifeProps) {
             background: `linear-gradient(to bottom, ${character.color.primary}, ${character.color.dark})`,
           }}
         />
-        日常生活
+        {t("detail.sections.dailyLife")}
       </h2>
 
       <div className="bg-muted rounded-2xl p-8 md:p-10">
