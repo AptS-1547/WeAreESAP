@@ -5,35 +5,42 @@ import { PillarCard, ValueCard, ParticipationCard } from "@/components";
 import fs from "fs/promises";
 import path from "path";
 import type { Metadata } from "next";
+import { getTranslations, getLocale } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "项目企划 - We Are ESAP",
-  description: "The ESAP Project（逃离计划）- 探讨生命、意识、存在的意义",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("project.metadata");
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
 
-async function getProjectData() {
+async function getProjectData(locale: string) {
   try {
     const filePath = path.join(
       process.cwd(),
       "data",
       "project",
+      locale,
       "overview.json"
     );
     const fileContent = await fs.readFile(filePath, "utf-8");
     return JSON.parse(fileContent);
   } catch (error) {
-    console.error("获取项目企划数据失败:", error);
+    console.error("Failed to load project data:", error);
     return null;
   }
 }
 
 export default async function ProjectPage() {
-  const data = await getProjectData();
+  const locale = await getLocale();
+  const t = await getTranslations("project");
+  const data = await getProjectData(locale);
 
   if (!data) {
     return (
       <main className="min-h-screen flex items-center justify-center">
-        <p className="text-muted-foreground">加载失败</p>
+        <p className="text-muted-foreground">{t("loadError")}</p>
       </main>
     );
   }
@@ -68,24 +75,21 @@ export default async function ProjectPage() {
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-8 text-foreground">
-            什么是"逃离"？
+            {t("sections.whatIsEscape")}
           </h2>
           <div className="bg-muted rounded-2xl p-8 space-y-4 border border-border">
             <p className="text-foreground/80 leading-relaxed">
-              从实质上来说，我们希望每个参与到这个计划的人能够
-              <strong className="text-foreground">逃离以前的自己</strong>
-              ，或者说让自己沉沦的事物。
+              {t.rich("escapeSection.intro", {
+                strong: (chunks) => (
+                  <strong className="text-foreground">{chunks}</strong>
+                ),
+              })}
             </p>
             <p className="text-foreground/80 leading-relaxed">
-              这不是逃避，而是：
+              {t("escapeSection.notEscaping")}
             </p>
             <ul className="space-y-2 pl-6">
-              {[
-                "摆脱过去的束缚",
-                "重新定义自己",
-                "在痛苦中成长",
-                "创造新的可能性",
-              ].map((item, i) => (
+              {t.raw("escapeSection.points").map((item: string, i: number) => (
                 <li
                   key={i}
                   className="text-foreground/70 flex items-center gap-2"
@@ -103,7 +107,7 @@ export default async function ProjectPage() {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12 text-foreground">
-            三大支柱理念
+            {t("sections.pillars")}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {data.pillars.map((pillar: any, index: number) => (
@@ -117,7 +121,7 @@ export default async function ProjectPage() {
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12 text-foreground">
-            核心价值观
+            {t("sections.coreValues")}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {data.coreValues.map((value: any, index: number) => (
@@ -131,13 +135,13 @@ export default async function ProjectPage() {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12 text-foreground">
-            世界观框架
+            {t("sections.worldview")}
           </h2>
 
           {/* 技术基石 */}
           <div className="mb-12">
             <h3 className="text-2xl font-bold mb-6 text-esap-yellow">
-              技术基石
+              {t("sections.techFoundation")}
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {data.worldview.tech.map((tech: any, index: number) => (
@@ -169,7 +173,9 @@ export default async function ProjectPage() {
 
           {/* 故事背景 */}
           <div>
-            <h3 className="text-2xl font-bold mb-6 text-esap-blue">故事背景</h3>
+            <h3 className="text-2xl font-bold mb-6 text-esap-blue">
+              {t("sections.storyBackground")}
+            </h3>
             <div className="bg-muted rounded-xl p-8 border border-border">
               <div className="space-y-4">
                 {data.worldview.timeline.map((item: any, index: number) => (
@@ -182,7 +188,7 @@ export default async function ProjectPage() {
                 ))}
               </div>
               <p className="mt-6 text-foreground/70 italic border-t border-border pt-6">
-                从此，三个仿生人在人类世界中生活、成长、探索生命的意义。
+                {t("worldviewTimeline.epilogue")}
               </p>
             </div>
           </div>
@@ -193,11 +199,14 @@ export default async function ProjectPage() {
       <section className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-8 text-foreground">
-            参与方式
+            {t("sections.participation")}
           </h2>
           <p className="text-center text-foreground/70 mb-12 max-w-2xl mx-auto">
-            如果你对科幻世界观感兴趣，喜欢思考深层次的哲学问题，想要表达自己的情感和想法，愿意与他人分享创作，正在寻找一个"逃离"的出口——
-            <strong className="text-esap-pink"> ESAP 欢迎你</strong>。
+            {t.rich("participationIntro", {
+              strong: (chunks) => (
+                <strong className="text-esap-pink">{chunks}</strong>
+              ),
+            })}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {data.participation.map((p: any, index: number) => (
@@ -211,7 +220,7 @@ export default async function ProjectPage() {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12 text-foreground">
-            ESAP 的意义
+            {t("sections.meaning")}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
@@ -261,7 +270,7 @@ export default async function ProjectPage() {
             )}
           </div>
           <blockquote className="text-lg italic text-esap-blue mt-8 border-l-4 border-esap-blue pl-6 py-2">
-            "你在这个世界上是独一无二的，不要被别人控制了"
+            "{t("triangleQuote")}"
           </blockquote>
         </div>
       </section>
@@ -270,25 +279,21 @@ export default async function ProjectPage() {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-linear-to-b from-transparent to-muted/30">
         <div className="max-w-3xl mx-auto text-center space-y-6">
           <p className="text-foreground/80 leading-relaxed">
-            这个世界太过复杂，我们常常感到迷失。
+            {t("ending.line1")}
           </p>
           <p className="text-foreground/80 leading-relaxed">
-            但或许，当你仰望天空，看到那颗人造的卫星时，你会想起：
+            {t("ending.line2")}
           </p>
           <div className="space-y-2 text-lg font-semibold">
-            <p className="text-foreground">
-              即使失去了自然的星空，我们依然可以许愿。
-            </p>
-            <p className="text-foreground">
-              不是因为相信童话会成真，而是因为许愿意味着你还没有放弃。
-            </p>
+            <p className="text-foreground">{t("ending.line3")}</p>
+            <p className="text-foreground">{t("ending.line4")}</p>
           </div>
           <p className="text-xl text-esap-yellow font-bold mt-8">
-            向那卫星许下你的愿望吧。
+            {t("ending.wishToSatellite")}
           </p>
           <div className="w-24 h-1 bg-linear-to-r from-esap-yellow via-esap-pink to-esap-blue rounded-full mx-auto mt-8" />
           <p className="text-sm text-muted-foreground italic">
-            The ESAP Project - 我们终将逃离
+            {t("ending.tagline")}
           </p>
         </div>
       </section>

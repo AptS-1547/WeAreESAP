@@ -1,0 +1,42 @@
+{
+  "metadata": {
+    "title": "Project Overview - We Are ESAP",
+    "description": "The ESAP Project - Exploring the meaning of life, consciousness, and existence. Learn about the three pillars, core values, and worldview framework."
+  },
+  "sections": {
+    "whatIsEscape": "What is \"Escape\"?",
+    "pillars": "Three Pillars",
+    "coreValues": "Core Values",
+    "worldview": "Worldview Framework",
+    "techFoundation": "Technological Foundations",
+    "storyBackground": "Story Background",
+    "participation": "Ways to Participate",
+    "meaning": "The Meaning of ESAP",
+    "triangleSymbol": "ESAP Triangle Symbol"
+  },
+  "escapeSection": {
+    "intro": "Essentially, we hope that everyone who participates in this project can <strong>escape from their former selves</strong>, or from what drags them down.",
+    "notEscaping": "This is not about running away, but about:",
+    "points": [
+      "Breaking free from the past",
+      "Redefining yourself",
+      "Growing through pain",
+      "Creating new possibilities"
+    ]
+  },
+  "participationIntro": "If you're interested in sci-fi worldbuilding, enjoy pondering deep philosophical questions, want to express your emotions and thoughts, are willing to share your creations with others, or are looking for an \"escape\" outlet - <strong>ESAP welcomes you</strong>.",
+  "worldviewTimeline": {
+    "epilogue": "From then on, three androids lived, grew, and explored the meaning of life in the human world."
+  },
+  "triangleQuote": "You are unique in this world, don't let others control you",
+  "ending": {
+    "line1": "This world is too complex, and we often feel lost.",
+    "line2": "But perhaps, when you look up at the sky and see that artificial satellite, you'll remember:",
+    "line3": "Even if we've lost the natural starry sky, we can still make wishes.",
+    "line4": "Not because we believe fairy tales will come true, but because making a wish means you haven't given up yet.",
+    "wishToSatellite": "Make your wish upon that satellite.",
+    "tagline": "The ESAP Project - We Will Eventually Escape"
+  },
+  "loading": "Loading...",
+  "loadError": "Failed to load"
+}

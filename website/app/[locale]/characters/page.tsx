@@ -5,11 +5,15 @@ import { unstable_cache } from "next/cache";
 import { Metadata } from "next";
 import { CharacterCardData } from "@/types/character";
 import { CharactersClient } from "./CharactersClient";
+import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "角色档案 - We Are ESAP",
-  description: "探索 ESAP 项目的核心成员，了解每个角色的故事与设定",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("characters.metadata");
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
 
 const getCharacters = unstable_cache(
   async (): Promise<CharacterCardData[]> => {
@@ -51,6 +55,7 @@ const getCharacters = unstable_cache(
 
 export default async function CharactersPage() {
   const characters = await getCharacters();
+  const t = await getTranslations("characters");
 
   // 按 tier 分组：core + member 放到手风琴，其他 tier 放到卡片网格
   const accordionCharacters =
@@ -64,10 +69,10 @@ export default async function CharactersPage() {
       <section className="py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-4xl sm:text-5xl font-bold mb-4 text-foreground">
-            角色档案
+            {t("hero.title")}
           </h1>
           <p className="text-lg text-muted-foreground">
-            探索 ESAP 项目的核心成员
+            {t("hero.subtitle")}
           </p>
           <div className="w-24 h-1 bg-linear-to-r from-esap-yellow via-esap-pink to-esap-blue rounded-full mx-auto mt-6" />
         </div>

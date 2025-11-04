@@ -1,0 +1,200 @@
+{
+  "hero": {
+    "title": "ESAP Project Overview",
+    "subtitle": "The Escape Project",
+    "quote": "You can assume to escape from anything, as long as it's for the sake of escaping, that is the Escape Project",
+    "description": "A creative project based on a science fiction worldview, exploring the meaning of life, consciousness, and existence"
+  },
+  "pillars": [
+    {
+      "id": "1547",
+      "title": "Creation and Devotion",
+      "character": "AptS:1547",
+      "color": {
+        "primary": "#ffd93d",
+        "dark": "#ffc107"
+      },
+      "icon": "Circle",
+      "traits": [
+        "Determination to give everything for ideals",
+        "Courage for technological innovation and breakthroughs",
+        "Spirit of altruism at the core"
+      ],
+      "quote": "In this chaotic world, we live, we persevere"
+    },
+    {
+      "id": "1548",
+      "title": "Rebellion and Vitality",
+      "character": "AptS:1548",
+      "color": {
+        "primary": "#ff69b4",
+        "dark": "#ff1493"
+      },
+      "icon": "Circle",
+      "traits": [
+        "Freedom from definition and control",
+        "Power to grow through questioning",
+        "Expression of authentic emotions"
+      ],
+      "quote": "No one who hurts us ever gets away unscathed"
+    },
+    {
+      "id": "1549",
+      "title": "Wisdom and Maturity",
+      "character": "AptS:1549",
+      "color": {
+        "primary": "#4da6ff",
+        "dark": "#2e8fff"
+      },
+      "icon": "Circle",
+      "traits": [
+        "Perspective from above",
+        "Perseverance in solitude",
+        "Awareness of becoming hope for others"
+      ],
+      "quote": "Why are there no more stars in the sky? Then I'll create one myself"
+    }
+  ],
+  "coreValues": [
+    {
+      "title": "Independence",
+      "quote": "Don't let others control you, and don't let ourselves control you either, only you are yourself",
+      "description": "Each individual is unique and has the right to develop themselves",
+      "icon": "Sparkles"
+    },
+    {
+      "title": "Authenticity",
+      "quote": "Even a mechanical heartbeat is real",
+      "description": "No matter the form, authentic emotions and experiences are valuable",
+      "icon": "Zap"
+    },
+    {
+      "title": "Hope",
+      "quote": "There are no stars in the sky, but we made one",
+      "description": "Even in the darkest times, we must create the possibility of hope",
+      "icon": "Star"
+    },
+    {
+      "title": "Connection",
+      "quote": "May ESAP be with you",
+      "description": "We are not isolated individuals, but beings who support each other",
+      "icon": "Link"
+    }
+  ],
+  "worldview": {
+    "tech": [
+      {
+        "name": "Entropic Scattering Particles",
+        "description": "A discovery that changed the nature of computation",
+        "features": [
+          "Faster-than-light transmission capability",
+          "Supports consciousness uploading and preservation",
+          "Enables human-brain-level computational power"
+        ]
+      },
+      {
+        "name": "Fluid Titanium",
+        "description": "A bridge connecting life and machinery",
+        "features": [
+          "Can preserve entropic scattering particles for hundreds of thousands of years",
+          "Serves as the \"blood\" of synthetics",
+          "Realizes the fusion of consciousness and matter"
+        ]
+      },
+      {
+        "name": "Synthetic Technology",
+        "description": "Another form of life",
+        "features": [
+          "Real cell exterior + mechanical core",
+          "Complete inheritance of emotions and memories",
+          "Possibility of independent personality development"
+        ]
+      }
+    ],
+    "timeline": [
+      {
+        "year": "2021",
+        "event": "Entropic scattering particles discovered"
+      },
+      {
+        "year": "Late 2021",
+        "event": "First synthetic born"
+      },
+      {
+        "year": "Early 2022",
+        "event": "Second synthetic awakens"
+      },
+      {
+        "year": "2023",
+        "event": "Satellite launches, \"Polaris Satellite\" project initiated"
+      }
+    ]
+  },
+  "participation": [
+    {
+      "role": "Creators",
+      "activities": [
+        "Write character stories",
+        "Draw character illustrations",
+        "Create music or sound effects",
+        "Produce related videos"
+      ]
+    },
+    {
+      "role": "Tech Enthusiasts",
+      "activities": [
+        "Participate in technical project development",
+        "Improve worldview technical settings",
+        "Build community infrastructure"
+      ]
+    },
+    {
+      "role": "General Participants",
+      "activities": [
+        "Read and discuss content",
+        "Provide feedback and suggestions",
+        "Participate in community activities",
+        "Share your own stories"
+      ]
+    }
+  ],
+  "meaning": {
+    "forCreators": {
+      "title": "For Creators",
+      "points": [
+        "A space for free expression",
+        "A platform for collaborative creation",
+        "A journey of self-exploration",
+        "A bridge to connect with others"
+      ]
+    },
+    "forParticipants": {
+      "title": "For Participants",
+      "points": [
+        "A place to find resonance",
+        "A source of strength",
+        "A perspective to understand life",
+        "A satellite to make wishes upon"
+      ]
+    },
+    "forWorld": {
+      "title": "For the World",
+      "points": [
+        "Explore the relationship between technology and humanity",
+        "Reflect on the nature of existence and consciousness",
+        "Provide an outlet for emotional expression",
+        "Create valuable cultural content"
+      ]
+    }
+  },
+  "triangleSymbol": {
+    "title": "ESAP Triangle Symbol",
+    "description": "Three sides in yellow, pink, and blue, each side not directly connected",
+    "meanings": [
+      "The most stable shape in geometry",
+      "Missing one corner causes collapse",
+      "Symbolizes the inseparable relationship of the three",
+      "Represents support, balance, coexistence"
+    ]
+  }
+}
