@@ -22,8 +22,8 @@ const TransitionContext = createContext<TransitionContextType | undefined>(
   undefined
 );
 
-const MIN_TRANSITION_TIME = 200; // 最小过渡时间，防止闪烁
-const MAX_TRANSITION_TIME = 600; // 最大过渡时间，避免等太久
+const MIN_TRANSITION_TIME = 500; // 最小过渡时间，防止闪烁
+const MAX_TRANSITION_TIME = 1000; // 最大过渡时间，避免等太久
 const INITIAL_LOAD_TIME = 400; // 首次加载动画时长
 
 export function TransitionProvider({ children }: { children: ReactNode }) {
@@ -60,21 +60,8 @@ export function TransitionProvider({ children }: { children: ReactNode }) {
     }
   }, [isInitialLoad, transitionStartTime]);
 
-  // 监听路由变化，自动结束过渡（仅在非首次加载时）
-  useEffect(() => {
-    if (!isInitialLoad && isTransitioning && transitionStartTime) {
-      const elapsed = Date.now() - transitionStartTime;
-      const remainingTime = Math.max(0, MIN_TRANSITION_TIME - elapsed);
-
-      // 确保至少显示最小过渡时间
-      const timer = setTimeout(() => {
-        setIsTransitioning(false);
-        setTransitionStartTime(null);
-      }, remainingTime);
-
-      return () => clearTimeout(timer);
-    }
-  }, [pathname, isTransitioning, transitionStartTime, isInitialLoad]);
+  // 注意：不再监听 pathname 自动结束过渡
+  // 改为由 PageTransition 组件在页面渲染完成后主动调用 finishTransition()
 
   // 最大过渡时间保护，避免卡住（仅在非首次加载时）
   useEffect(() => {
@@ -89,6 +76,10 @@ export function TransitionProvider({ children }: { children: ReactNode }) {
   }, [isTransitioning, transitionStartTime, isInitialLoad]);
 
   const startTransition = () => {
+    // 防止快速连续点击：如果已经在过渡中，忽略新的请求
+    if (isTransitioning) {
+      return;
+    }
     setIsTransitioning(true);
     setTransitionStartTime(Date.now());
   };

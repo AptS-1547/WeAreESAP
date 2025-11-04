@@ -6,6 +6,7 @@
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { ReactNode } from "react";
+import { useTransition } from "./TransitionContext";
 
 interface PageTransitionProps {
   children: ReactNode;
@@ -17,6 +18,7 @@ interface PageTransitionProps {
  */
 export function PageTransition({ children }: PageTransitionProps) {
   const pathname = usePathname();
+  const { finishTransition } = useTransition();
 
   return (
     <motion.div
@@ -27,6 +29,10 @@ export function PageTransition({ children }: PageTransitionProps) {
       transition={{
         duration: 0.4,
         ease: "easeInOut",
+      }}
+      onAnimationComplete={() => {
+        // 页面进入动画完成后，结束全局过渡
+        finishTransition();
       }}
       style={{ willChange: "opacity, transform" }}
     >

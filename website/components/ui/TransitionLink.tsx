@@ -22,10 +22,11 @@ export function TransitionLink({
   href,
   children,
   onClick,
+  className,
   ...props
 }: TransitionLinkProps) {
   const router = useRouter();
-  const { startTransition } = useTransition();
+  const { startTransition, isTransitioning } = useTransition();
 
   const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
     // 如果有自定义 onClick，先执行
@@ -60,7 +61,12 @@ export function TransitionLink({
   };
 
   return (
-    <Link href={href} onClick={handleClick} {...props}>
+    <Link
+      href={href}
+      onClick={handleClick}
+      className={`${className || ""} ${isTransitioning ? "pointer-events-none opacity-60" : ""}`}
+      {...props}
+    >
       {children}
     </Link>
   );
