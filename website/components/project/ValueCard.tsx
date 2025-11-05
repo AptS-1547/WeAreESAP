@@ -5,6 +5,7 @@
 
 import { motion } from "framer-motion";
 import { Icon, type IconName } from "@/components/ui";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 interface ValueCardProps {
   value: {
@@ -17,13 +18,23 @@ interface ValueCardProps {
 }
 
 export function ValueCard({ value, index }: ValueCardProps) {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <motion.div
       className="relative group"
-      initial={{ opacity: 0, scale: 0.95 }}
+      initial={
+        shouldReduceMotion
+          ? { opacity: 1, scale: 1 }
+          : { opacity: 0, scale: 0.95 }
+      }
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
-      transition={{ delay: index * 0.1, duration: 0.4 }}
+      transition={
+        shouldReduceMotion
+          ? { duration: 0 }
+          : { delay: index * 0.1, duration: 0.4 }
+      }
     >
       <div className="bg-muted rounded-xl p-6 h-full border border-border hover:border-esap-yellow/50 transition-all duration-300">
         {/* 图标和标题 */}

@@ -25,8 +25,8 @@ export function CharacterAbilities({ character }: CharacterAbilitiesProps) {
   }
 
   return (
-    <section 
-      className="scroll-mt-24" 
+    <section
+      className="scroll-mt-24"
       id="abilities"
       style={
         {
@@ -93,9 +93,7 @@ export function CharacterAbilities({ character }: CharacterAbilitiesProps) {
                   key={index}
                   className="flex items-center gap-4 p-4 rounded-lg bg-background/50 hover:bg-background transition-colors group"
                 >
-                  <div
-                    className="flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center text-2xl bg-background/80 group-hover:scale-110 transition-transform [color:var(--char-color-light)] dark:[color:var(--char-color-dark)]"
-                  >
+                  <div className="flex-shrink-0 w-12 h-12 rounded-lg flex items-center justify-center text-2xl bg-background/80 group-hover:scale-110 transition-transform [color:var(--char-color-light)] dark:[color:var(--char-color-dark)]">
                     ⚔️
                   </div>
                   <div className="flex-1 text-lg font-semibold text-foreground">

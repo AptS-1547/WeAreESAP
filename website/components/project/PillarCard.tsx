@@ -5,6 +5,7 @@
 
 import { motion } from "framer-motion";
 import { Icon, type IconName } from "@/components/ui";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 interface PillarCardProps {
   pillar: {
@@ -23,13 +24,21 @@ interface PillarCardProps {
 }
 
 export function PillarCard({ pillar, index }: PillarCardProps) {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <motion.div
       className="relative group"
-      initial={{ opacity: 0, y: 30 }}
+      initial={
+        shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
+      }
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ delay: index * 0.15, duration: 0.5 }}
+      transition={
+        shouldReduceMotion
+          ? { duration: 0 }
+          : { delay: index * 0.15, duration: 0.5 }
+      }
     >
       {/* 卡片主体 */}
       <div
@@ -77,10 +86,18 @@ export function PillarCard({ pillar, index }: PillarCardProps) {
               <motion.li
                 key={i}
                 className="flex items-start gap-2 text-sm text-foreground/80"
-                initial={{ opacity: 0, x: -10 }}
+                initial={
+                  shouldReduceMotion
+                    ? { opacity: 1, x: 0 }
+                    : { opacity: 0, x: -10 }
+                }
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.15 + i * 0.1 }}
+                transition={
+                  shouldReduceMotion
+                    ? { duration: 0 }
+                    : { delay: index * 0.15 + i * 0.1 }
+                }
               >
                 <span
                   className="w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0"

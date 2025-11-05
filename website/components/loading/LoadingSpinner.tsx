@@ -4,6 +4,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 interface LoadingSpinnerProps {
   /** 大小（像素） */
@@ -23,6 +24,7 @@ export function LoadingSpinner({
   withPulse = true,
   className = "",
 }: LoadingSpinnerProps) {
+  const shouldReduceMotion = useReducedMotion();
   const strokeWidth = 3;
   const gap = 8; // 边之间的间隙
 
@@ -77,12 +79,16 @@ export function LoadingSpinner({
   return (
     <motion.div
       className={className}
-      animate={{ rotate: 360 }}
-      transition={{
-        duration: 3,
-        repeat: Infinity,
-        ease: "linear",
-      }}
+      animate={shouldReduceMotion ? {} : { rotate: 360 }}
+      transition={
+        shouldReduceMotion
+          ? {}
+          : {
+              duration: 3,
+              repeat: Infinity,
+              ease: "linear",
+            }
+      }
     >
       <svg
         width={size}
@@ -98,23 +104,23 @@ export function LoadingSpinner({
             strokeWidth={strokeWidth}
             strokeLinecap="round"
             strokeLinejoin="round"
-            initial={{ opacity: withPulse ? 0.3 : 1 }}
+            initial={{ opacity: shouldReduceMotion || !withPulse ? 1 : 0.3 }}
             animate={
-              withPulse
-                ? {
+              shouldReduceMotion || !withPulse
+                ? undefined
+                : {
                     opacity: [0.3, 1, 0.3],
                   }
-                : undefined
             }
             transition={
-              withPulse
-                ? {
+              shouldReduceMotion || !withPulse
+                ? undefined
+                : {
                     duration: 1.5,
                     repeat: Infinity,
                     delay: i * 0.5, // 依次亮起
                     ease: "easeInOut",
                   }
-                : undefined
             }
           />
         ))}

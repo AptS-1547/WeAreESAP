@@ -5,6 +5,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 interface ScrollToTopProps {
   /** 显示按钮的滚动阈值（默认 400px） */
@@ -13,6 +14,7 @@ interface ScrollToTopProps {
 
 export function ScrollToTop({ threshold = 400 }: ScrollToTopProps) {
   const [isVisible, setIsVisible] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
     let rafId: number | null = null;
@@ -54,10 +56,16 @@ export function ScrollToTop({ threshold = 400 }: ScrollToTopProps) {
     <AnimatePresence>
       {isVisible && (
         <motion.button
-          initial={{ opacity: 0, scale: 0.8, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.8, y: 20 }}
-          transition={{ duration: 0.2 }}
+          initial={
+            shouldReduceMotion ? undefined : { opacity: 0, scale: 0.8, y: 20 }
+          }
+          animate={
+            shouldReduceMotion ? undefined : { opacity: 1, scale: 1, y: 0 }
+          }
+          exit={
+            shouldReduceMotion ? undefined : { opacity: 0, scale: 0.8, y: 20 }
+          }
+          transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.2 }}
           onClick={scrollToTop}
           className="fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full bg-linear-to-br from-esap-yellow via-esap-pink to-esap-blue shadow-lg hover:shadow-xl transition-shadow group"
           aria-label="返回顶部"

@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import { TimelineEvent } from "@/types/timeline";
 import { TimelineContentRenderer } from "./TimelineContent";
 import { Icon, type IconName } from "@/components/ui";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 interface TimelineEventCardProps {
   event: TimelineEvent;
@@ -45,6 +46,7 @@ export function TimelineEventCard({
   index,
   isLeft,
 }: TimelineEventCardProps) {
+  const shouldReduceMotion = useReducedMotion();
   const cardRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -77,9 +79,21 @@ export function TimelineEventCard({
     >
       {/* 事件卡片 */}
       <motion.div
-        initial={{ opacity: 0, x: isLeft ? -50 : 50 }}
-        animate={isVisible ? { opacity: 1, x: 0 } : {}}
-        transition={{ duration: 0.5, delay: 0.1 }}
+        initial={
+          shouldReduceMotion
+            ? { opacity: 1, x: 0 }
+            : { opacity: 0, x: isLeft ? -50 : 50 }
+        }
+        animate={
+          shouldReduceMotion
+            ? { opacity: 1, x: 0 }
+            : isVisible
+              ? { opacity: 1, x: 0 }
+              : {}
+        }
+        transition={
+          shouldReduceMotion ? { duration: 0 } : { duration: 0.5, delay: 0.1 }
+        }
         className={`flex-1 ${isLeft ? "md:text-left" : "md:text-right"}`}
       >
         <div className="bg-muted/50 backdrop-blur-sm rounded-xl p-4 md:p-6 border border-border hover:border-esap-yellow/50 transition-all duration-300 hover:shadow-lg hover:scale-[1.02]">
@@ -142,9 +156,13 @@ export function TimelineEventCard({
 
       {/* 中间时间线节点 */}
       <motion.div
-        initial={{ scale: 0 }}
-        animate={isVisible ? { scale: 1 } : {}}
-        transition={{ duration: 0.3, delay: 0.3 }}
+        initial={shouldReduceMotion ? { scale: 1 } : { scale: 0 }}
+        animate={
+          shouldReduceMotion ? { scale: 1 } : isVisible ? { scale: 1 } : {}
+        }
+        transition={
+          shouldReduceMotion ? { duration: 0 } : { duration: 0.3, delay: 0.3 }
+        }
         className="relative z-10 flex-shrink-0"
       >
         <div

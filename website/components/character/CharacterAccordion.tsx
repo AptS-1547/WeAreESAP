@@ -7,6 +7,7 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { CharacterCardData } from "@/types/character";
 import { CharacterStrip } from "./CharacterStrip";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 interface CharacterAccordionProps {
   characters: CharacterCardData[];
@@ -23,6 +24,7 @@ export function CharacterAccordion({
   characters = [], // 设置默认值为空数组
   onCharacterClick,
 }: CharacterAccordionProps) {
+  const shouldReduceMotion = useReducedMotion();
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [stableHoveredIndex, setStableHoveredIndex] = useState<number | null>(
     null
@@ -309,10 +311,14 @@ export function CharacterAccordion({
             marginLeft: getMarginLeft(index),
             clipPath: getClipPath(index),
           }}
-          transition={{
-            duration: isQuickSwitching ? 0.3 : 0.5,
-            ease: "easeInOut",
-          }}
+          transition={
+            shouldReduceMotion
+              ? { duration: 0 }
+              : {
+                  duration: isQuickSwitching ? 0.3 : 0.5,
+                  ease: "easeInOut",
+                }
+          }
           onMouseEnter={() => handleMouseEnter(index)}
           onMouseLeave={handleMouseLeave}
         >

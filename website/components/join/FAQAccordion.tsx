@@ -5,6 +5,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 interface FAQItemProps {
   faq: {
@@ -16,6 +17,8 @@ interface FAQItemProps {
 }
 
 function FAQItem({ faq, isOpen, onToggle }: FAQItemProps) {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <div className="border border-border rounded-lg overflow-hidden">
       {/* 问题按钮 */}
@@ -28,7 +31,7 @@ function FAQItem({ faq, isOpen, onToggle }: FAQItemProps) {
         </span>
         <motion.span
           animate={{ rotate: isOpen ? 180 : 0 }}
-          transition={{ duration: 0.2 }}
+          transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.2 }}
           className="text-esap-blue flex-shrink-0"
         >
           ▼
@@ -39,10 +42,20 @@ function FAQItem({ faq, isOpen, onToggle }: FAQItemProps) {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ height: 0, opacity: 0 }}
+            initial={
+              shouldReduceMotion
+                ? { height: "auto", opacity: 1 }
+                : { height: 0, opacity: 0 }
+            }
             animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.2 }}
+            exit={
+              shouldReduceMotion
+                ? { height: "auto", opacity: 1 }
+                : { height: 0, opacity: 0 }
+            }
+            transition={
+              shouldReduceMotion ? { duration: 0 } : { duration: 0.2 }
+            }
             className="overflow-hidden"
           >
             <div className="px-6 py-4 bg-muted/30 text-foreground/80 text-sm leading-relaxed border-t border-border">

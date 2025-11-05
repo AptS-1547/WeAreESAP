@@ -5,6 +5,7 @@
 
 import { motion } from "framer-motion";
 import { Icon } from "@/components/ui";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 interface ChecklistItemProps {
   text: string;
@@ -13,15 +14,22 @@ interface ChecklistItemProps {
 }
 
 export function ChecklistItem({ text, type, index }: ChecklistItemProps) {
+  const shouldReduceMotion = useReducedMotion();
   const isPositive = type === "positive";
 
   return (
     <motion.li
       className="flex items-center gap-3"
-      initial={{ opacity: 0, x: -10 }}
+      initial={
+        shouldReduceMotion ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }
+      }
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
-      transition={{ delay: index * 0.05, duration: 0.3 }}
+      transition={
+        shouldReduceMotion
+          ? { duration: 0 }
+          : { delay: index * 0.05, duration: 0.3 }
+      }
     >
       <Icon
         name={isPositive ? "CheckCircle" : "XCircle"}

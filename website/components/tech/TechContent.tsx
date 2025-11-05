@@ -1,6 +1,8 @@
 // Copyright 2025 AptS:1547, AptS:1548
 // SPDX-License-Identifier: Apache-2.0
 
+"use client";
+
 import { motion } from "framer-motion";
 import {
   ContentBlock,
@@ -12,6 +14,7 @@ import {
   ParagraphBlock,
 } from "@/types/tech";
 import { Icon, type IconName } from "@/components/ui";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 // 表格组件
 function TechTable({ data }: { data: TableBlock }) {
@@ -183,11 +186,15 @@ export function TechSectionView({
   title: string;
   content: ContentBlock[];
 }) {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={
+        shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+      }
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3 }}
+      transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.3 }}
       className="mb-12"
     >
       <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">

@@ -186,14 +186,16 @@ export default async function ProjectPage() {
             </h3>
             <div className="bg-muted rounded-xl p-8 border border-border">
               <div className="space-y-4">
-                {data.worldview.timeline.map((item: TimelineItem, index: number) => (
-                  <div key={index} className="flex items-start gap-4">
-                    <span className="text-esap-blue font-mono font-semibold text-sm min-w-[80px]">
-                      {item.year}
-                    </span>
-                    <span className="text-foreground/70">{item.event}</span>
-                  </div>
-                ))}
+                {data.worldview.timeline.map(
+                  (item: TimelineItem, index: number) => (
+                    <div key={index} className="flex items-start gap-4">
+                      <span className="text-esap-blue font-mono font-semibold text-sm min-w-[80px]">
+                        {item.year}
+                      </span>
+                      <span className="text-foreground/70">{item.event}</span>
+                    </div>
+                  )
+                )}
               </div>
               <p className="mt-6 text-foreground/70 italic border-t border-border pt-6">
                 {t("worldviewTimeline.epilogue")}

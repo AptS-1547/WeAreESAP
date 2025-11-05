@@ -10,6 +10,7 @@ import Image from "next/image";
 import { getBlurDataURL } from "@/lib/blur-placeholder";
 import { useTranslations } from "next-intl";
 import { getContrastTextColor, getContrastTextColorDark } from "@/lib/utils";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 interface CharacterStripProps {
   character: CharacterCardData;
@@ -23,6 +24,7 @@ function CharacterStripComponent({
   onClick,
 }: CharacterStripProps) {
   const t = useTranslations("characters");
+  const shouldReduceMotion = useReducedMotion();
 
   // 预计算颜色值
   const lightModeColor = getContrastTextColor(character.color.primary);
@@ -71,9 +73,13 @@ function CharacterStripComponent({
         {isExpanded ? (
           // 扩展模式：显示完整信息
           <motion.div
-            initial={{ opacity: 0 }}
+            initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.05, duration: 0.45 }}
+            transition={
+              shouldReduceMotion
+                ? { duration: 0 }
+                : { delay: 0.05, duration: 0.45 }
+            }
             className="w-full max-w-md space-y-6 p-8"
             style={{
               textShadow: "0 2px 12px rgba(0,0,0,0.8)",
@@ -88,9 +94,7 @@ function CharacterStripComponent({
             />
 
             {/* 角色代号 */}
-            <div
-              className="text-2xl font-mono font-bold [color:var(--char-color-light)] dark:[color:var(--char-color-dark)]"
-            >
+            <div className="text-2xl font-mono font-bold [color:var(--char-color-light)] dark:[color:var(--char-color-dark)]">
               {character.code}
             </div>
 
@@ -134,8 +138,9 @@ function CharacterStripComponent({
         ) : (
           // 竖条模式：竖排显示代号
           <motion.div
-            initial={{ opacity: 0 }}
+            initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0 }}
             animate={{ opacity: 1 }}
+            transition={shouldReduceMotion ? { duration: 0 } : undefined}
             className="flex flex-col items-center justify-center"
           >
             {/* 竖排文字 */}
@@ -157,8 +162,9 @@ function CharacterStripComponent({
       {/* 悬停时的边框发光 */}
       {isExpanded && (
         <motion.div
-          initial={{ opacity: 0 }}
+          initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0 }}
           animate={{ opacity: 1 }}
+          transition={shouldReduceMotion ? { duration: 0 } : undefined}
           className="absolute inset-0 pointer-events-none"
           style={{
             boxShadow: `inset 0 0 60px ${character.color.primary}40`,

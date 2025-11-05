@@ -7,20 +7,27 @@ import { motion, AnimatePresence } from "framer-motion";
 import { TechModule } from "@/types/tech";
 import { TechSectionView } from "./TechContent";
 import { Icon } from "@/components/ui";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 interface TechModuleViewProps {
   module: TechModule;
 }
 
 export function TechModuleView({ module }: TechModuleViewProps) {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <AnimatePresence mode="wait">
       <motion.div
         key={module.id}
-        initial={{ opacity: 0, x: 20 }}
+        initial={
+          shouldReduceMotion ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }
+        }
         animate={{ opacity: 1, x: 0 }}
-        exit={{ opacity: 0, x: -20 }}
-        transition={{ duration: 0.3 }}
+        exit={
+          shouldReduceMotion ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }
+        }
+        transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.3 }}
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12"
       >
         {/* 模块头部 */}

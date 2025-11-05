@@ -10,6 +10,7 @@ import { Character } from "@/types/character";
 import { Link } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 import { getContrastTextColor, getContrastTextColorDark } from "@/lib/utils";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 interface CharacterHeroProps {
   character: Character;
@@ -18,6 +19,7 @@ interface CharacterHeroProps {
 export function CharacterHero({ character }: CharacterHeroProps) {
   const t = useTranslations("characters");
   const sectionRef = useRef<HTMLElement>(null);
+  const shouldReduceMotion = useReducedMotion();
 
   // 预计算颜色值
   const lightModeColor = getContrastTextColor(character.color.primary);
@@ -30,17 +32,31 @@ export function CharacterHero({ character }: CharacterHeroProps) {
   });
 
   // 背景图视差效果（慢速向下移动，0.5倍速度）
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const backgroundYTransform = useTransform(
+    scrollYProgress,
+    [0, 1],
+    ["0%", "50%"]
+  );
+  // 如果启用了减少动画，禁用视差效果
+  const backgroundY = shouldReduceMotion ? "0%" : backgroundYTransform;
 
   // 内容区域视差效果（稍快向上移动，1.2倍速度）
-  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-20%"]);
+  const contentYTransform = useTransform(
+    scrollYProgress,
+    [0, 1],
+    ["0%", "-20%"]
+  );
+  // 如果启用了减少动画，禁用视差效果
+  const contentY = shouldReduceMotion ? "0%" : contentYTransform;
 
   // 内容淡出效果
-  const contentOpacity = useTransform(
+  const contentOpacityTransform = useTransform(
     scrollYProgress,
     [0, 0.5, 1],
     [1, 0.8, 0]
   );
+  // 如果启用了减少动画，保持完全不透明
+  const contentOpacity = shouldReduceMotion ? 1 : contentOpacityTransform;
 
   return (
     <section

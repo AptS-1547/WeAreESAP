@@ -4,6 +4,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 interface ParticipationCardProps {
   participation: {
@@ -17,13 +18,19 @@ export function ParticipationCard({
   participation,
   index,
 }: ParticipationCardProps) {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <motion.div
       className="bg-muted rounded-xl p-6 border border-border hover:border-esap-blue/50 transition-all duration-300"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={
+        shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+      }
+      whileInView={
+        shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }
+      }
       viewport={{ once: true }}
-      transition={{ delay: index * 0.1 }}
+      transition={shouldReduceMotion ? { duration: 0 } : { delay: index * 0.1 }}
     >
       {/* 角色标题 */}
       <h3 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">

@@ -5,6 +5,7 @@
 
 import { motion } from "framer-motion";
 import { Icon, type IconName } from "@/components/ui";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 interface RoleTypeCardProps {
   role: {
@@ -16,13 +17,23 @@ interface RoleTypeCardProps {
 }
 
 export function RoleTypeCard({ role, index }: RoleTypeCardProps) {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <motion.div
       className="group"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={
+        shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+      }
+      whileInView={
+        shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }
+      }
       viewport={{ once: true }}
-      transition={{ delay: index * 0.1, duration: 0.4 }}
+      transition={
+        shouldReduceMotion
+          ? { duration: 0 }
+          : { delay: index * 0.1, duration: 0.4 }
+      }
     >
       <div className="bg-muted rounded-xl p-6 h-full border border-border hover:border-esap-yellow/50 transition-all duration-300">
         {/* 图标和标题 */}

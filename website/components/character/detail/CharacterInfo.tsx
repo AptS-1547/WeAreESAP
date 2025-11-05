@@ -13,11 +13,11 @@ interface CharacterInfoProps {
 
 export function CharacterInfo({ character }: CharacterInfoProps) {
   const t = useTranslations("characters");
-  
+
   // 预计算颜色值
   const lightModeColor = getContrastTextColor(character.color.primary);
   const darkModeColor = getContrastTextColorDark(character.color.primary);
-  
+
   const infoItems = [
     { label: t("detail.fields.code"), value: character.code },
     { label: t("detail.fields.name"), value: character.name },
@@ -47,8 +47,8 @@ export function CharacterInfo({ character }: CharacterInfoProps) {
   ].filter((item) => item.value); // 过滤掉没有值的项
 
   return (
-    <section 
-      className="scroll-mt-24" 
+    <section
+      className="scroll-mt-24"
       id="info"
       style={
         {

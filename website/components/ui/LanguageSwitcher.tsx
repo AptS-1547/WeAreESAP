@@ -9,6 +9,7 @@ import { locales } from "@/i18n/request";
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Icon } from "@/components/ui";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 const localeNames: Record<string, string> = {
   "zh-CN": "简中",
@@ -22,6 +23,7 @@ export function LanguageSwitcher() {
   const locale = useLocale();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const shouldReduceMotion = useReducedMotion();
 
   // 点击外部关闭下拉菜单
   useEffect(() => {
@@ -61,10 +63,16 @@ export function LanguageSwitcher() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
+            initial={
+              shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: -10 }
+            }
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.15 }}
+            exit={
+              shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: -10 }
+            }
+            transition={
+              shouldReduceMotion ? { duration: 0 } : { duration: 0.15 }
+            }
             className="absolute right-0 top-12 w-32 bg-background border border-border rounded-lg shadow-lg overflow-hidden z-50"
           >
             {locales.map((loc) => (

@@ -24,8 +24,8 @@ export function CharacterSpeechStyle({ character }: CharacterSpeechStyleProps) {
   }
 
   return (
-    <section 
-      className="scroll-mt-24" 
+    <section
+      className="scroll-mt-24"
       id="speech-style"
       style={
         {

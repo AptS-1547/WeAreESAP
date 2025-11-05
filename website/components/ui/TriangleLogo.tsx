@@ -4,6 +4,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 interface TriangleLogoProps {
   size?: number;
@@ -16,6 +17,7 @@ export function TriangleLogo({
   animated = true,
   className = "",
 }: TriangleLogoProps) {
+  const shouldReduceMotion = useReducedMotion();
   const strokeWidth = 3;
   const gap = 8; // 边之间的间隙
 
@@ -86,13 +88,13 @@ export function TriangleLogo({
           strokeLinecap="round"
           strokeLinejoin="round"
           initial={
-            animated
+            animated && !shouldReduceMotion
               ? { pathLength: 0, opacity: 0 }
               : { pathLength: 1, opacity: 1 }
           }
           animate={{ pathLength: 1, opacity: 1 }}
           transition={
-            animated
+            animated && !shouldReduceMotion
               ? {
                   pathLength: {
                     delay: i * 0.2,

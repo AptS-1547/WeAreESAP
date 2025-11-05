@@ -10,6 +10,7 @@ import Image from "next/image";
 import { getBlurDataURL } from "@/lib/blur-placeholder";
 import { useTranslations } from "next-intl";
 import { getContrastTextColor, getContrastTextColorDark } from "@/lib/utils";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 interface CharacterMobileViewProps {
   characters: CharacterCardData[];
@@ -21,6 +22,7 @@ export function CharacterMobileView({
   onCharacterClick,
 }: CharacterMobileViewProps) {
   const t = useTranslations("characters");
+  const shouldReduceMotion = useReducedMotion();
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
   // 如果没有角色数据，不渲染
@@ -49,7 +51,7 @@ export function CharacterMobileView({
     <div className="w-full space-y-4 px-4">
       {characters.map((character, index) => {
         const isExpanded = expandedIndex === index;
-        
+
         // 预计算颜色值
         const lightModeColor = getContrastTextColor(character.color.primary);
         const darkModeColor = getContrastTextColorDark(character.color.primary);
@@ -63,7 +65,11 @@ export function CharacterMobileView({
             animate={{
               height: isExpanded ? "auto" : "140px",
             }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
+            transition={
+              shouldReduceMotion
+                ? { duration: 0 }
+                : { duration: 0.3, ease: "easeInOut" }
+            }
             style={
               {
                 "--char-color-light": lightModeColor,
@@ -113,9 +119,7 @@ export function CharacterMobileView({
               {/* 基础信息（始终显示） */}
               <div className="space-y-2">
                 {/* 角色代号 */}
-                <div
-                  className="text-lg font-mono font-bold [color:var(--char-color-light)] dark:[color:var(--char-color-dark)]"
-                >
+                <div className="text-lg font-mono font-bold [color:var(--char-color-light)] dark:[color:var(--char-color-dark)]">
                   {character.code}
                 </div>
 
@@ -137,10 +141,20 @@ export function CharacterMobileView({
               <AnimatePresence>
                 {isExpanded && (
                   <motion.div
-                    initial={{ opacity: 0, height: 0 }}
+                    initial={
+                      shouldReduceMotion
+                        ? { opacity: 1, height: "auto" }
+                        : { opacity: 0, height: 0 }
+                    }
                     animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.3 }}
+                    exit={
+                      shouldReduceMotion
+                        ? { opacity: 1, height: "auto" }
+                        : { opacity: 0, height: 0 }
+                    }
+                    transition={
+                      shouldReduceMotion ? { duration: 0 } : { duration: 0.3 }
+                    }
                     className="mt-4 space-y-4"
                   >
                     {/* 装饰线 */}

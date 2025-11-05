@@ -4,6 +4,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 interface StepCardProps {
   step: {
@@ -15,6 +16,8 @@ interface StepCardProps {
 }
 
 export function StepCard({ step, index }: StepCardProps) {
+  const shouldReduceMotion = useReducedMotion();
+
   // 根据步骤数字选择颜色
   const colors = ["#ffd93d", "#ff69b4", "#4da6ff"]; // 黄、粉、蓝
   const color = colors[step.number - 1] || colors[0];
@@ -22,10 +25,18 @@ export function StepCard({ step, index }: StepCardProps) {
   return (
     <motion.div
       className="relative"
-      initial={{ opacity: 0, scale: 0.95 }}
+      initial={
+        shouldReduceMotion
+          ? { opacity: 1, scale: 1 }
+          : { opacity: 0, scale: 0.95 }
+      }
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
-      transition={{ delay: index * 0.15, duration: 0.4 }}
+      transition={
+        shouldReduceMotion
+          ? { duration: 0 }
+          : { delay: index * 0.15, duration: 0.4 }
+      }
     >
       <div className="bg-muted rounded-xl p-6 border border-border hover:border-opacity-50 transition-all duration-300 h-full">
         {/* 大数字标记 */}

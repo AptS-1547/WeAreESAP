@@ -9,6 +9,7 @@ import Image from "next/image";
 import { CharacterCardData } from "@/types/character";
 import { getBlurDataURL } from "@/lib/blur-placeholder";
 import { getContrastTextColor, getContrastTextColorDark } from "@/lib/utils";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 interface CharacterCardProps {
   character: CharacterCardData;
@@ -21,6 +22,8 @@ function CharacterCardComponent({
   onClick,
   priority = false,
 }: CharacterCardProps) {
+  const shouldReduceMotion = useReducedMotion();
+
   // 预计算颜色值
   const lightModeColor = getContrastTextColor(character.color.primary);
   const darkModeColor = getContrastTextColorDark(character.color.primary);
@@ -28,9 +31,11 @@ function CharacterCardComponent({
   return (
     <motion.div
       className="relative group cursor-pointer"
-      initial={{ opacity: 0, y: 20 }}
+      initial={
+        shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+      }
       animate={{ opacity: 1, y: 0 }}
-      whileHover={{ y: -8 }}
+      whileHover={shouldReduceMotion ? undefined : { y: -8 }}
       transition={{ duration: 0.3 }}
       onClick={onClick}
       style={

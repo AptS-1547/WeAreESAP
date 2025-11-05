@@ -6,6 +6,7 @@
 import { motion } from "framer-motion";
 import { TechModule } from "@/types/tech";
 import { Icon } from "@/components/ui";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 interface TechTabsProps {
   modules: TechModule[];
@@ -14,6 +15,7 @@ interface TechTabsProps {
 }
 
 export function TechTabs({ modules, activeId, onTabChange }: TechTabsProps) {
+  const shouldReduceMotion = useReducedMotion();
   const activeIndex = modules.findIndex((m) => m.id === activeId);
 
   return (
@@ -50,11 +52,15 @@ export function TechTabs({ modules, activeId, onTabChange }: TechTabsProps) {
                   <motion.div
                     layoutId="activeTab"
                     className="absolute bottom-0 left-0 right-0 h-0.5 bg-linear-to-r from-esap-yellow via-esap-pink to-esap-blue"
-                    transition={{
-                      type: "spring",
-                      stiffness: 500,
-                      damping: 30,
-                    }}
+                    transition={
+                      shouldReduceMotion
+                        ? { duration: 0.01 }
+                        : {
+                            type: "spring",
+                            stiffness: 500,
+                            damping: 30,
+                          }
+                    }
                   />
                 )}
               </button>

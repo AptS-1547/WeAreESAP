@@ -5,6 +5,7 @@
 
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 interface TimelineLineProps {
   totalEvents: number;
@@ -12,6 +13,7 @@ interface TimelineLineProps {
 
 export function TimelineLine({ totalEvents }: TimelineLineProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const shouldReduceMotion = useReducedMotion();
 
   // 监听滚动进度
   const { scrollYProgress } = useScroll({
@@ -27,7 +29,10 @@ export function TimelineLine({ totalEvents }: TimelineLineProps) {
   });
 
   // 将滚动进度映射到 path 绘制进度（0 到 1）
-  const pathLength = useTransform(smoothProgress, [0, 1], [0, 1]);
+  const transformedProgress = useTransform(smoothProgress, [0, 1], [0, 1]);
+
+  // 如果启用了减少动画，直接显示完整状态
+  const pathLength = shouldReduceMotion ? 1 : transformedProgress;
 
   return (
     <div

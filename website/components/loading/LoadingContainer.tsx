@@ -6,6 +6,7 @@
 import { ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { LoadingSpinner } from "./LoadingSpinner";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 interface LoadingContainerProps {
   /** 是否正在加载 */
@@ -47,24 +48,32 @@ export function LoadingContainer({
   minHeight = "400px",
   className = "",
 }: LoadingContainerProps) {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
     <div className={`relative ${className}`} style={{ minHeight }}>
       <AnimatePresence mode="wait">
         {isLoading ? (
           <motion.div
             key="loading"
-            initial={{ opacity: 0, y: 20 }}
+            initial={
+              shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }
+            }
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
+            exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: -20 }}
+            transition={
+              shouldReduceMotion ? { duration: 0 } : { duration: 0.3 }
+            }
             className="absolute inset-0 flex flex-col items-center justify-center gap-6"
           >
             <LoadingSpinner size={size} withPulse={true} />
             {text && (
               <motion.p
-                initial={{ opacity: 0 }}
+                initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 0.1 }}
+                transition={
+                  shouldReduceMotion ? { duration: 0 } : { delay: 0.1 }
+                }
                 className="text-lg font-medium text-muted-foreground"
               >
                 {text}
@@ -74,10 +83,16 @@ export function LoadingContainer({
         ) : (
           <motion.div
             key="content"
-            initial={{ opacity: 0, y: 20 }}
+            initial={
+              shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }
+            }
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3, delay: 0.1 }}
+            exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: -20 }}
+            transition={
+              shouldReduceMotion
+                ? { duration: 0 }
+                : { duration: 0.3, delay: 0.1 }
+            }
           >
             {children}
           </motion.div>

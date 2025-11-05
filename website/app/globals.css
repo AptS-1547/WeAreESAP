@@ -98,3 +98,26 @@ button,
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
 }
+
+/* 减少动画支持 - 尊重用户的无障碍偏好设置 */
+@media (prefers-reduced-motion: reduce) {
+  /* 禁用平滑滚动 */
+  html {
+    scroll-behavior: auto;
+  }
+
+  /* 将所有动画和过渡设置为极短时间（几乎无延迟） */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* 保留必要的不透明度过渡（用于内容加载） */
+  body {
+    transition: none;
+  }
+}

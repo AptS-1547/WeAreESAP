@@ -6,8 +6,10 @@
 import { motion } from "framer-motion";
 import { Icon, type IconName } from "@/components/ui";
 import { useTranslations } from "next-intl";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 export function ContactPlaceholder() {
+  const shouldReduceMotion = useReducedMotion();
   const t = useTranslations("join");
 
   // Icon 映射（技术细节，不需要翻译）
@@ -35,10 +37,14 @@ export function ContactPlaceholder() {
         <motion.div
           key={platform.name}
           className="bg-muted rounded-lg p-4 border border-border"
-          initial={{ opacity: 0, y: 10 }}
+          initial={
+            shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }
+          }
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: index * 0.05 }}
+          transition={
+            shouldReduceMotion ? { duration: 0 } : { delay: index * 0.05 }
+          }
         >
           <div className="flex items-center gap-3">
             <Icon

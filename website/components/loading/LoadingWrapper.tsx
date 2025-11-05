@@ -6,6 +6,7 @@
 import { ReactNode, useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { LoadingSpinner } from "./LoadingSpinner";
+import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 interface LoadingWrapperProps {
   /** 是否正在加载 */
@@ -67,6 +68,7 @@ export function LoadingWrapper({
 }: LoadingWrapperProps) {
   const [showLoading, setShowLoading] = useState(isLoading);
   const [loadingStartTime, setLoadingStartTime] = useState<number | null>(null);
+  const shouldReduceMotion = useReducedMotion();
 
   const { duration = 0.3, stagger = 0.1 } = transition;
 
@@ -118,30 +120,46 @@ export function LoadingWrapper({
         {error ? (
           <motion.div
             key="error"
-            initial={{ opacity: 0, y: 20 }}
+            initial={
+              shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+            }
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration }}
+            exit={
+              shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }
+            }
+            transition={shouldReduceMotion ? { duration: 0 } : { duration }}
           >
             {errorComponent || defaultErrorComponent}
           </motion.div>
         ) : showLoading ? (
           <motion.div
             key="loading"
-            initial={{ opacity: 0, y: 20 }}
+            initial={
+              shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+            }
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration }}
+            exit={
+              shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }
+            }
+            transition={shouldReduceMotion ? { duration: 0 } : { duration }}
           >
             {loadingComponent || defaultLoadingComponent}
           </motion.div>
         ) : (
           <motion.div
             key="content"
-            initial={{ opacity: 0, y: 20 }}
+            initial={
+              shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+            }
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration, delay: stagger }}
+            exit={
+              shouldReduceMotion ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }
+            }
+            transition={
+              shouldReduceMotion
+                ? { duration: 0 }
+                : { duration, delay: stagger }
+            }
           >
             {children}
           </motion.div>

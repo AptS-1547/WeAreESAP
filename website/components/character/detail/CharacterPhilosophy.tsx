@@ -26,8 +26,8 @@ export function CharacterPhilosophy({ character }: CharacterPhilosophyProps) {
   }
 
   return (
-    <section 
-      className="scroll-mt-24" 
+    <section
+      className="scroll-mt-24"
       id="philosophy"
       style={
         {
@@ -53,9 +53,7 @@ export function CharacterPhilosophy({ character }: CharacterPhilosophyProps) {
             className="bg-muted rounded-2xl p-8 hover:scale-[1.02] transition-transform"
           >
             {/* 标题 */}
-            <h3
-              className="text-xl font-bold mb-6 flex items-center gap-3 [color:var(--char-color-light)] dark:[color:var(--char-color-dark)]"
-            >
+            <h3 className="text-xl font-bold mb-6 flex items-center gap-3 [color:var(--char-color-light)] dark:[color:var(--char-color-dark)]">
               <span
                 className="w-1.5 h-6 rounded-full"
                 style={{
