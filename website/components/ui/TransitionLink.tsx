@@ -4,7 +4,7 @@
 "use client";
 
 import { Link } from "@/i18n/navigation";
-import { useRouter } from "@/i18n/navigation";
+import { useRouter, usePathname } from "@/i18n/navigation";
 import { MouseEvent, ReactNode, AnchorHTMLAttributes } from "react";
 import { useTransition } from "./TransitionContext";
 
@@ -26,7 +26,9 @@ export function TransitionLink({
   ...props
 }: TransitionLinkProps) {
   const router = useRouter();
-  const { startTransition, isTransitioning } = useTransition();
+  const pathname = usePathname();
+  const { startTransition, isTransitioning, finishTransition } =
+    useTransition();
 
   const handleClick = (e: MouseEvent<HTMLAnchorElement>) => {
     // 如果有自定义 onClick，先执行
@@ -48,22 +50,29 @@ export function TransitionLink({
     e.preventDefault();
 
     // 如果是当前页面，不执行跳转
-    if (window.location.pathname === href) {
+    if (pathname === href) {
       return;
     }
 
     // 开始过渡（会自动监听路由变化并结束）
     startTransition();
 
-    // 立即执行路由跳转
-    // pathname 变化时，TransitionContext 会自动结束过渡
-    router.push(href);
+    // 立即执行路由跳转，添加错误处理
+    try {
+      router.push(href);
+    } catch (error) {
+      // 路由跳转失败时，结束过渡动画
+      console.error("Navigation error:", error);
+      finishTransition();
+      // 这里可以添加错误提示逻辑，比如使用 toast
+    }
   };
 
   return (
     <Link
       href={href}
       onClick={handleClick}
+      prefetch={true}
       className={`${className || ""} ${isTransitioning ? "pointer-events-none opacity-60" : ""}`}
       {...props}
     >

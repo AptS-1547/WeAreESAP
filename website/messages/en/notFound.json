@@ -4,5 +4,10 @@
   "message": "Meow~ Nothing here nya",
   "description": "Oops... the page seems to have been taken by fluid titanium meow",
   "backHome": "Take me home nya~",
-  "browseCharacters": "Let's see characters!"
+  "browseCharacters": "Let's see characters!",
+  "lookingFor": "What are you looking for, nya?",
+  "viewProjects": "View Projects",
+  "exploreTimeline": "Explore Timeline",
+  "joinUs": "Join Us",
+  "easterEgg": "Maybe... this is a fated encounter? ☆"
 }

@@ -32,7 +32,12 @@ export function Navigation() {
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
   // 判断链接是否激活
-  const isActive = (href: string) => pathname.includes(href);
+  const isActive = (href: string) => {
+    if (href === "/") {
+      return pathname === "/";
+    }
+    return pathname === href || pathname.startsWith(href + "/");
+  };
 
   return (
     <>

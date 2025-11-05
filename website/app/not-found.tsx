@@ -66,7 +66,7 @@ export default async function GlobalNotFound() {
         </div>
 
         {/* 404 大号文字 */}
-        <h1 className="text-8xl md:text-9xl font-bold mb-6 bg-gradient-to-r from-esap-yellow via-esap-pink to-esap-blue bg-clip-text text-transparent">
+        <h1 className="text-8xl md:text-9xl font-bold mb-6 bg-linear-to-r from-esap-yellow via-esap-pink to-esap-blue bg-clip-text text-transparent">
           {t.heading}
         </h1>
 
