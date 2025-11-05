@@ -89,9 +89,10 @@ export function CharacterHero({ character }: CharacterHeroProps) {
           y: contentY,
           opacity: contentOpacity,
           textShadow: "0 4px 20px rgba(0,0,0,0.9)",
+          // @ts-expect-error - CSS 自定义属性在 CSSProperties 中的类型限制
           "--char-color-light": lightModeColor,
           "--char-color-dark": darkModeColor,
-        } as React.CSSProperties}
+        }}
       >
         {/* 装饰线 */}
         <motion.div
