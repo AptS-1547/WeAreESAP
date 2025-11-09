@@ -3,7 +3,7 @@
 
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 
@@ -17,6 +17,22 @@ const SVG_SIZE = 48;
 const STROKE_WIDTH = 3;
 const RADIUS = (SVG_SIZE - STROKE_WIDTH) / 2;
 const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
+
+// 颜色常量：ESAP 品牌色
+// esap-yellow: #ffd93d (255, 217, 61)
+// esap-pink: #ff69b4 (255, 105, 180)
+// esap-blue: #4da6ff (77, 166, 255)
+const YELLOW = [255, 217, 61] as const;
+const PINK = [255, 105, 180] as const;
+const BLUE = [77, 166, 255] as const;
+
+// 线性插值函数：在两个 RGB 颜色之间进行插值
+const lerpColor = (
+  c1: readonly number[],
+  c2: readonly number[],
+  t: number
+): string =>
+  `rgb(${Math.floor(c1[0] * (1 - t) + c2[0] * t)}, ${Math.floor(c1[1] * (1 - t) + c2[1] * t)}, ${Math.floor(c1[2] * (1 - t) + c2[2] * t)})`;
 
 export function ScrollToTop({ threshold = 400 }: ScrollToTopProps) {
   const [isVisible, setIsVisible] = useState(false);
@@ -55,30 +71,20 @@ export function ScrollToTop({ threshold = 400 }: ScrollToTopProps) {
     };
   }, [threshold]);
 
-  const scrollToTop = () => {
+  const scrollToTop = useCallback(() => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
-  };
+  }, []);
 
-  // 计算进度条颜色：根据进度从 ESAP 黄色→粉色→蓝色渐变
-  // esap-yellow: #ffd93d (255, 217, 61)
-  // esap-pink: #ff69b4 (255, 105, 180)
-  // esap-blue: #4da6ff (77, 166, 255)
-  const getProgressColor = () => {
-    const lerp = (c1: number[], c2: number[], t: number) =>
-      `rgb(${Math.floor(c1[0] * (1 - t) + c2[0] * t)}, ${Math.floor(c1[1] * (1 - t) + c2[1] * t)}, ${Math.floor(c1[2] * (1 - t) + c2[2] * t)})`;
-
-    const YELLOW = [255, 217, 61];
-    const PINK = [255, 105, 180];
-    const BLUE = [77, 166, 255];
-
+  // 根据滚动进度计算渐变颜色：黄色→粉色→蓝色
+  const progressColor = useMemo(() => {
     if (scrollProgress < 0.5) {
-      return lerp(YELLOW, PINK, scrollProgress * 2);
+      return lerpColor(YELLOW, PINK, scrollProgress * 2);
     }
-    return lerp(PINK, BLUE, (scrollProgress - 0.5) * 2);
-  };
+    return lerpColor(PINK, BLUE, (scrollProgress - 0.5) * 2);
+  }, [scrollProgress]);
 
   // 计算当前滚动进度对应的圆环偏移量
   const progressOffset = CIRCUMFERENCE - scrollProgress * CIRCUMFERENCE;
@@ -126,7 +132,7 @@ export function ScrollToTop({ threshold = 400 }: ScrollToTopProps) {
                 cy={SVG_SIZE / 2}
                 r={RADIUS}
                 fill="none"
-                stroke={getProgressColor()}
+                stroke={progressColor}
                 strokeWidth={STROKE_WIDTH}
                 strokeDasharray={CIRCUMFERENCE}
                 strokeDashoffset={progressOffset}
