@@ -23,8 +23,7 @@ const getCharacters = unstable_cache(
     const characters = await loadJsonFiles<CharacterCardData>(
       ["data", "characters"],
       locale,
-      "zh-CN",
-      (c) => c.tier === "core" // 只返回核心成员(首页展示)
+      { filter: (c) => c.tier === "core" } // 只返回核心成员(首页展示)
     );
 
     // 按 ID 排序

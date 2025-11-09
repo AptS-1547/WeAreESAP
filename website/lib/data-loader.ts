@@ -74,31 +74,44 @@ export async function loadJsonFile<T>(
  * 加载目录下的所有 JSON 文件，支持 locale 回退
  * @param basePath 基础路径数组，如 ['data', 'characters']
  * @param locale 当前语言
- * @param fallbackLocale 回退语言，默认为 'zh-CN'
- * @param filter 可选的过滤函数，用于筛选文件
+ * @param options 可选配置
+ * @param options.fallbackLocale 回退语言，默认为 'zh-CN'
+ * @param options.filter 可选的过滤函数，用于筛选文件
  * @returns 解析后的 JSON 数据数组
  *
  * @example
  * ```ts
+ * // 基础用法
  * const characters = await loadJsonFiles<CharacterCardData>(
  *   ['data', 'characters'],
  *   'en'
+ * );
+ *
+ * // 带过滤器
+ * const coreCharacters = await loadJsonFiles<CharacterCardData>(
+ *   ['data', 'characters'],
+ *   'en',
+ *   { filter: (c) => c.tier === 'core' }
  * );
  * ```
  */
 export async function loadJsonFiles<T>(
   basePath: string[],
   locale: string,
-  fallbackLocale = "zh-CN",
-  filter?: (item: T) => boolean
+  options: {
+    fallbackLocale?: string;
+    filter?: (item: T) => boolean;
+  } = {}
 ): Promise<T[]> {
+  const { fallbackLocale = "zh-CN", filter } = options;
+
   try {
     // 尝试当前 locale 的目录
     let dirPath = path.join(process.cwd(), ...basePath, locale);
 
     // 如果目录不存在，回退到 fallbackLocale
     if (!(await exists(dirPath))) {
-      logger.log(`目录 ${locale} 不存在，回退到 ${fallbackLocale}`);
+      logger.warn(`目录 ${locale} 不存在，回退到 ${fallbackLocale}`);
       dirPath = path.join(process.cwd(), ...basePath, fallbackLocale);
     }
 
