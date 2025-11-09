@@ -2,12 +2,17 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { Suspense } from "react";
+import dynamic from "next/dynamic";
 import { TimelineYear } from "@/types/timeline";
-import { TimelineClient } from "./TimelineClient";
 import { LoadingSpinner } from "@/components/loading";
 import { getTranslations } from "next-intl/server";
 import { getLocale } from "next-intl/server";
 import type { Metadata } from "next";
+
+// 动态导入 TimelineClient，减少首屏 JavaScript 包大小
+const TimelineClient = dynamic(() =>
+  import("./TimelineClient").then((mod) => ({ default: mod.TimelineClient }))
+);
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("timeline.metadata");

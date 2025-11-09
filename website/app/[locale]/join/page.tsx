@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import dynamic from "next/dynamic";
-import { RoleTypeCard, ChecklistItem, StepCard } from "@/components";
+import { ChecklistItem } from "@/components";
 import { Icon, type IconName } from "@/components/ui";
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
@@ -15,7 +15,15 @@ import type {
   Contribution,
 } from "@/types/join";
 
-// 懒加载非首屏组件
+// 懒加载非首屏组件（减少首屏 JavaScript 包大小）
+const RoleTypeCard = dynamic(() =>
+  import("@/components").then((mod) => ({ default: mod.RoleTypeCard }))
+);
+
+const StepCard = dynamic(() =>
+  import("@/components").then((mod) => ({ default: mod.StepCard }))
+);
+
 const FAQAccordion = dynamic(
   () => import("@/components").then((mod) => ({ default: mod.FAQAccordion })),
   { loading: () => <div className="h-96 animate-pulse bg-muted rounded-xl" /> }
