@@ -8,6 +8,7 @@ import { LoadingSpinner } from "@/components/loading";
 import { getTranslations } from "next-intl/server";
 import { getLocale } from "next-intl/server";
 import type { Metadata } from "next";
+import { logger } from "@/lib/logger";
 
 // 动态导入 TimelineClient，减少首屏 JavaScript 包大小
 const TimelineClient = dynamic(() =>
@@ -46,7 +47,7 @@ async function getTimelineData(locale: string): Promise<TimelineYear[]> {
 
     return years;
   } catch (error) {
-    console.error("获取时间线数据失败:", error);
+    logger.error("获取时间线数据失败:", error);
     return [];
   }
 }

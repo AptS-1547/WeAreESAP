@@ -2,11 +2,11 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import dynamic from "next/dynamic";
-import fs from "fs/promises";
-import path from "path";
 import type { Metadata } from "next";
 import { getTranslations, getLocale } from "next-intl/server";
+import { loadJsonFileDirect } from "@/lib/data-loader";
 import type {
+  ProjectData,
   Pillar,
   Value,
   Technology,
@@ -36,21 +36,14 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-async function getProjectData(locale: string) {
-  try {
-    const filePath = path.join(
-      process.cwd(),
-      "data",
-      "project",
-      locale,
-      "overview.json"
-    );
-    const fileContent = await fs.readFile(filePath, "utf-8");
-    return JSON.parse(fileContent);
-  } catch (error) {
-    console.error("Failed to load project data:", error);
-    return null;
-  }
+async function getProjectData(locale: string): Promise<ProjectData | null> {
+  // 使用统一的数据加载工具
+  return loadJsonFileDirect<ProjectData>([
+    "data",
+    "project",
+    locale,
+    "overview.json",
+  ]);
 }
 
 export default async function ProjectPage() {

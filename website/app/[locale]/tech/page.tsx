@@ -7,6 +7,7 @@ import { TechModule } from "@/types/tech";
 import { LoadingSpinner } from "@/components/loading";
 import { getTranslations, getLocale } from "next-intl/server";
 import type { Metadata } from "next";
+import { logger } from "@/lib/logger";
 
 // 动态导入 TechPageClient，减少首屏 JavaScript 包大小
 const TechPageClient = dynamic(() =>
@@ -43,7 +44,7 @@ async function getTechModules(locale: string): Promise<TechModule[]> {
     // 暂时只返回已有的模块，后面可以添加更多
     return modules;
   } catch (error) {
-    console.error("获取技术模块数据失败:", error);
+    logger.error("获取技术模块数据失败:", error);
     return [];
   }
 }
