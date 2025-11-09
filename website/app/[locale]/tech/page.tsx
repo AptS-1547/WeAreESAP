@@ -2,11 +2,16 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { Suspense } from "react";
+import dynamic from "next/dynamic";
 import { TechModule } from "@/types/tech";
-import { TechPageClient } from "./TechPageClient";
 import { LoadingSpinner } from "@/components/loading";
 import { getTranslations, getLocale } from "next-intl/server";
 import type { Metadata } from "next";
+
+// 动态导入 TechPageClient，减少首屏 JavaScript 包大小
+const TechPageClient = dynamic(() =>
+  import("./TechPageClient").then((mod) => ({ default: mod.TechPageClient }))
+);
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("tech.metadata");

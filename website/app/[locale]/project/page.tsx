@@ -1,7 +1,7 @@
 // Copyright 2025 AptS:1547, AptS:1548
 // SPDX-License-Identifier: Apache-2.0
 
-import { PillarCard, ValueCard, ParticipationCard } from "@/components";
+import dynamic from "next/dynamic";
 import fs from "fs/promises";
 import path from "path";
 import type { Metadata } from "next";
@@ -14,6 +14,19 @@ import type {
   Participation,
   MeaningSection,
 } from "@/types/project";
+
+// 动态导入卡片组件，减少首屏 JavaScript 包大小（这些组件在下方区域，非首屏关键）
+const PillarCard = dynamic(() =>
+  import("@/components").then((mod) => ({ default: mod.PillarCard }))
+);
+
+const ValueCard = dynamic(() =>
+  import("@/components").then((mod) => ({ default: mod.ValueCard }))
+);
+
+const ParticipationCard = dynamic(() =>
+  import("@/components").then((mod) => ({ default: mod.ParticipationCard }))
+);
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("project.metadata");
