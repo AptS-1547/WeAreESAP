@@ -28,8 +28,8 @@ const BLUE = [77, 166, 255] as const;
 
 // 线性插值函数：在两个 RGB 颜色之间进行插值
 const lerpColor = (
-  c1: readonly number[],
-  c2: readonly number[],
+  c1: readonly [number, number, number],
+  c2: readonly [number, number, number],
   t: number
 ): string =>
   `rgb(${Math.floor(c1[0] * (1 - t) + c2[0] * t)}, ${Math.floor(c1[1] * (1 - t) + c2[1] * t)}, ${Math.floor(c1[2] * (1 - t) + c2[2] * t)})`;
