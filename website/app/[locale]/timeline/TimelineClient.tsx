@@ -3,7 +3,7 @@
 
 "use client";
 
-import { useMemo, useRef } from "react";
+import { useMemo } from "react";
 import { useVirtualizer } from "@tanstack/react-virtual";
 import { TimelineYear, TimelineEvent } from "@/types/timeline";
 import { TimelineLine, TimelineEventCard } from "@/components";
@@ -23,8 +23,6 @@ type VirtualItem =
     };
 
 export function TimelineClient({ years }: TimelineClientProps) {
-  const parentRef = useRef<HTMLDivElement>(null);
-
   // 计算总事件数
   const totalEvents = useMemo(
     () => years.reduce((sum, year) => sum + year.events.length, 0),
@@ -55,10 +53,10 @@ export function TimelineClient({ years }: TimelineClientProps) {
     return items;
   }, [years]);
 
-  // 创建虚拟滚动器
+  // 创建虚拟滚动器（使用 window 滚动）
   const virtualizer = useVirtualizer({
     count: virtualItems.length,
-    getScrollElement: () => parentRef.current,
+    getScrollElement: () => (typeof window !== "undefined" ? window : null),
     estimateSize: (index) => {
       const item = virtualItems[index];
       // 年份标题约 200px，事件卡片约 350px
@@ -73,7 +71,7 @@ export function TimelineClient({ years }: TimelineClientProps) {
       <TimelineLine totalEvents={totalEvents} />
 
       {/* 虚拟滚动容器 */}
-      <div ref={parentRef} className="relative pl-8 md:pl-0">
+      <div className="relative pl-8 md:pl-0">
         <div
           style={{
             height: `${virtualizer.getTotalSize()}px`,
