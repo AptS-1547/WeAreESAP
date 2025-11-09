@@ -24,7 +24,7 @@ export function TransitionOverlay() {
           animate={shouldReduceMotion ? undefined : { opacity: 1 }}
           exit={shouldReduceMotion ? undefined : { opacity: 0 }}
           transition={shouldReduceMotion ? { duration: 0 } : { duration: 0.2 }}
-          className="fixed inset-0 z-100 flex items-center justify-center bg-background/80 backdrop-blur-sm pointer-events-none"
+          className="fixed inset-0 z-100 flex items-center justify-center bg-background/80 backdrop-blur-sm"
         >
           <LoadingSpinner size={120} withPulse={true} />
         </motion.div>
