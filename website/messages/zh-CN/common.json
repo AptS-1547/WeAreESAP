@@ -19,6 +19,14 @@
     "developed": "开发",
     "license": "本作品采用",
     "licenseName": "CC-BY 4.0",
-    "licenseText": "协议授权"
+    "licenseText": "协议授权",
+    "quickLinks": "快速链接",
+    "social": "社交媒体",
+    "about": "关于项目",
+    "version": "版本",
+    "updated": "更新于",
+    "comingSoon": "即将开放",
+    "website": "官网",
+    "allRightsReserved": "保留所有权利"
   }
 }

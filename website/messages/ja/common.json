@@ -19,6 +19,14 @@
     "developed": "により開発",
     "license": "",
     "licenseName": "CC-BY 4.0",
-    "licenseText": "ライセンスの下で提供されています"
+    "licenseText": "ライセンスの下で提供されています",
+    "quickLinks": "クイックリンク",
+    "social": "ソーシャルメディア",
+    "about": "プロジェクトについて",
+    "version": "バージョン",
+    "updated": "更新日",
+    "comingSoon": "近日公開",
+    "website": "公式サイト",
+    "allRightsReserved": "著作権所有"
   }
 }

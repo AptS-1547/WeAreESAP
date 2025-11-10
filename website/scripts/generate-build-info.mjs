@@ -1,0 +1,49 @@
+#!/usr/bin/env node
+// Copyright 2025 AptS:1547, AptS:1548
+// SPDX-License-Identifier: Apache-2.0
+
+import { execSync } from "child_process";
+import { writeFileSync } from "fs";
+import { fileURLToPath } from "url";
+import { dirname, join } from "path";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+try {
+  // 获取 git 最新提交时间
+  const gitDate = execSync("git log -1 --format=%cd --date=format:%Y-%m-%d", {
+    encoding: "utf-8",
+  }).trim();
+
+  // 获取版本号（从 package.json）
+  const packageJson = JSON.parse(
+    execSync("cat package.json", { encoding: "utf-8" })
+  );
+
+  const buildInfo = {
+    version: packageJson.version,
+    lastUpdated: gitDate,
+    buildTime: new Date().toISOString().split("T")[0],
+  };
+
+  // 写入到 lib 目录（作为 TypeScript 可导入的文件）
+  const outputPath = join(__dirname, "..", "lib", "build-info.json");
+  writeFileSync(outputPath, JSON.stringify(buildInfo, null, 2));
+
+  console.log("✨ 构建信息已生成:", buildInfo);
+} catch (error) {
+  console.error("⚠️  无法生成构建信息，使用默认值", error.message);
+
+  // 降级方案：使用当前时间
+  const fallbackInfo = {
+    version: "0.1.0",
+    lastUpdated: new Date().toISOString().split("T")[0],
+    buildTime: new Date().toISOString().split("T")[0],
+  };
+
+  const outputPath = join(__dirname, "..", "lib", "build-info.json");
+  writeFileSync(outputPath, JSON.stringify(fallbackInfo, null, 2));
+
+  console.log("✨ 使用降级构建信息:", fallbackInfo);
+}

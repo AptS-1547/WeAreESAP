@@ -1,6 +1,6 @@
 {
   "name": "we-are-esap",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "description": "WeAreESAP - 向那卫星许愿：一个科幻世界观创作企划，讲述仿生人与人类共存的未来故事",
   "license": "Apache-2.0",
@@ -24,7 +24,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node ./scripts/generate-blur-placeholders.mjs",
+    "prebuild": "node ./scripts/generate-blur-placeholders.mjs && node ./scripts/generate-build-info.mjs",
     "build": "next build",
     "postbuild": "next-sitemap --config ./scripts/next-sitemap.config.js",
     "start": "next start",

@@ -5,6 +5,9 @@
 
 import { useTranslations, useLocale } from "next-intl";
 import { useMemo } from "react";
+import Image from "next/image";
+import { Icon } from "@/components/ui/Icon";
+import buildInfo from "@/lib/build-info.json";
 
 /**
  * 全局底部栏组件
@@ -13,7 +16,7 @@ export function Footer() {
   const tFooter = useTranslations("common.footer");
   const locale = useLocale();
 
-  // 根据语言生成许可证链接（缓存结果，只在 locale 变化时重新计算）
+  // 根据语言生成许可证链接（缓存结果,只在 locale 变化时重新计算）
   const licenseUrl = useMemo(() => {
     switch (locale) {
       case "zh-CN":
@@ -25,27 +28,200 @@ export function Footer() {
     }
   }, [locale]);
 
+  // 社交平台链接
+  const socialLinks = [
+    {
+      name: "GitHub",
+      href: "https://github.com/The-ESAP-Project/",
+      icon: "Github" as const,
+    },
+    {
+      name: "QQ",
+      href: "https://qm.qq.com/q/J9Js2rl7CG",
+      icon: "MessageCircle" as const,
+    },
+    {
+      name: "Discord",
+      href: "#",
+      icon: "Discord" as const,
+      disabled: true,
+    },
+    {
+      name: tFooter("website"),
+      href: "https://www.esaps.net/",
+      icon: "Globe" as const,
+    },
+  ];
+
   return (
-    <footer className="py-8 px-4 sm:px-6 lg:px-8 border-t border-border bg-background">
-      <div className="max-w-7xl mx-auto text-center text-sm text-muted-foreground space-y-2">
-        <p className="italic">"{tFooter("quote")}"</p>
-        <p>
-          <strong>{tFooter("projectName")}</strong> © 2021-2025{" "}
-          {tFooter("developedBy")} {tFooter("developers")}
-          {tFooter("developed")}
-        </p>
-        <p>
-          {tFooter("license")}{" "}
-          <a
-            href={licenseUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-esap-blue hover:underline transition-colors"
-          >
-            {tFooter("licenseName")}
-          </a>{" "}
-          {tFooter("licenseText")}
-        </p>
+    <footer className="bg-background border-t border-border">
+      {/* ESAP三色渐变装饰线 */}
+      <div className="h-1 bg-gradient-to-r from-esap-yellow via-esap-pink to-esap-blue" />
+
+      {/* 移动端极简版 */}
+      <div className="md:hidden px-4 py-4">
+        <div className="max-w-7xl mx-auto space-y-4">
+          {/* Logo + 项目名 */}
+          <div className="flex items-center justify-center gap-3">
+            <Image
+              src="/favicon.ico"
+              alt="ESAP Logo"
+              width={28}
+              height={28}
+              className="flex-shrink-0"
+            />
+            <span className="font-bold text-base text-foreground">
+              {tFooter("projectName")}
+            </span>
+          </div>
+
+          {/* 标语 */}
+          <p className="text-xs text-muted-foreground text-center italic">
+            "{tFooter("quote")}"
+          </p>
+
+          {/* 社交图标（横向排列） */}
+          <div className="flex items-center justify-center gap-4">
+            {socialLinks.map((link, index) => (
+              <div key={index}>
+                {link.disabled ? (
+                  <div className="cursor-not-allowed opacity-50">
+                    <Icon
+                      name={link.icon}
+                      size={20}
+                      className="text-foreground"
+                    />
+                  </div>
+                ) : (
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:opacity-80 transition-opacity"
+                    aria-label={link.name}
+                  >
+                    <Icon
+                      name={link.icon}
+                      size={20}
+                      className="text-foreground"
+                    />
+                  </a>
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* 版权声明 */}
+          <p className="text-center text-xs text-muted-foreground pt-2">
+            © 2021-2025 <strong>{tFooter("projectName")}</strong>
+          </p>
+        </div>
+      </div>
+
+      {/* 桌面端完整版 */}
+      <div className="hidden md:block px-4 sm:px-6 lg:px-8 py-8 md:py-10">
+        <div className="max-w-7xl mx-auto">
+          {/* 3栏布局 */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-10">
+            {/* 左栏：Logo + 项目简介 */}
+            <div className="space-y-3">
+              <div className="flex items-center gap-3">
+                <Image
+                  src="/favicon.ico"
+                  alt="ESAP Logo"
+                  width={32}
+                  height={32}
+                  className="flex-shrink-0"
+                />
+                <span className="font-bold text-lg text-foreground">
+                  {tFooter("projectName")}
+                </span>
+              </div>
+              <p className="text-sm text-muted-foreground italic">
+                "{tFooter("quote")}"
+              </p>
+              <p className="text-xs text-muted-foreground pt-2">
+                © 2021-2025 <strong>{tFooter("projectName")}</strong>
+                <br />
+                {tFooter("allRightsReserved")}
+              </p>
+            </div>
+
+            {/* 中栏：社交平台（2列网格） */}
+            <div className="space-y-3">
+              <h3 className="font-semibold text-foreground text-sm">
+                {tFooter("social")}
+              </h3>
+              <div className="grid grid-cols-2 gap-3">
+                {socialLinks.map((link, index) => (
+                  <div key={index}>
+                    {link.disabled ? (
+                      <div className="flex items-center gap-2 text-sm cursor-not-allowed opacity-50">
+                        <Icon
+                          name={link.icon}
+                          size={16}
+                          className="text-foreground"
+                        />
+                        <span className="text-xs text-muted-foreground">
+                          {link.name}
+                        </span>
+                      </div>
+                    ) : (
+                      <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-sm text-muted-foreground hover:text-esap-blue transition-colors group"
+                      >
+                        <Icon
+                          name={link.icon}
+                          size={16}
+                          className="text-foreground group-hover:text-esap-blue transition-colors"
+                        />
+                        <span className="text-xs">{link.name}</span>
+                      </a>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* 右栏：关于项目 */}
+            <div className="space-y-3">
+              <h3 className="font-semibold text-foreground text-sm">
+                {tFooter("about")}
+              </h3>
+              <div className="space-y-2 text-xs text-muted-foreground">
+                <p>
+                  {tFooter("developedBy")} {tFooter("developers")}
+                  {tFooter("developed")}
+                </p>
+                <p>
+                  {tFooter("license")}{" "}
+                  <a
+                    href={licenseUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-esap-blue hover:underline transition-colors"
+                  >
+                    {tFooter("licenseName")}
+                  </a>{" "}
+                  {tFooter("licenseText")}
+                </p>
+                <div className="pt-2 space-y-1">
+                  <p className="flex gap-2">
+                    <span className="min-w-[3rem]">{tFooter("version")}</span>
+                    <span>{buildInfo.version}</span>
+                  </p>
+                  <p className="flex gap-2">
+                    <span className="min-w-[3rem]">{tFooter("updated")}</span>
+                    <span>{buildInfo.lastUpdated}</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </footer>
   );
