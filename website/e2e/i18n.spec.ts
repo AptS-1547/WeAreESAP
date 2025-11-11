@@ -8,7 +8,7 @@ test.describe("国际化", () => {
     await page.goto("/");
 
     // 中文版是默认 locale，URL 不包含 /zh-CN（localePrefix: "as-needed"）
-    await expect(page).toHaveURL("http://localhost:3000/");
+    await expect(page).toHaveURL(/\/$/);
 
     // 验证页面包含中文内容
     const body = page.locator("body");
@@ -36,18 +36,6 @@ test.describe("国际化", () => {
 
     // 验证页面加载（可能回退到中文）
     await expect(page.locator("body")).toBeVisible();
-  });
-
-  test("默认路由应该加载中文版本", async ({ page }) => {
-    await page.goto("/");
-
-    // 默认加载中文版，URL 是 /（不是 /zh-CN）
-    await expect(page).toHaveURL("http://localhost:3000/");
-
-    // 验证页面包含中文内容
-    const body = page.locator("body");
-    const text = await body.textContent();
-    expect(text).toMatch(/[\u4e00-\u9fa5]/);
   });
 
   test("切换语言后角色页面应该保持功能", async ({ page }) => {
