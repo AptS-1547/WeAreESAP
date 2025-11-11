@@ -26,5 +26,10 @@ build
 .vercel
 next-env.d.ts
 
+# 自动生成的文件
+lib/build-info.json
+data/blur-placeholders.json
+public/sitemap*.xml
+
 # 数据文件（JSON 保持原样）
 # data/**/*.json

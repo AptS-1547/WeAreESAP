@@ -1,12 +1,15 @@
 // Copyright 2025 AptS:1547, AptS:1548
 // SPDX-License-Identifier: Apache-2.0
 
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import {
   loadJsonFile,
   loadJsonFiles,
   loadJsonFileDirect,
 } from "../data-loader";
+import * as logger from "../logger";
+import fs from "fs/promises";
+import path from "path";
 
 describe("data-loader", () => {
   describe("loadJsonFile", () => {
@@ -106,6 +109,42 @@ describe("data-loader", () => {
 
       expect(Array.isArray(data)).toBe(true);
       expect(data.length).toBe(0);
+    });
+  });
+
+  describe("loadJsonFiles - 错误处理", () => {
+    afterEach(() => {
+      vi.restoreAllMocks();
+    });
+
+    it("应该处理单个文件解析失败的情况", async () => {
+      const errorSpy = vi.spyOn(logger.logger, "error").mockImplementation(() => {});
+
+      // Mock readdir 返回两个文件
+      vi.spyOn(fs, "readdir").mockResolvedValue([
+        "valid.json",
+        "invalid.json",
+      ] as unknown as Awaited<ReturnType<typeof fs.readdir>>);
+
+      // Mock readFile：让一个文件的 JSON.parse 失败
+      const originalReadFile = fs.readFile;
+      vi.spyOn(fs, "readFile").mockImplementation(async (filePath) => {
+        const pathStr = filePath.toString();
+        if (pathStr.includes("invalid.json")) {
+          // 返回无效的 JSON 字符串，这会导致 JSON.parse 失败
+          return "{ this is not valid json" as unknown as Buffer;
+        }
+        // 对于其他文件，调用原始的 readFile
+        return originalReadFile.call(fs, filePath, "utf-8");
+      });
+
+      const data = await loadJsonFiles(["data", "characters"], "zh-CN");
+
+      // 验证 logger.error 被调用（因为 invalid.json 解析失败）
+      expect(errorSpy).toHaveBeenCalled();
+
+      // 清理
+      vi.restoreAllMocks();
     });
   });
 

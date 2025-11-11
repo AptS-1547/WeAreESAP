@@ -16,6 +16,7 @@ import {
   LuPenTool,
   LuCode,
   LuHand,
+  LuHeartHandshake,
   LuBookMarked,
   LuPalette,
   LuStar,
@@ -82,6 +83,7 @@ export type IconName =
   // 新增图标
   | "Brain"
   | "Book"
+  | "HeartHandshake"
   | "Zap"
   | "Circle"
   | "BarChart"
@@ -129,6 +131,7 @@ const iconMap: Record<IconName, ComponentType<{ className?: string }>> = {
   // 新增图标 (Lucide)
   Brain: LuBrain,
   Book: LuBook,
+  HeartHandshake: LuHeartHandshake,
   Zap: LuZap,
   Circle: LuCircle,
   BarChart: LuChartBar,
