@@ -218,7 +218,10 @@ export const TechSectionView = memo(
         </h3>
         <div className="space-y-4">
           {content.map((block, index) => (
-            <ContentBlockRenderer key={`${block.type}-${index}`} block={block} />
+            <ContentBlockRenderer
+              key={`${block.type}-${index}`}
+              block={block}
+            />
           ))}
         </div>
       </motion.div>
