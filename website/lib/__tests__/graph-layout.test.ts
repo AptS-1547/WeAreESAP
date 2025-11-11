@@ -121,8 +121,8 @@ describe("graph-layout", () => {
       );
       const uniquePositions = new Set(positions);
 
-      // 至少应该有不同的位置（允许某些情况下重叠）
-      expect(layoutedNodes.length).toBeGreaterThan(0);
+      // 验证所有节点的位置都是唯一的
+      expect(uniquePositions.size).toBe(nodes.length);
     });
 
     it("应该保留节点的原始数据", async () => {
