@@ -2,6 +2,19 @@
 
 本项目包含两种类型的测试：单元测试和端到端（E2E）测试。
 
+## 快速开始
+
+```bash
+# 运行所有测试（单元测试 + E2E 测试）
+pnpm test
+
+# 只运行单元测试
+pnpm test:unit
+
+# 只运行 E2E 测试
+pnpm test:e2e
+```
+
 ## 单元测试 (Vitest)
 
 单元测试用于测试核心工具函数的逻辑。
@@ -9,17 +22,17 @@
 ### 运行单元测试
 
 ```bash
-# 交互式测试（监听模式）
-pnpm test
+# 交互式测试（监听模式，开发时使用）
+pnpm test:unit
 
 # 运行一次（CI 模式）
-pnpm test:run
+pnpm test:unit:run
 
 # 带 UI 界面的测试
-pnpm test:ui
+pnpm test:unit:ui
 
 # 生成覆盖率报告
-pnpm test:coverage
+pnpm test:unit:coverage
 ```
 
 ### 单元测试文件位置
@@ -79,11 +92,12 @@ sudo pnpm exec playwright install-deps
 测试脚本已配置好，可以在 CI 环境中运行：
 
 ```bash
-# 单元测试（快速）
-pnpm test:run
+# 运行所有测试
+pnpm test
 
-# E2E 测试（需要浏览器环境）
-pnpm test:e2e
+# 或分别运行
+pnpm test:unit:run    # 单元测试（快速）
+pnpm test:e2e         # E2E 测试（需要浏览器环境）
 ```
 
 ## 编写新测试
