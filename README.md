@@ -28,7 +28,7 @@
 ## 🛠️ 技术栈
 
 ### 核心框架
-- **[Next.js 15](https://nextjs.org/)** - React 框架（App Router）
+- **[Next.js 16](https://nextjs.org/)** - React 框架（App Router）
 - **[TypeScript](https://www.typescriptlang.org/)** - 类型安全
 - **[Tailwind CSS v4](https://tailwindcss.com/)** - 原子化 CSS
 

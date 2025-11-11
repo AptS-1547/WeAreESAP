@@ -14,6 +14,7 @@ import {
   ScrollToTop,
   PanguProvider,
 } from "@/components";
+import { WebVitals } from "@/components/analytics";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { locales } from "@/i18n/request";
@@ -77,6 +78,7 @@ export default async function RootLayout({
             </TransitionProvider>
           </ThemeProvider>
         </NextIntlClientProvider>
+        <WebVitals />
       </body>
     </html>
   );
