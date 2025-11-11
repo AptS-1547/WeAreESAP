@@ -27,8 +27,8 @@ try {
     buildTime: new Date().toISOString().split("T")[0],
   };
 
-  // 写入到 lib 目录（作为 TypeScript 可导入的文件）
-  const outputPath = join(__dirname, "..", "lib", "build-info.json");
+  // 写入到 data 目录（作为 TypeScript 可导入的文件）
+  const outputPath = join(__dirname, "..", "data", "build-info.json");
   writeFileSync(outputPath, JSON.stringify(buildInfo, null, 2));
 
   console.log("✨ 构建信息已生成:", buildInfo);

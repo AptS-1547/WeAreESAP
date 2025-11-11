@@ -68,10 +68,7 @@ describe("logger", () => {
 
       logger.error("错误消息", new Error("测试错误"));
 
-      expect(console.error).toHaveBeenCalledWith(
-        "错误消息",
-        expect.any(Error)
-      );
+      expect(console.error).toHaveBeenCalledWith("错误消息", expect.any(Error));
       expect(console.error).toHaveBeenCalledTimes(1);
     });
 

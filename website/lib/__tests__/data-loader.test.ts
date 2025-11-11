@@ -118,7 +118,9 @@ describe("data-loader", () => {
     });
 
     it("应该处理单个文件解析失败的情况", async () => {
-      const errorSpy = vi.spyOn(logger.logger, "error").mockImplementation(() => {});
+      const errorSpy = vi
+        .spyOn(logger.logger, "error")
+        .mockImplementation(() => {});
 
       // Mock readdir 返回两个文件
       vi.spyOn(fs, "readdir").mockResolvedValue([

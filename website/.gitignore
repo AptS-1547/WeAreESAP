@@ -49,3 +49,6 @@ robots.txt
 
 # blur-placeholders.json
 blur-placeholders.json
+
+# build-info.json
+build-info.json

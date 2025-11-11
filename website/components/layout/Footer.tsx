@@ -7,7 +7,7 @@ import { useTranslations, useLocale } from "next-intl";
 import { useMemo } from "react";
 import Image from "next/image";
 import { Icon } from "@/components/ui/Icon";
-import buildInfo from "@/lib/build-info.json";
+import buildInfo from "@/data/build-info.json";
 
 /**
  * 全局底部栏组件
