@@ -1,8 +1,10 @@
 // Copyright 2025 AptS:1547, AptS:1548
 // SPDX-License-Identifier: Apache-2.0
 
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { getCharacterRelationships } from "../relationship-parser";
+import * as logger from "../logger";
+import fs from "fs/promises";
 
 describe("relationship-parser", () => {
   describe("getCharacterRelationships", () => {
@@ -45,6 +47,143 @@ describe("relationship-parser", () => {
         expect(rel.label).toBeTruthy();
         expect(rel.description).toBeTruthy();
       });
+    });
+  });
+
+  describe("数据验证", () => {
+    beforeEach(() => {
+      vi.clearAllMocks();
+    });
+
+    afterEach(() => {
+      vi.restoreAllMocks();
+    });
+
+    it("应该处理 null 数据", async () => {
+      const warnSpy = vi.spyOn(logger.logger, "warn");
+      vi.spyOn(fs, "readFile").mockResolvedValue("null");
+
+      const relationships = await getCharacterRelationships("invalid");
+
+      expect(relationships).toEqual([]);
+      expect(warnSpy).toHaveBeenCalledWith(
+        "关系数据文件 invalid.json 格式不正确，已跳过"
+      );
+    });
+
+    it("应该处理非对象类型数据", async () => {
+      const warnSpy = vi.spyOn(logger.logger, "warn");
+      vi.spyOn(fs, "readFile").mockResolvedValue('"string data"');
+
+      const relationships = await getCharacterRelationships("invalid");
+
+      expect(relationships).toEqual([]);
+      expect(warnSpy).toHaveBeenCalledWith(
+        "关系数据文件 invalid.json 格式不正确，已跳过"
+      );
+    });
+
+    it("应该处理缺少 characterId 的数据", async () => {
+      const warnSpy = vi.spyOn(logger.logger, "warn");
+      vi.spyOn(fs, "readFile").mockResolvedValue(
+        JSON.stringify({
+          relationships: [],
+        })
+      );
+
+      const relationships = await getCharacterRelationships("invalid");
+
+      expect(relationships).toEqual([]);
+      expect(warnSpy).toHaveBeenCalledWith(
+        "关系数据文件 invalid.json 格式不正确，已跳过"
+      );
+    });
+
+    it("应该处理 characterId 类型错误的数据", async () => {
+      const warnSpy = vi.spyOn(logger.logger, "warn");
+      vi.spyOn(fs, "readFile").mockResolvedValue(
+        JSON.stringify({
+          characterId: 12345,
+          relationships: [],
+        })
+      );
+
+      const relationships = await getCharacterRelationships("invalid");
+
+      expect(relationships).toEqual([]);
+      expect(warnSpy).toHaveBeenCalledWith(
+        "关系数据文件 invalid.json 格式不正确，已跳过"
+      );
+    });
+
+    it("应该处理 relationships 不是数组的数据", async () => {
+      const warnSpy = vi.spyOn(logger.logger, "warn");
+      vi.spyOn(fs, "readFile").mockResolvedValue(
+        JSON.stringify({
+          characterId: "1547",
+          relationships: "not an array",
+        })
+      );
+
+      const relationships = await getCharacterRelationships("invalid");
+
+      expect(relationships).toEqual([]);
+      expect(warnSpy).toHaveBeenCalledWith(
+        "关系数据文件 invalid.json 格式不正确，已跳过"
+      );
+    });
+
+    it("应该处理 relationships 数组中包含无效项的数据", async () => {
+      const warnSpy = vi.spyOn(logger.logger, "warn");
+      vi.spyOn(fs, "readFile").mockResolvedValue(
+        JSON.stringify({
+          characterId: "1547",
+          relationships: [
+            {
+              targetId: "1548",
+              type: "friend",
+              label: "朋友",
+              // 缺少 description
+            },
+          ],
+        })
+      );
+
+      const relationships = await getCharacterRelationships("invalid");
+
+      expect(relationships).toEqual([]);
+      expect(warnSpy).toHaveBeenCalledWith(
+        "关系数据文件 invalid.json 格式不正确，已跳过"
+      );
+    });
+
+    it("应该处理空对象数据", async () => {
+      const warnSpy = vi.spyOn(logger.logger, "warn");
+      vi.spyOn(fs, "readFile").mockResolvedValue("{}");
+
+      const relationships = await getCharacterRelationships("invalid");
+
+      expect(relationships).toEqual([]);
+      expect(warnSpy).toHaveBeenCalledWith(
+        "关系数据文件 invalid.json 格式不正确，已跳过"
+      );
+    });
+
+    it("应该处理 relationships 中有 null 项的数据", async () => {
+      const warnSpy = vi.spyOn(logger.logger, "warn");
+      vi.spyOn(fs, "readFile").mockResolvedValue(
+        JSON.stringify({
+          characterId: "1547",
+          relationships: [null],
+        })
+      );
+
+      const relationships = await getCharacterRelationships("invalid");
+
+      expect(relationships).toEqual([]);
+      expect(warnSpy).toHaveBeenCalledWith(
+        "关系数据文件 invalid.json 格式不正确，已跳过"
+      );
     });
   });
 });
