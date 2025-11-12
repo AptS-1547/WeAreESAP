@@ -71,6 +71,7 @@ export const CharacterMobileView = memo(function CharacterMobileView({
             key={character.id}
             className="relative overflow-hidden rounded-lg cursor-pointer"
             onClick={() => handleCharacterClick(character, index)}
+            data-testid="character-card"
             initial={false}
             animate={{
               height: isExpanded ? "auto" : "140px",
@@ -129,13 +130,21 @@ export const CharacterMobileView = memo(function CharacterMobileView({
               {/* 基础信息（始终显示） */}
               <div className="space-y-2">
                 {/* 角色代号 */}
-                <div className="text-lg font-mono font-bold [color:var(--char-color-light)] dark:[color:var(--char-color-dark)]">
+                <div
+                  className="text-lg font-mono font-bold [color:var(--char-color-light)] dark:[color:var(--char-color-dark)]"
+                  data-testid="character-code"
+                >
                   {character.code}
                 </div>
 
                 {/* 角色名字和定位 */}
                 <div className="flex items-baseline gap-3">
-                  <h3 className="text-2xl font-bold">{character.name}</h3>
+                  <h3
+                    className="text-2xl font-bold"
+                    data-testid="character-name"
+                  >
+                    {character.name}
+                  </h3>
                   <span className="text-sm opacity-80">{character.role}</span>
                 </div>
 

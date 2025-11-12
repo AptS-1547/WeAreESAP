@@ -121,6 +121,8 @@ export const Navigation = memo(function Navigation() {
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className="md:hidden w-10 h-10 rounded-lg bg-muted hover:bg-border transition-colors flex items-center justify-center group"
                 aria-label="切换菜单"
+                aria-expanded={isMobileMenuOpen}
+                data-testid="mobile-menu-button"
               >
                 <AnimatePresence mode="wait">
                   <motion.div
@@ -155,6 +157,7 @@ export const Navigation = memo(function Navigation() {
               exit={{ opacity: 0 }}
               onClick={closeMobileMenu}
               className="fixed top-16 left-0 right-0 bottom-0 bg-black/3 backdrop-blur-sm z-[60] md:hidden"
+              data-testid="mobile-menu-overlay"
             />
 
             {/* 菜单面板 */}
@@ -164,6 +167,9 @@ export const Navigation = memo(function Navigation() {
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
               className="fixed top-16 right-0 bottom-0 w-64 bg-background border-l border-border shadow-xl z-[70] md:hidden"
+              role="dialog"
+              aria-modal="true"
+              data-testid="mobile-menu"
             >
               <div className="flex flex-col p-6 gap-4">
                 {navLinks.map((link) => {

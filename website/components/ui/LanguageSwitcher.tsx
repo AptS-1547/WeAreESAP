@@ -12,8 +12,8 @@ import { Icon } from "@/components/ui";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 const localeNames: Record<string, string> = {
-  "zh-CN": "简中",
-  en: "EN",
+  "zh-CN": "简体中文",
+  en: "English",
   ja: "日本語",
 };
 
@@ -61,6 +61,7 @@ export function LanguageSwitcher() {
               ? "bg-esap-blue/10 text-esap-blue font-medium"
               : "text-foreground hover:bg-muted"
           }`}
+          role="menuitem"
         >
           {localeNames[loc]}
         </button>
@@ -96,6 +97,8 @@ export function LanguageSwitcher() {
               shouldReduceMotion ? { duration: 0 } : { duration: 0.15 }
             }
             className="absolute right-0 top-12 w-32 bg-background border border-border rounded-lg shadow-lg overflow-hidden z-50"
+            role="menu"
+            aria-label="语言选择菜单"
           >
             {dropdownContent}
           </motion.div>

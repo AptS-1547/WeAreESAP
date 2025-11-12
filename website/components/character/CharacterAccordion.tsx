@@ -305,6 +305,7 @@ export function CharacterAccordion({
         <motion.div
           key={character.id}
           className="relative shrink-0"
+          data-testid="character-card"
           initial={{
             width: widths[index],
             marginLeft: marginLefts[index],
@@ -330,6 +331,7 @@ export function CharacterAccordion({
             character={character}
             isExpanded={stableHoveredIndex === index}
             onClick={() => handleCharacterClick(character.id)}
+            index={index}
           />
         </motion.div>
       ))}

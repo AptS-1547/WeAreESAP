@@ -16,12 +16,14 @@ interface CharacterStripProps {
   character: CharacterCardData;
   isExpanded: boolean;
   onClick?: () => void;
+  index?: number;
 }
 
 function CharacterStripComponent({
   character,
   isExpanded,
   onClick,
+  index = 0,
 }: CharacterStripProps) {
   const t = useTranslations("characters");
   const shouldReduceMotion = useReducedMotion();
@@ -50,7 +52,7 @@ function CharacterStripComponent({
           fill
           sizes="(max-width: 768px) 100vw, 60vw"
           className="object-cover"
-          priority
+          priority={index === 0}
           placeholder="blur"
           blurDataURL={getBlurDataURL(character.backgroundImage)}
         />
@@ -102,12 +104,17 @@ function CharacterStripComponent({
             />
 
             {/* 角色代号 */}
-            <div className="text-2xl font-mono font-bold [color:var(--char-color-light)] dark:[color:var(--char-color-dark)]">
+            <div
+              className="text-2xl font-mono font-bold [color:var(--char-color-light)] dark:[color:var(--char-color-dark)]"
+              data-testid="character-code"
+            >
               {character.code}
             </div>
 
             {/* 角色名字 */}
-            <h3 className="text-4xl font-bold">{character.name}</h3>
+            <h3 className="text-4xl font-bold" data-testid="character-name">
+              {character.name}
+            </h3>
 
             {/* 角色定位 */}
             <div className="text-xl opacity-90">{character.role}</div>
@@ -154,6 +161,7 @@ function CharacterStripComponent({
             {/* 竖排文字 */}
             <div
               className="text-3xl font-mono font-bold tracking-wider"
+              data-testid="character-code"
               style={{
                 writingMode: "vertical-rl",
                 textOrientation: "upright",
@@ -163,6 +171,10 @@ function CharacterStripComponent({
             >
               {character.code}
             </div>
+            {/* 隐藏的角色名称（用于测试识别） */}
+            <span className="sr-only" data-testid="character-name">
+              {character.name}
+            </span>
           </motion.div>
         )}
       </div>

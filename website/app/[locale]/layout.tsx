@@ -43,6 +43,10 @@ export const metadata: Metadata = {
     title: "We Are ESAP",
     description: "向那卫星许愿 - The ESAP Project",
     type: "website",
+    url: process.env.NEXT_PUBLIC_SITE_URL || "https://weare.esaps.net",
+  },
+  alternates: {
+    canonical: process.env.NEXT_PUBLIC_SITE_URL || "https://weare.esaps.net",
   },
 };
 

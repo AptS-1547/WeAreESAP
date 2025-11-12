@@ -38,6 +38,7 @@ function CharacterCardComponent({
       whileHover={shouldReduceMotion ? undefined : { y: -8 }}
       transition={{ duration: 0.3 }}
       onClick={onClick}
+      data-testid="character-card"
       style={
         {
           "--char-color-light": lightModeColor,
@@ -109,6 +110,7 @@ function CharacterCardComponent({
           {/* 角色代号 */}
           <div
             className="text-lg font-mono font-bold mb-2 [color:var(--char-color-light)] dark:[color:var(--char-color-dark)]"
+            data-testid="character-code"
             style={{
               textShadow: "0 2px 4px rgba(0,0,0,0.9), 0 0 8px rgba(0,0,0,0.7)",
             }}
@@ -119,6 +121,7 @@ function CharacterCardComponent({
           {/* 角色名称 */}
           <h3
             className="text-3xl font-bold mb-2"
+            data-testid="character-name"
             style={{
               textShadow:
                 "0 2px 8px rgba(0,0,0,0.9), 0 4px 16px rgba(0,0,0,0.8)",

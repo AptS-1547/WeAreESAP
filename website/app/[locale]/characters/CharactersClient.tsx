@@ -72,7 +72,10 @@ export function CharactersClient({
             </div>
 
             {/* 桌面端：卡片网格 */}
-            <div className="max-md:hidden md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div
+              className="max-md:hidden md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+              data-testid="character-grid"
+            >
               {otherCharacters.map((character, index) => (
                 <CharacterCard
                   key={character.id}
