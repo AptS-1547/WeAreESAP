@@ -543,7 +543,7 @@ test.describe("首页", () => {
           !err.includes("404")
       );
 
-      expect(seriousErrors.length).toBeLessThanOrEqual(1);
+      expect(seriousErrors).toHaveLength(0);
     });
   });
 });
