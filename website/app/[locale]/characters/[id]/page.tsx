@@ -103,7 +103,7 @@ export async function generateMetadata({
       url: pageUrl,
       images: [
         {
-          url: `${baseUrl}${characterImage}`,
+          url: characterImage,
           width: 1200,
           height: 630,
           alt: `${character.name} - ${t("metadata.profileAlt")}`,
@@ -115,7 +115,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: characterTitle,
       description: characterDesc,
-      images: [`${baseUrl}${characterImage}`],
+      images: [characterImage],
     },
   };
 }
