@@ -137,7 +137,7 @@ export function StorySection() {
                     {/* 要点列表 */}
                     <ul className="space-y-2">
                       {highlights.map((highlight, i) => (
-                        <li key={i} className="flex items-start gap-2">
+                        <li key={highlight} className="flex items-start gap-2">
                           <div
                             className="w-1.5 h-1.5 rounded-full mt-2 shrink-0"
                             style={{
