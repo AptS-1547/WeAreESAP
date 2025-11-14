@@ -1,7 +1,6 @@
 // Copyright 2025 AptS:1547, AptS:1548
 // SPDX-License-Identifier: Apache-2.0
 
-import { unstable_cache } from "next/cache";
 import { TriangleLogo } from "@/components";
 import { CharacterCardData } from "@/types/character";
 import { HomeCharacters } from "./HomeCharacters";
@@ -11,8 +10,11 @@ import type { Metadata } from "next";
 import { loadJsonFiles } from "@/lib/data-loader";
 import { SITE_CONFIG, DEFAULT_IMAGES } from "@/lib/constants";
 
+// 启用 ISR - 1小时重新验证一次
+export const revalidate = 3600;
+
 export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations("home.metadata");
+  const t = await getTranslations("home.metadata"); 
   const title = `${t("title")} - ${t("subtitle")}`;
   const description = t("description");
   const ogImage = DEFAULT_IMAGES.homepage;
@@ -40,29 +42,25 @@ export async function generateMetadata(): Promise<Metadata> {
       description,
       images: [ogImage],
     },
+    alternates: {
+      canonical: SITE_CONFIG.baseUrl,
+    },
   };
 }
 
-const getCharacters = unstable_cache(
-  async (locale: string): Promise<CharacterCardData[]> => {
-    // 使用统一的数据加载工具，自动处理 locale 回退和错误
-    const characters = await loadJsonFiles<CharacterCardData>(
-      ["data", "characters"],
-      locale,
-      { filter: (c) => c.tier === "core" } // 只返回核心成员(首页展示)
-    );
+async function getCharacters(locale: string): Promise<CharacterCardData[]> {
+  // 使用统一的数据加载工具，自动处理 locale 回退和错误
+  const characters = await loadJsonFiles<CharacterCardData>(
+    ["data", "characters"],
+    locale,
+    { filter: (c) => c.tier === "core" } // 只返回核心成员(首页展示)
+  );
 
-    // 按 ID 排序
-    characters.sort((a, b) => a.id.localeCompare(b.id));
+  // 按 ID 排序
+  characters.sort((a, b) => a.id.localeCompare(b.id));
 
-    return characters;
-  },
-  ["home-characters"],
-  {
-    revalidate: 3600, // 1小时缓存
-    tags: ["characters"],
-  }
-);
+  return characters;
+}
 
 export default async function Home() {
   const locale = await getLocale();

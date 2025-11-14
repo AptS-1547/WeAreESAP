@@ -46,13 +46,15 @@ async function getTranslations(locale: Locale) {
 export async function generateMetadata() {
   const locale = await getLocale();
   const t = await getTranslations(locale);
+  const title = `${t.title} - ${t.subtitle}`;
+  const description = t.description;
 
   return {
-    title: t.title,
-    description: t.description,
+    title,
+    description,
     openGraph: {
-      title: t.title,
-      description: t.description,
+      title,
+      description,
       type: "website",
       images: [
         {
@@ -66,8 +68,8 @@ export async function generateMetadata() {
     },
     twitter: {
       card: "summary_large_image",
-      title: t.title,
-      description: t.description,
+      title,
+      description,
       images: [DEFAULT_IMAGES.notFound],
     },
     robots: {

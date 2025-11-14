@@ -14,6 +14,7 @@ import type {
   CommunityValue,
   Contribution,
 } from "@/types/join";
+import { DEFAULT_IMAGES, SITE_CONFIG } from "@/lib/constants";
 
 // 懒加载非首屏组件（减少首屏 JavaScript 包大小）
 const RoleTypeCard = dynamic(() =>
@@ -37,9 +38,36 @@ const ContactPlaceholder = dynamic(
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("join.metadata");
+  const title = `${t("title")} - ${t("subtitle")}`;
+  const description = t("description");
+  const ogImage = DEFAULT_IMAGES.homepage;
+
   return {
-    title: t("title"),
-    description: t("description"),
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: "website",
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: SITE_CONFIG.siteName,
+        },
+      ],
+      siteName: SITE_CONFIG.siteName,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [ogImage],
+    },
+    alternates: {
+      canonical: SITE_CONFIG.baseUrl,
+    },
   };
 }
 
