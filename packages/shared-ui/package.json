@@ -17,8 +17,8 @@
     "react": ">=19"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.4.3",
+    "@biomejs/biome": "^2.4.15",
     "@types/react": "^19",
-    "typescript": "^5"
+    "typescript": "^6"
   }
 }

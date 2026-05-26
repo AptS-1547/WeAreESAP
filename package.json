@@ -1,15 +1,7 @@
 {
   "name": "weareesap-monorepo",
   "private": true,
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "@parcel/watcher",
-      "@swc/core",
-      "esbuild",
-      "sharp"
-    ]
-  },
-  "packageManager": "pnpm@10.33.0",
+  "packageManager": "pnpm@11.3.0",
   "workspaces": [
     "packages/*",
     "weare-website",
