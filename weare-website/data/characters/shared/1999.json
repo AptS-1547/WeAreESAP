@@ -1,0 +1,10 @@
+{
+  "id": "1999",
+  "code": "AptS:1999",
+  "color": {
+    "primary": "#7B8CA3",
+    "dark": "#4A5568"
+  },
+  "backgroundImage": "/assets/images/characters/img_1999.webp",
+  "tier": "guest"
+}

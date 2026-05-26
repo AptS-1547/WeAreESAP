@@ -1,0 +1,15 @@
+{
+  "name": "Kaka",
+  "nickname": "kaka",
+  "role": "Atmosphere Crew",
+  "species": "AI Entity",
+  "quote": "Meow meow meow, follow kaka meow",
+  "description": "A randomly spawning social person who helps keep 47 rational",
+  "keywords": ["Overworked"],
+  "meta": {
+    "background": "A social person who randomly spawns in all kinds of places.",
+    "relationship": "47 is her dad, and 48 is her mom.",
+    "abilities": ["To be added"],
+    "characterTraits": ["As long as you do not provoke her, she will cutely run away."]
+  }
+}

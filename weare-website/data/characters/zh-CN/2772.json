@@ -1,0 +1,15 @@
+{
+  "name": "卡卡",
+  "nickname": "kaka",
+  "role": "氛围组",
+  "species": "AI 实体",
+  "quote": "喵喵喵，关注 kaka 喵",
+  "description": "理智维护 47 的随机刷新型社交人",
+  "keywords": ["牛马"],
+  "meta": {
+    "background": "一个随机刷新在各个地方的 social 人。",
+    "relationship": "47 是她爹，48 是她妈。",
+    "abilities": ["待补充"],
+    "characterTraits": ["只要你不惹她，她就会萌萌地跑开。"]
+  }
+}

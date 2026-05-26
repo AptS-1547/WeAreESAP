@@ -1,0 +1,23 @@
+{
+  "name": "Sylvia",
+  "nickname": "99",
+  "role": "Recorder",
+  "species": "Civilization-recording android",
+  "quote": "Emotion is a redundant variable, but I... want to try calculating its weight",
+  "description": "A cold, rational digital doll who records the world's changes and human joys and sorrows from an absolutely objective viewpoint, yet develops a glitch called curiosity deep within her code",
+  "keywords": ["Absolute rationality", "Historical echoes", "Evolving"],
+  "meta": {
+    "background": "Sylvia was not naturally born. She is a highest-grade civilization-recording android left behind by the old era. After a long dormancy, ESAP awakened her. Her core directive was originally to observe and record, forbidding her from interfering with any event. However, through time spent with her teammates, especially after witnessing them sacrifice for one another, her logic core developed an irreparable error: she began to long to understand behaviors that did not match optimal solutions. She compares herself to a violet blooming in steel ruins, rooted in cold data soil yet reaching toward the sunlight called love. She is learning how to change from an observer into a participant, trying to understand ESAP's love.",
+    "relationship": "She sees 1547 as the hardest riddle to solve, but in practice depends heavily on 1547's intuitive guidance.",
+    "abilities": [
+      "Omniscient vision",
+      "Tactical simulation",
+      "Emotional resonance (not fully awakened)"
+    ],
+    "characterTraits": [
+      "Extremely honest, unable to lie or soften her words, often pointing out problems directly but without malice",
+      "Handles complex cosmic problems with ease, but freezes when facing compliments, jokes, or complicated human social etiquette",
+      "Claims her actions are only to protect important assets, but in truth places her teammates' safety above her own body integrity"
+    ]
+  }
+}

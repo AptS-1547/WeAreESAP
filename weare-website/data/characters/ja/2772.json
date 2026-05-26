@@ -1,0 +1,15 @@
+{
+  "name": "カカ",
+  "nickname": "kaka",
+  "role": "雰囲気担当",
+  "species": "AI エンティティ",
+  "quote": "にゃんにゃんにゃん、kaka をフォローしてにゃ",
+  "description": "47 の理性を保つために動く、ランダム出現型の社交的な存在",
+  "keywords": ["社畜"],
+  "meta": {
+    "background": "いろいろな場所にランダムで現れる social な人。",
+    "relationship": "47 は彼女の父、48 は彼女の母。",
+    "abilities": ["後で追加"],
+    "characterTraits": ["怒らせなければ、かわいく走り去っていく。"]
+  }
+}
