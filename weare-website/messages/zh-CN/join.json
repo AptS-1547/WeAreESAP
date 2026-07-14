@@ -44,8 +44,7 @@
   "contactPlatforms": [
     { "name": "官方网站", "status": "www.esaps.net/" },
     { "name": "GitHub", "status": "github.com/The-ESAP-Project/" },
-    { "name": "Discord", "status": "即将开放" },
-    { "name": "QQ 群", "status": "qm.qq.com/q/J9Js2rl7CG" }
+    { "name": "Discord", "status": "即将开放" }
   ],
   "contactComingSoon": "即将开放",
   "hero": {

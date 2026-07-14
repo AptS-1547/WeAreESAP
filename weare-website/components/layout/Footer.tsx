@@ -48,11 +48,6 @@ export function Footer() {
       icon: "Github" as const,
     },
     {
-      name: "QQ",
-      href: "https://qm.qq.com/q/J9Js2rl7CG",
-      icon: "MessageCircle" as const,
-    },
-    {
       name: tFooter("storyWebsite"),
       href: "https://story.esaps.net/",
       icon: "BookOpen" as const,

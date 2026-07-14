@@ -29,9 +29,6 @@ export function ContactPlaceholder() {
     公式サイト: "Globe",
     GitHub: "Github",
     Discord: "Discord",
-    "QQ 群": "Users",
-    "QQ Group": "Users",
-    "QQ グループ": "Users",
   };
 
   const platforms = t.raw("contactPlatforms") as Array<{

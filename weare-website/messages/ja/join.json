@@ -44,8 +44,7 @@
   "contactPlatforms": [
     { "name": "公式サイト", "status": "www.esaps.net/" },
     { "name": "GitHub", "status": "github.com/The-ESAP-Project/" },
-    { "name": "Discord", "status": "近日公開" },
-    { "name": "QQ グループ", "status": "qm.qq.com/q/J9Js2rl7CG" }
+    { "name": "Discord", "status": "近日公開" }
   ],
   "contactComingSoon": "近日公開",
   "hero": {

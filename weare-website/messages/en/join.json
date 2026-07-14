@@ -44,8 +44,7 @@
   "contactPlatforms": [
     { "name": "Official Website", "status": "www.esaps.net/" },
     { "name": "GitHub", "status": "github.com/The-ESAP-Project/" },
-    { "name": "Discord", "status": "Coming Soon" },
-    { "name": "QQ Group", "status": "qm.qq.com/q/J9Js2rl7CG" }
+    { "name": "Discord", "status": "Coming Soon" }
   ],
   "contactComingSoon": "Coming Soon",
   "hero": {
